@@ -4,15 +4,14 @@ export enum UserType {
 }
 
 interface BaseUser {
-  id: string;
   firstName: string;
   lastName: string;
   email: string;
-  passwordHash: string;
+  password: string;
+  phoneNumber?: string;
 }
 
 interface NormalUser extends BaseUser {
-  birthdate?: string;
   address?: string;
   usertype: UserType.NormalUser;
   ecvs: [];
