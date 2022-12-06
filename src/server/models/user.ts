@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema<User>({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
   email: {type: String, required: true},
-  passwordHash: String,
+  passwordHash: {type: String, required: true},
   birthdate: Date,
   address: String,
   ecvs: [
@@ -30,6 +30,9 @@ userSchema.set('toJSON', {
     delete returnedObject.__v
     delete returnedObject.passwordHash
   }
-})
+});
 
-const User = mongoose.model('User', userSchema)
+const UserModel = mongoose.model('User', userSchema);
+
+
+export default UserModel;
