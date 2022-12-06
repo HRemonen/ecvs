@@ -1,19 +1,26 @@
 import express from 'express';
-const cors = require('cors');
-require('express-async-errors')
-const { requestLogger } = require('./utils/middleware')
+import cors from 'cors'
+
+require('express-async-errors');
+
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(requestLogger);
 
+// Routers goes in here
 //app.use('/api/login', loginRouter)
 //app.use('/api/blogs', userExtractor, blogsRouter)
 //app.use('/api/users', usersRouter)
+//...etc
 
 if (process.env.NODE_ENV === 'test') {
-  const testingRouter = require('./controllers/testing')
-  app.use('/api/testing', testingRouter)
+  const testingRouter = require('./controllers/testing');
+  app.use('/api/testing', testingRouter);
 }
 
-module.exports = app
+app.get('/ping', (_req, res) => {
+  console.log('someone pinged here');
+  res.send('pong');
+});
+
+export default app;
