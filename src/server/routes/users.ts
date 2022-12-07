@@ -26,7 +26,7 @@ usersRouter.post('/', async (request, response) => {
     });
   }
 
-  const savedUser = await usersService.createUser(newUser)
+  const savedUser = await usersService.createUser(newUser);
 
   return response.status(201).json(savedUser);
 });

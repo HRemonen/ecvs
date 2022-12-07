@@ -28,3 +28,32 @@ interface HiringManager extends BaseUser {
 export type User =
   | NormalUser
   | HiringManager;
+
+interface Experience {
+    company: string;
+    startDate: Date;
+    endDate?: Date;
+    position: string;
+    additionalInfo?: string;
+  }
+
+interface Education {
+  school: string;
+  startDate: Date;
+  graduationDate?: Date;
+  additionalInfo?: string;
+}
+
+export interface Ecv {
+  user: NormalUser;
+  expertise?: Array<string>;
+  skills?: Array<string>;
+  education?: Array<Education>;
+  experience?: Array<Experience>;
+  qualifications?: Array<string>;
+  hobbies?: Array<string>;
+  languages?: Array<string>;
+  references?: Array<string>;
+  socials?: Array<string>;
+  profile?: string;
+}
