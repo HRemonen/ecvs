@@ -1,5 +1,5 @@
 import express from 'express';
-
+import UserModel from "../models/user";
 import ecvsService from '../services/ecvsService';
 import ValidateEcv from '../utils/ecvsValidator';
 
@@ -11,9 +11,9 @@ ecvsRouter.get('/', async (_request, response) => {
 });
 
 ecvsRouter.post('/', async (request, response) => {
-  const user = request.body.user;
+  const loggedUser = await UserModel.findById(request.body.user);
 
-  if (!user) {
+  if (!loggedUser) {
     return response.status(400).json({error: "user missing or invalid"});
   }
 
@@ -22,11 +22,13 @@ ecvsRouter.post('/', async (request, response) => {
   if (!parsedEcv.success) {
     return response.status(400).json(parsedEcv.error);
   }
-
-  const newEcv = parsedEcv.data;
-  console.log(newEcv);
   
-  const savedEcv = await ecvsService.createEcv(newEcv);
+  const savedEcv = await ecvsService.createEcv(parsedEcv.data);
+
+  loggedUser.ecvs = loggedUser.ecvs.concat(savedEcv._id);
+  console.log(savedEcv._id)
+  console.log(loggedUser.ecvs)
+  await loggedUser.save()
 
   return response.status(201).json(savedEcv);
 

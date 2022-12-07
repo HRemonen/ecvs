@@ -7,6 +7,7 @@ export type NewUserFields = Omit<User, "usertype" | "applications" | "ecvs" >;
 const getUsers = async (): Promise<User[]> => {
   const users = await UserModel
     .find({})
+    .populate('ecvs')
   return users;
 };
 

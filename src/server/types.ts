@@ -27,9 +27,8 @@ interface HiringManager extends BaseUser {
   jobPostings: ObjectId[];
 }
 
-export type User =
-  | NormalUser
-  | HiringManager;
+export type User = NormalUser
+export type CompanyUser = HiringManager
 
 interface Experience {
     company: string;
