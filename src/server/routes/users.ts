@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import { User, UserType } from "../types";
@@ -9,7 +10,22 @@ const usersRouter = express.Router();
 export type NewUserFields = Omit<User, "usertype" | "applications" | "ecvs" >;
 
 usersRouter.post('/', async (request, response) => {
-  const newUser: NewUserFields = ValidateNormalUser.parse(request.body);
+  let newUser: NewUserFields;
+
+  try {
+    newUser = ValidateNormalUser.parse(request.body);
+  }
+  catch (err) {
+    if (err instanceof z.ZodError) {
+      return response.status(400).json(
+        err.flatten()
+      )
+    };
+    return response.status(400).json({
+      error: "Something unexpected happened"
+    })
+  };
+
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(newUser.password, saltRounds); 
 
@@ -27,7 +43,7 @@ usersRouter.post('/', async (request, response) => {
 
   const savedUser = await user.save();
 
-  response.status(201).json(savedUser);
+  return response.status(201).json(savedUser);
 });
 
 export default usersRouter;
