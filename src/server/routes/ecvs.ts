@@ -26,9 +26,9 @@ ecvsRouter.post('/', async (request, response) => {
   const newEcv = parsedEcv.data;
   console.log(newEcv);
   
-  //const savedEcv = await ecvsService.createEcv(newEcv);
+  const savedEcv = await ecvsService.createEcv(newEcv);
 
-  return response.status(201).json(newEcv);
+  return response.status(201).json(savedEcv);
 
 });
 

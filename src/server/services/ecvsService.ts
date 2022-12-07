@@ -5,11 +5,11 @@ import { ObjectId } from "mongoose";
 const getEcvs = async (): Promise<Ecv[]> => {
   const ecvs = await EcvModel
     .find({})
-    .populate('user')
+    .populate('user', {firstName: 1, lastName: 1, email: 1, phoneNumber: 1, address: 1})
   return ecvs;
 };
 
-const createEcv = async (newEcv: Ecv): Promise<Ecv> => {
+const createEcv = async (newEcv: any): Promise<Ecv> => {
   const ecv = new EcvModel({
     user: newEcv.user as ObjectId,
     expertise: newEcv.expertise ?? [],
