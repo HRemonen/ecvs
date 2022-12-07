@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import usersRouter from './routes/users';
 import mongoose from "mongoose";
 import config from './utils/config';
+
+import usersRouter from './routes/users';
+import ecvsRouter from './routes/ecvs';
 
 require('express-async-errors');
 
@@ -19,8 +21,7 @@ void mongoose.connect(config.MONGODB_URI)
   });
 
 // Routers goes in here
-//app.use('/api/login', loginRouter)
-//app.use('/api/blogs', userExtractor, blogsRouter)
+app.use('/api/ecvs', ecvsRouter)
 app.use('/api/users', usersRouter);
 //...etc
 
