@@ -1,3 +1,5 @@
+import { ObjectId } from "mongoose";
+
 export enum UserType {
   NormalUser = 'normalUser',
   HiringManager = 'companyUser'
@@ -14,15 +16,15 @@ interface BaseUser {
 interface NormalUser extends BaseUser {
   address?: string;
   usertype: UserType.NormalUser;
-  ecvs: [];
-  applications: [];
+  ecvs: ObjectId[];
+  applications: ObjectId[];
 }
 
 interface HiringManager extends BaseUser {
   company: string;
   address: string;
   usertype: UserType.HiringManager;
-  jobPostings: [];
+  jobPostings: ObjectId[];
 }
 
 export type User =
@@ -45,7 +47,7 @@ interface Education {
 }
 
 export interface Ecv {
-  user: NormalUser;
+  user: ObjectId;
   expertise?: Array<string>;
   skills?: Array<string>;
   education?: Array<Education>;
