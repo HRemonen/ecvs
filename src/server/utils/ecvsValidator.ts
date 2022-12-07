@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const ValidateEcv = z.object({
+const EcvZod = z.object({
   user: z.string(),
   expertise: z.array(z.string()).optional(),
   skills: z.array(z.string()).optional(),
@@ -25,4 +25,6 @@ const ValidateEcv = z.object({
   profile: z.string().optional()
 });
 
-export default ValidateEcv;
+export type ValidatedEcv = z.infer<typeof EcvZod>;
+
+export default EcvZod;

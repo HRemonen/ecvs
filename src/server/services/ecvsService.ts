@@ -1,8 +1,6 @@
 import { Ecv } from "../types";
+import { ValidatedEcv } from "../utils/ecvsValidator";
 import EcvModel from "../models/ecv";
-import mongoose from "mongoose";
-
-export type NewReturnEvc = Ecv & { _id: mongoose.Types.ObjectId }
 
 const getEcvs = async (): Promise<Ecv[]> => {
   const ecvs = await EcvModel
@@ -11,7 +9,7 @@ const getEcvs = async (): Promise<Ecv[]> => {
   return ecvs;
 };
 
-const createEcv = async (newEcv: any): Promise<NewReturnEvc> => {
+const createEcv = async (newEcv: ValidatedEcv) => {
   const ecv = new EcvModel({
     user: newEcv.user,
     expertise: newEcv.expertise ?? [],
