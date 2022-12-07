@@ -4,7 +4,8 @@ import { Ecv } from "../types";
 const ecvSchema = new mongoose.Schema<Ecv>({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true
   },
   expertise: [String],
   skills: [String],
