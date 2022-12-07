@@ -1,13 +1,9 @@
 import express from 'express';
-import bcrypt from 'bcryptjs';
-import { User, UserType } from "../types";
-import UserModel from '../models/user';
-import ValidateNormalUser from "../utils/usersValidator";
 import usersService from "../services/usersService";
+import ValidateNormalUser from "../utils/usersValidator";
+import UserModel from '../models/user';
 
 const usersRouter = express.Router();
-
-export type NewUserFields = Omit<User, "usertype" | "applications" | "ecvs" >;
 
 usersRouter.get('/', async (_request, response) => {
   const users = await usersService.getUsers();
@@ -30,22 +26,7 @@ usersRouter.post('/', async (request, response) => {
     });
   }
 
-  const saltRounds = 10;
-  const passwordHash = await bcrypt.hash(newUser.password, saltRounds); 
-
-  const user = new UserModel({
-    usertype: UserType.NormalUser,
-    firstName: newUser.firstName,
-    lastName: newUser.lastName,
-    email: newUser.email,
-    password: passwordHash,
-    phoneNumber: newUser.phoneNumber ?? "",
-    address: newUser.address ?? "",
-    ecvs: [],
-    applications: []
-  });
-
-  const savedUser = await user.save();
+  const savedUser = await usersService.createUser(newUser)
 
   return response.status(201).json(savedUser);
 });
