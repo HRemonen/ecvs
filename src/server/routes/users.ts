@@ -9,6 +9,12 @@ const usersRouter = express.Router();
 
 export type NewUserFields = Omit<User, "usertype" | "applications" | "ecvs" >;
 
+usersRouter.get('/', async (_request, response) => {
+  const users = await UserModel
+    .find({})
+  return response.json(users)
+});
+
 usersRouter.post('/', async (request, response) => {
   let newUser: NewUserFields;
 
