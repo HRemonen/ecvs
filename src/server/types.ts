@@ -27,4 +27,4 @@ interface HiringManager extends BaseUser {
 
 export type User =
   | NormalUser
-  | HiringManager
+  | HiringManager;

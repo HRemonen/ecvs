@@ -15,8 +15,8 @@ void mongoose.connect(config.MONGODB_URI)
     console.log('connected to MongoDB');
   })
   .catch((error) => {
-    console.log('error connecting to MongoDB', error.message)
-  })
+    console.log('error connecting to MongoDB', error.message);
+  });
 
 // Routers goes in here
 //app.use('/api/login', loginRouter)
@@ -24,10 +24,10 @@ void mongoose.connect(config.MONGODB_URI)
 app.use('/api/users', usersRouter);
 //...etc
 
-if (process.env.NODE_ENV === 'test') {
+/* if (process.env.NODE_ENV === 'test') {
   const testingRouter = require('./controllers/testing');
   app.use('/api/testing', testingRouter);
-};
+} */
 
 app.get('/ping', (_req, res) => {
   console.log('someone pinged here');
