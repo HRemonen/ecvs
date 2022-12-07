@@ -25,7 +25,7 @@ ecvsRouter.post('/', async (request, response) => {
   
   const savedEcv = await ecvsService.createEcv(parsedEcv.data);
 
-  loggedUser.ecvs.push(savedEcv.id);
+  loggedUser.ecvs.push(savedEcv._id);
 
   await loggedUser.save();
 

@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import { HydratedDocument } from "mongoose";
 import { User, UserType } from "../types";
 import UserModel from '../models/user';
 
@@ -15,7 +16,7 @@ const createUser = async (newUser: NewUserFields): Promise<User> => {
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(newUser.password, saltRounds); 
 
-  const user = new UserModel({
+  const user: HydratedDocument<User> = new UserModel({
     usertype: UserType.NormalUser,
     firstName: newUser.firstName,
     lastName: newUser.lastName,

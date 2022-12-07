@@ -1,4 +1,5 @@
 import { Ecv } from "../types";
+import { HydratedDocument, Types } from "mongoose";
 import { ValidatedEcv } from "../utils/ecvsValidator";
 import EcvModel from "../models/ecv";
 
@@ -9,8 +10,8 @@ const getEcvs = async (): Promise<Ecv[]> => {
   return ecvs;
 };
 
-const createEcv = async (newEcv: ValidatedEcv) => {
-  const ecv = new EcvModel({
+const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId }> => {
+  const ecv: HydratedDocument<Ecv> = new EcvModel({
     user: newEcv.user,
     expertise: newEcv.expertise ?? [],
     skills: newEcv.skills ?? [],
