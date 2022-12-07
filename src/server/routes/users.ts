@@ -23,7 +23,14 @@ usersRouter.post('/', async (request, response) => {
     };
     return response.status(400).json({
       error: "Something unexpected happened"
-    })
+    });
+  };
+
+  const foundUser = await UserModel.findOne({ "email": newUser.email });
+  if (foundUser) {
+    return response.status(400).json({
+      error: "Email already in use by another user"
+    });
   };
 
   const saltRounds = 10;
