@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import { User, UserType } from "../types";
 import UserModel from '../models/user';
 
-
 export type NewUserFields = Omit<User, "usertype" | "applications" | "ecvs" >;
 
 const getUsers = async (): Promise<User[]> => {
@@ -11,7 +10,7 @@ const getUsers = async (): Promise<User[]> => {
   return users;
 };
 
-const createUser = async (newUser: NewUserFields) => {
+const createUser = async (newUser: NewUserFields): Promise<User> => {
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(newUser.password, saltRounds); 
 
