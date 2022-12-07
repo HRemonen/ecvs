@@ -9,4 +9,4 @@
 | 7.12  | 2    | - User luonti ja database yhteys valmis        |
 |       | 3    | - ecvs luonti, service ja database yhteys      |
 |       | 3    | - Refaktorointia, yleistä typescript opettelua |
-|       | 3    | - jne säätämistä tyyppien kanssa               |
+|       |      | - jne säätämistä tyyppien kanssa (mongoose)    |
