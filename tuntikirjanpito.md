@@ -15,3 +15,4 @@
 |       |      |   ehkä kuitenkin myöhemmin sitä lisää          |
 |       | 2    |   Refaktoroi userService jne. hieman.          |
 |       |      |   User authorization valmis                    |
+|       | 1    | - UserExtractor middleware                     |
