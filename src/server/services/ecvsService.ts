@@ -28,6 +28,6 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
   const createdEcv = await ecv.save();
 
   return createdEcv;
-}
+};
 
 export default { getEcvs, createEcv };

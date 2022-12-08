@@ -16,8 +16,8 @@ loginRouter.post('/', async (request, response) => {
   const token = await loginService.loginUser(userdata);
 
   if (!token || !token.token || !token.user) {
-    return response.status(500).json({
-      error: 'Something went wrong authorizing user'
+    return response.status(401).json({
+      error: 'Wrong credentials, check input fields'
     });
   }
   return response.status(200).send(token);
