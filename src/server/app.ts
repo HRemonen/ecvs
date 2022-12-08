@@ -7,11 +7,14 @@ import usersRouter from './routes/users';
 import ecvsRouter from './routes/ecvs';
 import loginRouter from './routes/login';
 
+import { userExtractor } from './middlewares/middleware';
+
 require('express-async-errors');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(userExtractor)
 
 void mongoose.connect(config.MONGODB_URI)
   .then(() => {
