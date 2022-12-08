@@ -13,5 +13,5 @@
 |       |      |                                                |
 | 8.12  | 1.5  | - loginService ja oauth tutustuminen,          |
 |       |      |   ehkä kuitenkin myöhemmin sitä lisää          |
-|       | 1    |   Refaktoroi userService jne. hieman. Aloita   |
-|       |      |   login router ja login validator              |
+|       | 2    |   Refaktoroi userService jne. hieman.          |
+|       |      |   User authorization valmis                    |

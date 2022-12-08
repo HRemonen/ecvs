@@ -58,8 +58,3 @@ export interface Ecv {
   socials?: Array<string>;
   profile?: string;
 }
-
-export interface Login {
-  email: string;
-  password: string;
-}
