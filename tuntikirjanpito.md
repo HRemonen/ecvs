@@ -9,4 +9,9 @@
 | 7.12  | 2    | - User luonti ja database yhteys valmis        |
 |       | 3    | - ecvs luonti, service ja database yhteys      |
 |       | 3    | - Refaktorointia, yleistä typescript opettelua |
-|       |      | - jne säätämistä tyyppien kanssa (mongoose)    |
+|       |      |   jne säätämistä tyyppien kanssa (mongoose)    |
+|       |      |                                                |
+| 8.12  | 1.5  | - loginService ja oauth tutustuminen,          |
+|       |      |   ehkä kuitenkin myöhemmin sitä lisää          |
+|       | 1    |   Refaktoroi userService jne. hieman. Aloita   |
+|       |      |   login router ja login validator              |
