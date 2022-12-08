@@ -1,6 +1,6 @@
 import express from 'express';
 import usersService from "../services/usersService";
-import ValidateNormalUser from "../utils/usersValidator";
+import { UserZod } from "../utils/usersValidator";
 import UserModel from '../models/user';
 
 const usersRouter = express.Router();
@@ -11,7 +11,7 @@ usersRouter.get('/', async (_request, response) => {
 });
 
 usersRouter.post('/', async (request, response) => {
-  const parsedUser = ValidateNormalUser.safeParse(request.body);
+  const parsedUser = UserZod.safeParse(request.body);
   
   if (!parsedUser.success) {
     return response.status(400).json(parsedUser.error);

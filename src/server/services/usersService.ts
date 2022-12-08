@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
 import { HydratedDocument } from "mongoose";
 import { User, UserType } from "../types";
+import { ValidatedUser } from '../utils/usersValidator';
 import UserModel from '../models/user';
 
-export type NewUserFields = Omit<User, "usertype" | "applications" | "ecvs" >;
 
 const getUsers = async (): Promise<User[]> => {
   const users = await UserModel
@@ -12,7 +12,7 @@ const getUsers = async (): Promise<User[]> => {
   return users;
 };
 
-const createUser = async (newUser: NewUserFields): Promise<User> => {
+const createUser = async (newUser: ValidatedUser): Promise<User> => {
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(newUser.password, saltRounds); 
 
