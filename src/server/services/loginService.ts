@@ -1,27 +1,33 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import UserModel from '../models/user';
-import { Login } from '../types';
+import { ValidatedLogin } from '../utils/usersValidator';
 
-const loginUser = async (loginRequest: Login): Promise<string | undefined> => {
+export interface Token {
+  token: string | undefined;
+  user: {name: string; email: string; id: string;} | undefined
+}
+
+const loginUser = async (userdata: ValidatedLogin): Promise<Token> => {
   let token;
+  let tokenUser;
 
-  const user = await UserModel.findOne({ email: loginRequest.email })
+  const user = await UserModel.findOne({ email: userdata.email })
   const loginSuccess = user === null
     ? false
-    : await bcrypt.compare(loginRequest.password, user.password)
+    : await bcrypt.compare(userdata.password, user.password);
 
   if (user && loginSuccess) {
-    const tokenUser = {
+    tokenUser = {
       name: `${user.firstName} ${user.lastName}`,
       email: user.email,
       id: user.id
-    }
+    };
 
-    token = jwt.sign(tokenUser, process.env.SECRET as string, {expiresIn: '2 days'})
-  } 
+    token = jwt.sign(tokenUser, process.env.SECRET as string, {expiresIn: '2 days'});
+  }
 
-  return token;
+  return { token, user: tokenUser };
 }
 
-export default loginUser;
+export default { loginUser };

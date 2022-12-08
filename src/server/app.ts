@@ -5,6 +5,7 @@ import config from './utils/config';
 
 import usersRouter from './routes/users';
 import ecvsRouter from './routes/ecvs';
+import loginRouter from './routes/login';
 
 require('express-async-errors');
 
@@ -23,6 +24,7 @@ void mongoose.connect(config.MONGODB_URI)
 // Routers goes in here
 app.use('/api/ecvs', ecvsRouter)
 app.use('/api/users', usersRouter);
+app.use('/api/login', loginRouter)
 //...etc
 
 /* if (process.env.NODE_ENV === 'test') {

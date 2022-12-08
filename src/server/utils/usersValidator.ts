@@ -15,3 +15,4 @@ export const UserZod = z.object({
 });
 
 export type ValidatedUser = z.infer<typeof UserZod>;
+export type ValidatedLogin = z.infer<typeof LoginZod>;
