@@ -16,3 +16,6 @@
 |       | 2    |   Refaktoroi userService jne. hieman.          |
 |       |      |   User authorization valmis                    |
 |       | 1    | - UserExtractor middleware                     |
+|       |      |                                                |
+| 9.12  | 1    | - Use userextractor mw when creating new ecvs  |
+|       | 2    |   Create tests for user api.                   |
