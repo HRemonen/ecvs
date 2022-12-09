@@ -1,8 +1,11 @@
-import { Ecv } from "../../types";
+import UserModel from "../../models/user";
+import ecvsService from "../../services/ecvsService";
 
-const testEcvs: Array<Ecv> = [
-  {
-    user: "",
+const getTestEcvs = async () => {
+  const user = await UserModel.findOne();
+
+  const ecvs1 = ecvsService.createEcv({
+    user: user?.id,
     expertise: ["Koodaus", "kaljan juonti", "soutaminen"],
     skills: ["TypeScriptaus", "Häkkäys"],
     education: [],
@@ -12,9 +15,10 @@ const testEcvs: Array<Ecv> = [
     references: [],
     socials: ["ig: @kaljakasasohvalla", "fb: sohvamies66"],
     profile: "Reipas mutta laiska meis!"
-  },
-  {
-    user: "",
+  });
+
+  const ecvs2 = ecvsService.createEcv({
+    user: user?.id,
     expertise: ["TypeScript", "AWS", "Scrum", "Agile methods", "Fast API"],
     skills: ["TS", "JS", "Node.js", "Git", "COBOL", "Assembly", "TTK91"],
     education: [{
@@ -27,7 +31,10 @@ const testEcvs: Array<Ecv> = [
     references: [],
     socials: ["github: koodausmake"],
     profile: "New grad looking to get hands dirty!"
-  },
-];
+  });
 
-export default testEcvs;
+  return [ecvs1, ecvs2];
+}
+
+
+export default getTestEcvs;
