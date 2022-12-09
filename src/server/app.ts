@@ -14,7 +14,6 @@ require('express-async-errors');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(userExtractor)
 
 void mongoose.connect(config.MONGODB_URI)
   .then(() => {
@@ -25,9 +24,9 @@ void mongoose.connect(config.MONGODB_URI)
   });
 
 // Routers goes in here
-app.use('/api/ecvs', ecvsRouter)
+app.use('/api/ecvs', ecvsRouter, userExtractor);
 app.use('/api/users', usersRouter);
-app.use('/api/login', loginRouter)
+app.use('/api/login', loginRouter);
 //...etc
 
 /* if (process.env.NODE_ENV === 'test') {
