@@ -24,7 +24,7 @@ ecvsRouter.post('/', userExtractor, async (request, response) => {
     return response.status(400).json({error: "user not found"});
   }
 
-  const parsedEcv = EcvZod.safeParse(request.body);
+  const parsedEcv = EcvZod.safeParse({ ...request.body, user: loggedUser.id });
 
   if (!parsedEcv.success) {
     return response.status(400).json(parsedEcv.error);
