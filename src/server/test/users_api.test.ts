@@ -11,7 +11,7 @@ import getTestUsers from "./data/users";
 const api = supertest(app);
 
 let testUsers: Array<User>;
-const USER_API = "/api/users"
+const USER_API = "/api/users";
 
 describe('Database returns JSON content', () => {
 
