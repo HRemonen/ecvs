@@ -13,6 +13,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    default:
+      run:
+        working-directory: ./src/server
 
     strategy:
       matrix:
@@ -26,13 +29,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: src/server/package-lock.json
+        cache-dependency-path: ./src/server/package-lock.json
     - name: Install dependencies
-      run: cd src/server/ && npm install
+      run: npm install
     - name: Run lint
-      run: cd src/server/ && npm run lint
+      run: npm run lint
     - name: Run jest tests and create coverage report
-      run: cd src/server/ && npm run coverage
-      working-directory: src/server
+      run: npm run coverage
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
