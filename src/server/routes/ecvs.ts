@@ -3,6 +3,7 @@ import EcvZod from '../utils/ecvsValidator';
 import ecvsService from '../services/ecvsService';
 import UserModel from "../models/user";
 import { userExtractor, CustomRequest } from '../middlewares/middleware';
+import EcvModel from '../models/ecv';
 
 const ecvsRouter = express.Router();
 
@@ -37,6 +38,23 @@ ecvsRouter.post('/', userExtractor, async (request, response) => {
   await loggedUser.save();
 
   return response.status(201).json(savedEcv);
+});
+
+ecvsRouter.delete('/:id', userExtractor, async (request, response) => {
+  const ecvToDelete = await EcvModel.findById(request.params.id);
+  const user = (request as CustomRequest).user
+
+  if (!ecvToDelete) {
+    return response.status(401).json({ error: 'malformatted id'});
+  }
+
+  if (!user || ecvToDelete.user.toString() !== user) {
+    return response.status(401).json({ error: 'unauthorized action' });
+  }
+
+  await ecvsService.deleteEcv(ecvToDelete.id, user);
+
+  return response.status(204).end();
 });
 
 export default ecvsRouter;

@@ -2,6 +2,7 @@ import { Ecv } from "../types";
 import { HydratedDocument, Types } from "mongoose";
 import { ValidatedEcv } from "../utils/ecvsValidator";
 import EcvModel from "../models/ecv";
+import UserModel from "../models/user";
 
 const getEcvs = async (): Promise<Ecv[]> => {
   const ecvs = await EcvModel
@@ -30,4 +31,17 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
   return createdEcv;
 };
 
-export default { getEcvs, createEcv };
+const deleteEcv = async (ecvToDelete: string, user: string) => {
+  await EcvModel.findByIdAndRemove(ecvToDelete);
+
+  const loggedUser = await UserModel.findById(user);
+  if (!loggedUser) {
+    throw new Error("user not found");
+  }
+
+  loggedUser.ecvs = loggedUser?.ecvs.filter(ecv => ecv.toString() !== ecvToDelete);
+
+  return loggedUser.ecvs;
+};
+
+export default { getEcvs, createEcv, deleteEcv };

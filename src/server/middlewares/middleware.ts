@@ -1,6 +1,5 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import {Request, Response, NextFunction} from 'express';
-import UserModel from '../models/user';
 
 export interface CustomRequest extends Request {
   token: string | JwtPayload;
@@ -14,7 +13,7 @@ export const userExtractor = async (request: Request, _response: Response, next:
     (request as CustomRequest).token = token;
 
     if (token) {
-      (request as CustomRequest).user = await UserModel.findById((token as JwtPayload).id);
+      (request as CustomRequest).user = (token as JwtPayload).id;
     }
   }
   next()
