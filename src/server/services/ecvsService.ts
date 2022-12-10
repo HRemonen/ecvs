@@ -4,6 +4,14 @@ import { ValidatedEcv } from "../utils/ecvsValidator";
 import EcvModel from "../models/ecv";
 import UserModel from "../models/user";
 
+const getLoggedUser = async (userId: string) => {
+  const loggedUser = await UserModel.findById(userId);
+  if (!loggedUser) {
+    throw new Error("user not found");
+  }
+  return loggedUser;
+};
+
 const getEcvs = async (): Promise<Ecv[]> => {
   const ecvs = await EcvModel
     .find({})
@@ -26,7 +34,13 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
     profile: newEcv.profile ?? ""
   });
 
+  const loggedUser = await getLoggedUser(newEcv.user);
+
   const createdEcv = await ecv.save();
+
+  loggedUser.ecvs.push(createdEcv._id);
+
+  await loggedUser.save();
 
   return createdEcv;
 };
@@ -34,10 +48,7 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
 const deleteEcv = async (ecvToDelete: string, user: string) => {
   await EcvModel.findByIdAndRemove(ecvToDelete);
 
-  const loggedUser = await UserModel.findById(user);
-  if (!loggedUser) {
-    throw new Error("user not found");
-  }
+  const loggedUser = await getLoggedUser(user)
 
   loggedUser.ecvs = loggedUser?.ecvs.filter(ecv => ecv.toString() !== ecvToDelete);
 

@@ -1,7 +1,6 @@
 import express from 'express';
 import EcvZod from '../utils/ecvsValidator';
 import ecvsService from '../services/ecvsService';
-import UserModel from "../models/user";
 import { userExtractor, CustomRequest } from '../middlewares/middleware';
 import EcvModel from '../models/ecv';
 
@@ -13,29 +12,19 @@ ecvsRouter.get('/', async (_request, response) => {
 });
 
 ecvsRouter.post('/', userExtractor, async (request, response) => {
-  const user = (request as CustomRequest).user
+  const user = (request as CustomRequest).user;
 
-  if (!(request as CustomRequest).user) {
+  if (!user) {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  const loggedUser = await UserModel.findById(user);
-
-  if (!loggedUser) {
-    return response.status(400).json({error: "user not found"});
-  }
-
-  const parsedEcv = EcvZod.safeParse({ ...request.body, user: loggedUser.id });
+  const parsedEcv = EcvZod.safeParse({ ...request.body, user});
 
   if (!parsedEcv.success) {
     return response.status(400).json(parsedEcv.error);
   }
 
   const savedEcv = await ecvsService.createEcv(parsedEcv.data);
-
-  loggedUser.ecvs.push(savedEcv._id);
-
-  await loggedUser.save();
 
   return response.status(201).json(savedEcv);
 });
