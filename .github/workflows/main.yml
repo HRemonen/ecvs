@@ -27,11 +27,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install dependencies
-      run: npm install
+      run: cd src/server/ && npm install
     - name: Run lint
-      run: npm run lint
+      run: cd src/server/ && npm run lint
     - name: Run jest tests and create coverage report
-      run: npm run coverage
+      run: cd src/server/ && npm run coverage
       working-directory: src/server
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
