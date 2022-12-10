@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: src/server/package-lock.json
     - name: Install dependencies
       run: cd src/server/ && npm install
     - name: Run lint
