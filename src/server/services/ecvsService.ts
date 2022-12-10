@@ -45,6 +45,14 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
   return createdEcv;
 };
 
+const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv) => {
+  const updatedEcv = await EcvModel.findByIdAndUpdate(
+    evcId, ecvToUpdate, { new: true, context: 'query' }
+  );
+
+  return updatedEcv;
+};
+
 const deleteEcv = async (ecvToDelete: string, user: string) => {
   await EcvModel.findByIdAndRemove(ecvToDelete);
 
@@ -55,4 +63,4 @@ const deleteEcv = async (ecvToDelete: string, user: string) => {
   return loggedUser.ecvs;
 };
 
-export default { getEcvs, createEcv, deleteEcv };
+export default { getEcvs, createEcv, updateEcv, deleteEcv };
