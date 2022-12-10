@@ -19,3 +19,7 @@
 |       |      |                                                |
 | 9.12  | 1    | - Use userextractor mw when creating new ecvs  |
 |       | 2    |   Create tests for user api.                   |
+|       |      |                                                |
+| 10.12 | 2    | - continue testing of user api. Also created   |
+|       |      |   tests for ecvs_api and login                 |
+|       | 2    |   Learn and implement CI pipeline using GHA    |

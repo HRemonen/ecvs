@@ -1,6 +1,7 @@
 # Ecves
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/c1843a79caded44d3639/maintainability)](https://codeclimate.com/github/HRemonen/ecvs/maintainability)
+[![Ecves CI](https://github.com/HRemonen/ecvs/actions/workflows/main.yml/badge.svg)](https://github.com/HRemonen/ecvs/actions/workflows/main.yml)
 
 Ecves is an online CV / job hunting platform.
 
