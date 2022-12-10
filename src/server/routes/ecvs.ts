@@ -1,21 +1,11 @@
-import express, { Request, Response } from 'express';
+import express, { Response } from 'express';
 import EcvModel from '../models/ecv';
-import EcvZod, { ValidatedEcv } from '../utils/ecvsValidator';
+import EcvZod from '../utils/ecvsValidator';
 import ecvsService from '../services/ecvsService';
 import { userExtractor, CustomRequest } from '../middlewares/middleware';
 
 
 const ecvsRouter = express.Router();
-
-const parseEcv = (user: string, request: Request, response: Response) => {
-  const parsedEcv = EcvZod.safeParse({ ...request.body, user});
-
-  if (!parsedEcv.success) {
-    return response.status(400).json(parsedEcv.error);
-  }
-
-  return parsedEcv.data;
-}
 
 const getEcvById = async (ecvId: string, response: Response) => {
   const ecv = await EcvModel.findById(ecvId);
@@ -63,15 +53,17 @@ ecvsRouter.put('/:id', userExtractor, async (request, response) => {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  if (!request.body) {
+  if (!request.body || request.body.length === 0) {
     return response.status(401).json({ error: "updated fields missing" });
   }
 
-  //because we are parsing the ecv above we can be sure it went well 
-  //otherwise it would return status 401.
   if (checkAuthorization(user, ecvToUpdate)) {
-    const parsedEcv = parseEcv(user, request, response);
-    const updatedEcv = await ecvsService.updateEcv(request.params.id, parsedEcv as ValidatedEcv);
+    const parsedEcv = EcvZod.safeParse({ ...request.body, user});
+
+    if (!parsedEcv.success) {
+      return response.status(400).json(parsedEcv.error);
+    }
+    const updatedEcv = await ecvsService.updateEcv(request.params.id, parsedEcv.data);
     return response.status(201).json(updatedEcv);
   }
   return response.status(401).json({ error: 'unauthorized action' });
