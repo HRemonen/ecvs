@@ -1,7 +1,8 @@
 import express from 'express';
-import usersService from "../services/usersService";
-import { UserZod } from "../utils/usersValidator";
+
 import UserModel from '../models/user';
+import { UserZod } from "../utils/usersValidator";
+import usersService from "../services/usersService";
 
 const usersRouter = express.Router();
 
@@ -20,6 +21,7 @@ usersRouter.post('/', async (request, response) => {
   const newUser = parsedUser.data;
 
   const foundUser = await UserModel.findOne({ "email": newUser.email });
+  
   if (foundUser) {
     return response.status(400).json({
       error: "Email already in use by another user"

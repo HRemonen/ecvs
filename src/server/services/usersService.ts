@@ -12,7 +12,7 @@ const getUsers = async (): Promise<User[]> => {
   return users;
 };
 
-const getUser = async (id: string)=> {
+const getUser = async (id: string) => {
   const user = await UserModel.findById(id);
   if (!user) {
     throw new Error("user not found");

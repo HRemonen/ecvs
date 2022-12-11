@@ -17,9 +17,13 @@
 |       |      |   User authorization valmis                    |
 |       | 1    | - UserExtractor middleware                     |
 |       |      |                                                |
-| 9.12  | 1    | - Use userextractor mw when creating new ecvs  |
-|       | 2    |   Create tests for user api.                   |
+| 9.12  | 1    | - Middlewaren käyttö kun luodaan uusia ecv     |
+|       | 2    |   Testit User API:lle                          |
 |       |      |                                                |
-| 10.12 | 2    | - continue testing of user api. Also created   |
-|       |      |   tests for ecvs_api and login                 |
-|       | 2    |   Learn and implement CI pipeline using GHA    |
+| 10.12 | 2    | - User API testaus jatkuu. Testien aloitus     |
+|       |      |   ECV ja LOGIN API:lle                         |
+|       | 2    | - Opettele GHA ja luo CI pipeline              |
+|       | 4    | - DELETE ja PUT endpointit ECV API             |
+|       |      |                                                |
+| 11.12 | 3    | - Yritä refaktoroida ECV routeria              |
+|       | 2    |   Testit loppuun                               |

@@ -1,20 +1,10 @@
-import express, {Request, Response} from 'express';
+import express from 'express';
 import { Ecv } from '../types';
 import ecvsService from '../services/ecvsService';
-import EcvZod, { ValidatedEcv } from '../utils/ecvsValidator';
+import EcvZod from '../utils/ecvsValidator';
 import { userExtractor, CustomRequest } from '../middlewares/middleware';
 
 const ecvsRouter = express.Router();
-
-const parseEcvFromRequest = (user: string, request: Request, response: Response) => {
-  const parsedEcv = EcvZod.safeParse({ ...request.body, user});
-
-  if (!parsedEcv.success) {
-    return () => response.status(400).json(parsedEcv.error);
-  }
-
-  return parsedEcv.data;
-};
 
 ecvsRouter.get('/', async (_request, response) => {
   const ecvs: Array<Ecv> = await ecvsService.getEcvs();
@@ -37,9 +27,13 @@ ecvsRouter.post('/', userExtractor, async (request, response) => {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  const parsedEcv = parseEcvFromRequest(user, request, response)
+  const parsedEcv = EcvZod.safeParse({ ...request.body, user});
 
-  const savedEcv = await ecvsService.createEcv(parsedEcv as ValidatedEcv);
+  if (!parsedEcv.success) {
+    return response.status(400).json(parsedEcv.error);
+  }
+
+  const savedEcv = await ecvsService.createEcv(parsedEcv.data);
 
   return response.status(201).json(savedEcv);
 });
@@ -55,9 +49,13 @@ ecvsRouter.put('/:id', userExtractor, async (request, response) => {
     return response.status(401).json({ error: 'unauthorized action' });
   }
   
-  const parsedEcv = parseEcvFromRequest(user, request, response)
+  const parsedEcv = EcvZod.safeParse({ ...request.body, user});
 
-  const updatedEcv = await ecvsService.updateEcv(request.params.id, parsedEcv as ValidatedEcv);
+  if (!parsedEcv.success) {
+    return response.status(400).json(parsedEcv.error);
+  }
+
+  const updatedEcv = await ecvsService.updateEcv(request.params.id, parsedEcv.data);
   return response.status(201).json(updatedEcv);
 });
 

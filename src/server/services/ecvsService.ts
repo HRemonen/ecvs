@@ -13,7 +13,8 @@ const getEcv = async (id: string): Promise<Ecv & { _id: Types.ObjectId } | null>
 const getEcvs = async (): Promise<Ecv[]> => {
   const ecvs = await EcvModel
     .find({})
-    .populate('user', {firstName: 1, lastName: 1, email: 1, phoneNumber: 1, address: 1})
+    .populate('user', {firstName: 1, lastName: 1, email: 1, phoneNumber: 1, address: 1});
+
   return ecvs;
 };
 
@@ -43,7 +44,7 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
   return createdEcv;
 };
 
-const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv) => {
+const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId } | null> => {
   const updatedEcv = await EcvModel.findByIdAndUpdate(
     evcId, ecvToUpdate, { new: true, context: 'query' }
   );
@@ -51,7 +52,7 @@ const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv) => {
   return updatedEcv;
 };
 
-const deleteEcv = async (ecvToDelete: string, user: string) => {
+const deleteEcv = async (ecvToDelete: string, user: string): Promise<Types.ObjectId[]> => {
   await EcvModel.findByIdAndRemove(ecvToDelete);
 
   const loggedUser = await usersService.getUser(user);
