@@ -15,7 +15,7 @@ const LOGIN_API = "/api/login"
 
 describe('Database returns JSON content', () => {
 
-  test('users are returned as json', async () => {
+  test('ecvs are returned as json', async () => {
     await api
       .get(ECVS_API)
       .expect(200)
@@ -54,10 +54,18 @@ describe('ecvs in database', () => {
     expect(response.body[1]).toBeDefined();
     expect(response.body[0]).toHaveProperty("id")
     expect(response.body[1]).toHaveProperty("id")
-  })
+  });
+
+  test('single ecv is returned correctly', async () => {
+    const initialEcv = await EcvModel.findOne({});
+    await api
+      .get(ECVS_API + `/${initialEcv?.id}`)
+      .expect(200)
+      .expect('Content-Type', /application\/json/);
+  });
 });
 
-describe('ecv creation', () => {
+describe('ecv API', () => {
   let token: string;
 
   beforeEach(async () => {
@@ -89,7 +97,7 @@ describe('ecv creation', () => {
     token = response.body.token;
   });
 
-  test('succeeds if valid ecvs and token', async () => {
+  test('creation succeeds if valid ecvs and token', async () => {
     await api
       .post(ECVS_API)
       .send({
@@ -100,7 +108,7 @@ describe('ecv creation', () => {
       .expect('Content-Type', /application\/json/)
   });
 
-  test('fails if valid ecvs and invalid token', async () => {
+  test('creation fails if valid ecvs and invalid token', async () => {
     const response = await api
       .post(ECVS_API)
       .send({
@@ -110,6 +118,72 @@ describe('ecv creation', () => {
       .expect('Content-Type', /application\/json/)
 
     expect(response.body.error).toContain("token missing or invalid");
+  });
+
+  test('updating succeeds by authorized user', async () => {
+    const initialEcv = await api
+      .post(ECVS_API)
+      .send({
+        profile: "olen hyvä koodaaja"
+      })
+      .set('Authorization', `bearer ${token}`)
+      .expect(201)
+      .expect('Content-Type', /application\/json/)
+
+    const editedEcv = await api
+      .put(ECVS_API + `/${initialEcv.body.id}`)
+      .set('Authorization', `bearer ${token}`)
+      .send({
+        profile: "en ole hyvä koodaaja"
+      })
+      .expect(201)
+      .expect('Content-Type', /application\/json/);
+
+    expect(editedEcv.body.profile).toContain("en ole hyvä koodaaja");
+  });
+
+  test('updating fails by unauthorized user', async () => {
+    const initialEcv = await EcvModel.findOne({});
+    const editedEcv = {
+      ...initialEcv,
+      profile: "new profile"
+    };
+
+    await api
+      .put(ECVS_API + `/${initialEcv?.id}`)
+      .send(editedEcv)
+      .expect(401)
+
+  });
+
+  test('deletion succeeds by authorized user', async () => {
+    const initialEcv = await api
+      .post(ECVS_API)
+      .send({
+        profile: "olen hyvä koodaaja"
+      })
+      .set('Authorization', `bearer ${token}`)
+      .expect(201)
+      .expect('Content-Type', /application\/json/)
+
+    await api
+      .delete(ECVS_API + `/${initialEcv.body.id}`)
+      .set('Authorization', `bearer ${token}`)
+      .send()
+      .expect(204)
+  });
+
+  test('deletion fails by unauthorized user', async () => {
+    const initialEcv = await EcvModel.findOne({});
+    const editedEcv = {
+      ...initialEcv,
+      profile: "new profile"
+    };
+
+    await api
+      .delete(ECVS_API + `/${initialEcv?.id}`)
+      .send(editedEcv)
+      .expect(401)
   });
 });
 
