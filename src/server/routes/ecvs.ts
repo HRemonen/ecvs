@@ -21,6 +21,15 @@ ecvsRouter.get('/', async (_request, response) => {
   return response.json(ecvs);
 });
 
+ecvsRouter.get('/:id', async (request, response) => {
+  const ecv = await ecvsService.getEcv(request.params.id);
+
+  if (!ecv) {
+    return response.status(401).json({ error: 'malformatted id'});
+  }
+  return response.json(ecv);
+});
+
 ecvsRouter.post('/', userExtractor, async (request, response) => {
   const user = (request as CustomRequest).user;
 
