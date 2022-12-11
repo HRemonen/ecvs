@@ -4,9 +4,11 @@ import EcvModel from "../models/ecv";
 import usersService from "./usersService";
 import { ValidatedEcv } from "../utils/ecvsValidator";
 
-const getEcv = async (id: string): Promise<Ecv & { _id: Types.ObjectId } | null> => {
+const getEcv = async (id: string): Promise<Ecv & { _id: Types.ObjectId }> => {
   const ecv = await EcvModel.findById(id);
-
+  if (!ecv) {
+    throw new Error("ecv not found");
+  }
   return ecv;
 };
 
@@ -44,10 +46,13 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
   return createdEcv;
 };
 
-const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId } | null> => {
+const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId }> => {
   const updatedEcv = await EcvModel.findByIdAndUpdate(
     evcId, ecvToUpdate, { new: true, context: 'query' }
   );
+  if (!updatedEcv) {
+    throw new Error("ecv not found");
+  }
 
   return updatedEcv;
 };

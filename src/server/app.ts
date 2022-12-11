@@ -9,11 +9,7 @@ import loginRouter from './routes/login';
 
 import { userExtractor } from './middlewares/middleware';
 
-require('express-async-errors');
-
 const app = express();
-app.use(cors());
-app.use(express.json());
 
 void mongoose.connect(config.MONGODB_URI)
   .then(() => {
@@ -23,20 +19,11 @@ void mongoose.connect(config.MONGODB_URI)
     console.log('error connecting to MongoDB', error.message);
   });
 
-// Routers goes in here
+app.use(cors());
+app.use(express.json());
+
 app.use('/api/ecvs', ecvsRouter, userExtractor);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
-//...etc
-
-/* if (process.env.NODE_ENV === 'test') {
-  const testingRouter = require('./controllers/testing');
-  app.use('/api/testing', testingRouter);
-} */
-
-app.get('/ping', (_req, res) => {
-  console.log('someone pinged here');
-  res.send('pong');
-});
 
 export default app;
