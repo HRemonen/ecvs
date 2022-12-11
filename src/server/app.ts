@@ -7,7 +7,7 @@ import usersRouter from './routes/users';
 import ecvsRouter from './routes/ecvs';
 import loginRouter from './routes/login';
 
-import { userExtractor } from './middlewares/middleware';
+import { userExtractor } from './middlewares/userMiddleware';
 
 const app = express();
 

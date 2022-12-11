@@ -26,4 +26,5 @@
 |       | 4    | - DELETE ja PUT endpointit ECV API             |
 |       |      |                                                |
 | 11.12 | 3    | - Yritä refaktoroida ECV routeria              |
-|       | 2    |   Testit loppuun                               |
+|       | 2    | - Testit loppuun                               |
+|       | 2    | - Yritä saada error middleware toimimaan       |

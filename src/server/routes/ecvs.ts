@@ -2,7 +2,7 @@ import express from 'express';
 import { Ecv } from '../types';
 import ecvsService from '../services/ecvsService';
 import EcvZod from '../utils/ecvsValidator';
-import { userExtractor, CustomRequest } from '../middlewares/middleware';
+import { userExtractor, CustomRequest } from '../middlewares/userMiddleware';
 
 const ecvsRouter = express.Router();
 
