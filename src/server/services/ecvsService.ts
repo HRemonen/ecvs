@@ -1,15 +1,13 @@
-import { Ecv } from "../types";
 import { HydratedDocument, Types } from "mongoose";
-import { ValidatedEcv } from "../utils/ecvsValidator";
+import { Ecv } from "../types";
 import EcvModel from "../models/ecv";
-import UserModel from "../models/user";
+import usersService from "./usersService";
+import { ValidatedEcv } from "../utils/ecvsValidator";
 
-const getLoggedUser = async (userId: string) => {
-  const loggedUser = await UserModel.findById(userId);
-  if (!loggedUser) {
-    throw new Error("user not found");
-  }
-  return loggedUser;
+const getEcv = async (id: string): Promise<Ecv & { _id: Types.ObjectId } | null> => {
+  const ecv = await EcvModel.findById(id);
+
+  return ecv;
 };
 
 const getEcvs = async (): Promise<Ecv[]> => {
@@ -34,7 +32,7 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
     profile: newEcv.profile ?? ""
   });
 
-  const loggedUser = await getLoggedUser(newEcv.user);
+  const loggedUser = await usersService.getUser(newEcv.user);
 
   const createdEcv = await ecv.save();
 
@@ -56,11 +54,11 @@ const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv) => {
 const deleteEcv = async (ecvToDelete: string, user: string) => {
   await EcvModel.findByIdAndRemove(ecvToDelete);
 
-  const loggedUser = await getLoggedUser(user)
+  const loggedUser = await usersService.getUser(user);
 
   loggedUser.ecvs = loggedUser?.ecvs.filter(ecv => ecv.toString() !== ecvToDelete);
 
   return loggedUser.ecvs;
 };
 
-export default { getEcvs, createEcv, updateEcv, deleteEcv };
+export default { getEcv, getEcvs, createEcv, updateEcv, deleteEcv };

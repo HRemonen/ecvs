@@ -15,6 +15,6 @@ export const userExtractor = async (request: Request, _response: Response, next:
     if (token) {
       (request as CustomRequest).user = (token as JwtPayload).id;
     }
-  }
+  } 
   next()
 };
