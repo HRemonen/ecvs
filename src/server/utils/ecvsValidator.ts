@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 const EcvZod = z.object({
-  user: z.string(),
   expertise: z.array(z.string()).optional(),
   skills: z.array(z.string()).optional(),
   education: z.array(z.object({
