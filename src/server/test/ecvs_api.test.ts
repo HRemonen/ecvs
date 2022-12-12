@@ -109,14 +109,15 @@ describe('ecv API', () => {
   });
 
   test('creation fails if valid ecvs and invalid token', async () => {
-    await api
+    const response = await api
       .post(ECVS_API)
       .send({
         profile: "olen hyvä koodaaja"
       })
-      .expect(400)
+      .expect(401)
       .expect('Content-Type', /application\/json/)
 
+    expect(response.body.error).toContain("token missing or invalid");
   });
 
   test('updating succeeds by authorized user', async () => {

@@ -4,8 +4,7 @@ import ecvsService from "../../services/ecvsService";
 const getTestEcvs = async () => {
   const user = await UserModel.findOne();
 
-  const ecvs1 = await ecvsService.createEcv({
-    user: user?.id,
+  const ecvs1 = await ecvsService.createEcv(user?.id, {
     expertise: ["Koodaus", "kaljan juonti", "soutaminen"],
     skills: ["TypeScriptaus", "Häkkäys"],
     education: [],
@@ -17,8 +16,7 @@ const getTestEcvs = async () => {
     profile: "Reipas mutta laiska meis!"
   });
 
-  const ecvs2 = await ecvsService.createEcv({
-    user: user?.id,
+  const ecvs2 = await ecvsService.createEcv(user?.id, {
     expertise: ["TypeScript", "AWS", "Scrum", "Agile methods", "Fast API"],
     skills: ["TS", "JS", "Node.js", "Git", "COBOL", "Assembly", "TTK91"],
     education: [{

@@ -20,9 +20,9 @@ const getEcvs = async (): Promise<Ecv[]> => {
   return ecvs;
 };
 
-const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId }> => {
+const createEcv = async (user: string, newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId }> => {
   const ecv: HydratedDocument<Ecv> = new EcvModel({
-    user: newEcv.user,
+    user: user,
     expertise: newEcv.expertise ?? [],
     skills: newEcv.skills ?? [],
     education: newEcv.education ?? [],
@@ -35,7 +35,7 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.Objec
     profile: newEcv.profile ?? ""
   });
 
-  const loggedUser = await usersService.getUser(newEcv.user);
+  const loggedUser = await usersService.getUser(user);
 
   const createdEcv = await ecv.save();
 
