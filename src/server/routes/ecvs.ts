@@ -14,18 +14,11 @@ ecvsRouter.get('/', async (_request, response) => {
 ecvsRouter.get('/:id', async (request, response) => {
   const ecv = await ecvsService.getEcv(request.params.id);
 
-  if (!ecv) {
-    return response.status(401).json({ error: 'malformatted id'});
-  }
   return response.json(ecv);
 });
 
 ecvsRouter.post('/', userExtractor, async (request, response) => {
   const user = (request as CustomRequest).user;
-
-  if (!user) {
-    return response.status(401).json({ error: 'token missing or invalid' })
-  }
 
   const parsedEcv = EcvZod.safeParse({ ...request.body, user});
 
@@ -42,9 +35,6 @@ ecvsRouter.put('/:id', userExtractor, async (request, response) => {
   const ecvToUpdate = await ecvsService.getEcv(request.params.id);
   const user = (request as CustomRequest).user;
 
-  if (!ecvToUpdate) {
-    return response.status(401).json({ error: 'malformatted id'});
-  }
   if (!user || ecvToUpdate.user.toString() !== user) {
     return response.status(401).json({ error: 'unauthorized action' });
   }
@@ -63,9 +53,6 @@ ecvsRouter.delete('/:id', userExtractor, async (request, response) => {
   const ecvToDelete = await ecvsService.getEcv(request.params.id);
   const user = (request as CustomRequest).user;
 
-  if (!ecvToDelete) {
-    return response.status(401).json({ error: 'malformatted id'});
-  }
   if (!user || ecvToDelete.user.toString() !== user) {
     return response.status(401).json({ error: 'unauthorized action' });
   }

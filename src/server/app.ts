@@ -1,3 +1,4 @@
+import "express-async-errors";
 import express from 'express';
 import cors from 'cors';
 import mongoose from "mongoose";
@@ -8,6 +9,7 @@ import ecvsRouter from './routes/ecvs';
 import loginRouter from './routes/login';
 
 import { userExtractor } from './middlewares/userMiddleware';
+import { errorHandler  } from "./middlewares/errorMiddleware";
 
 const app = express();
 
@@ -25,5 +27,7 @@ app.use(express.json());
 app.use('/api/ecvs', ecvsRouter, userExtractor);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
+
+app.use(errorHandler);
 
 export default app;
