@@ -3,6 +3,7 @@ import { HydratedDocument } from "mongoose";
 import { User, UserType } from "../types";
 import { ValidatedUser } from '../utils/usersValidator';
 import UserModel from '../models/user';
+import { JsonWebTokenError } from 'jsonwebtoken';
 
 
 const getUsers = async (): Promise<User[]> => {
@@ -15,7 +16,7 @@ const getUsers = async (): Promise<User[]> => {
 const getUser = async (id: string) => {
   const user = await UserModel.findById(id);
   if (!user) {
-    throw new Error("user not found");
+    throw new JsonWebTokenError("token missing or invalid");
   }
   return user;
 };
