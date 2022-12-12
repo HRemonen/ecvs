@@ -28,3 +28,6 @@
 | 11.12 | 3    | - Yritä refaktoroida ECV routeria              |
 |       | 2    | - Testit loppuun                               |
 |       | 2    | - Yritä saada error middleware toimimaan       |
+|       |      |                                                |
+| 11.12 | 1    | - Errorhandler mw, ecvExtractor mw ja          |
+|       |      |   puhdista spagut poist routesta               |
