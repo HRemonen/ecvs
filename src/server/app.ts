@@ -8,7 +8,6 @@ import usersRouter from './routes/users';
 import ecvsRouter from './routes/ecvs';
 import loginRouter from './routes/login';
 
-import { userExtractor } from './middlewares/userMiddleware';
 import { errorHandler  } from "./middlewares/errorMiddleware";
 
 const app = express();
@@ -24,7 +23,7 @@ void mongoose.connect(config.MONGODB_URI)
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/ecvs', ecvsRouter, userExtractor);
+app.use('/api/ecvs', ecvsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 

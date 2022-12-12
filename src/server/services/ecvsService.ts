@@ -57,7 +57,7 @@ const updateEcv = async (evcId: string, ecvToUpdate: ValidatedEcv): Promise<Ecv 
   return updatedEcv;
 };
 
-const deleteEcv = async (ecvToDelete: string, user: string): Promise<Types.ObjectId[]> => {
+const deleteEcv = async (user: string, ecvToDelete: string): Promise<Types.ObjectId[]> => {
   await EcvModel.findByIdAndRemove(ecvToDelete);
 
   const loggedUser = await usersService.getUser(user);
