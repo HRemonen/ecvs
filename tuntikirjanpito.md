@@ -31,3 +31,5 @@
 |       |      |                                                |
 | 11.12 | 1    | - Errorhandler mw, ecvExtractor mw ja          |
 |       |      |   puhdista spagut poist routesta               |
+|       | 0.5  | - Frontend alustus vitellä                     |
+|       | 1.5  | - Ekat reducerit, servicet jne.                |

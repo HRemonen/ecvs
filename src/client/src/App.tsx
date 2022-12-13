@@ -12,8 +12,9 @@ const App = () => {
     dispatch(initializeEcvs());
   }, [dispatch]);
 
-  const ecvs = useAppSelector(state => state.ecvs)
+  const ecvs = useAppSelector(state => state.ecvs);
   console.log(ecvs);
+
   return (
     <div>
     </div>
