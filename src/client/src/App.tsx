@@ -4,16 +4,23 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "./hooks/dispatchHooks";
 
 import { initializeEcvs } from "./reducers/ecvReducer";
+import { initializeUsers } from "./reducers/userReducer";
 
 const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(initializeEcvs());
+    dispatch(initializeUsers());
   }, [dispatch]);
 
   const ecvs = useAppSelector(state => state.ecvs);
-  console.log(ecvs);
+  const users = useAppSelector(state => state.users);
+  const auth = useAppSelector(state => state.authentication);
+  
+  console.log("ecvs:", ecvs);
+  console.log("users:", users);
+  console.log("auth:", auth);
 
   return (
     <div>

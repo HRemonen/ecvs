@@ -29,7 +29,9 @@
 |       | 2    | - Testit loppuun                               |
 |       | 2    | - Yritä saada error middleware toimimaan       |
 |       |      |                                                |
-| 11.12 | 1    | - Errorhandler mw, ecvExtractor mw ja          |
+| 12.12 | 1    | - Errorhandler mw, ecvExtractor mw ja          |
 |       |      |   puhdista spagut poist routesta               |
 |       | 0.5  | - Frontend alustus vitellä                     |
 |       | 1.5  | - Ekat reducerit, servicet jne.                |
+|       |      |                                                |
+| 14.12 | 2    | - Fronttiin reducerit jne alkupöhinät          |
