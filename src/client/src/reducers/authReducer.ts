@@ -38,6 +38,8 @@ export const loginUser = (email: string, password: string) => {
       email,
       password
     })
+    window.localStorage.setItem("loggedUser", JSON.stringify(user));
+    dispatch(login(user));
   };
 };
 
