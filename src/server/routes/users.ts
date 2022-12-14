@@ -1,13 +1,15 @@
 import express from 'express';
 
+import { User } from '../types';
 import UserModel from '../models/user';
 import { UserZod } from "../utils/usersValidator";
 import usersService from "../services/usersService";
 
+
 const usersRouter = express.Router();
 
 usersRouter.get('/', async (_request, response) => {
-  const users = await usersService.getUsers();
+  const users: Array <User> = await usersService.getUsers();
   return response.json(users);
 });
 
