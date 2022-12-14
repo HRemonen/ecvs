@@ -1,15 +1,16 @@
 import axios from "axios";
+import { User } from '@backend/types'
 
 const baseUrl = "api/users"
 
-const getUser = async (id: string) => {
+const getUser = async (id: string): Promise<User> => {
   const response = await axios.get(`${baseUrl}/${id}`);
   return response.data;
 };
 
-const getAllUsers = async () => {
+const getUsers = async (): Promise<User[]> => {
   const response = await axios.get(baseUrl);
   return response.data;
 };
 
-export default { getUser, getAllUsers };
+export default { getUser, getUsers };
