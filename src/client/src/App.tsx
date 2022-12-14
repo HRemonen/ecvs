@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "./hooks/dispatchHooks";
 
 import { isLogged } from "./reducers/authReducer";
@@ -6,6 +8,7 @@ import { initializeEcvs } from "./reducers/ecvReducer";
 import { initializeUsers } from "./reducers/userReducer";
 
 import Navbar from "./components/index/Navbar";
+import Index from "./components/index/Index";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -25,9 +28,17 @@ const App = () => {
   console.log("auth:", auth);
 
   return (
-    <section className="bg-white">
-      <Navbar />
-    </section>
+    <Router>
+      <section className="bg-white">
+        <Navbar />
+
+        <Routes>
+          <Route path="/" element={ <Index /> } />
+
+        </Routes>
+      </section>
+    </Router>
+
   );
 };
 
