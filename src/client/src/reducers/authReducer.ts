@@ -26,8 +26,7 @@ export const isLogged = () => {
     const loggedUser = window.localStorage.getItem("loggedUser");
     if (loggedUser) {
       const user: AuthenticatedUser = JSON.parse(loggedUser);
-      //set the token to ecvsService
-      //ecvsService.setToken(user.token);
+      ecvsService.setToken(user.token);
       dispatch(login(user));
     }
   };
