@@ -1,6 +1,6 @@
 import { createSlice, Dispatch } from "@reduxjs/toolkit";
-import loginService from "src/services/loginService";
-import ecvsService from "src/services/ecvsService";
+import loginService from "../services/loginService";
+import ecvsService from "../services/ecvsService";
 
 import { AuthenticatedUser } from "src/types";
 
