@@ -9,6 +9,7 @@ import { initializeUsers } from "./reducers/userReducer";
 
 import Navbar from "./components/index/Navbar";
 import Index from "./components/index/Index";
+import Login from "./components/authentication/Login";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -34,7 +35,7 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={ <Index /> } />
-
+          <Route path="/login" element={ <Login /> } />
         </Routes>
       </section>
     </Router>
