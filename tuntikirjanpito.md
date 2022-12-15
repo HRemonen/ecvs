@@ -35,3 +35,4 @@
 |       | 1.5  | - Ekat reducerit, servicet jne.                |
 |       |      |                                                |
 | 14.12 | 2    | - Fronttiin reducerit jne alkupöhinät          |
+|       | 3    | - Komponentteja, tyylittelyjä jne.             |
