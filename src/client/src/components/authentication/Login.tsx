@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
@@ -8,12 +9,17 @@ import { LoginZod, ValidatedLogin } from "../../validators/usersValidator";
 
 const Login = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { register, handleSubmit, formState:{ errors } } = useForm<ValidatedLogin>({
     mode: "onBlur", resolver: zodResolver(LoginZod)
   });
 
-  const onSubmit = async ({ email, password }: ValidatedLogin) => dispatch(loginUser(email, password));
+  const onSubmit = async ({ email, password }: ValidatedLogin) => {
+    void dispatch(loginUser(email, password));
+    navigate('/')
+  }
+  
 
   return (
     <div className='grid h-screen place-items-center py-20 px-10 min-h-screen'>

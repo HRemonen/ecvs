@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Ecv } from '@backend/types'
+import { Ecv } from '@backend/types';
 import { ValidatedEcv } from '@backend/utils/ecvsValidator';
 
 const baseUrl = "/api/ecvs";
@@ -8,15 +8,15 @@ interface Config {
   headers: {
     Authorization: string;
   }
-};
+}
 
-let token: string = "";
-let config: Config = {headers: { Authorization: "" }};
+let token = "";
+const config: Config = {headers: { Authorization: "" }};
 
 const setToken = (newToken: string) => {
   token = `bearer ${newToken}`;
   config.headers.Authorization = token;
-}
+};
 
 const getEcv = async (id: string): Promise<Ecv> => {
   const response = await axios.get(`${baseUrl}/${id}`);

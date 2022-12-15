@@ -6,7 +6,7 @@ const Index = () => {
           Your dream job is just a click away
         </p>
         <h1 className="text-[#1d1853] md:text-6xl sm:text-5xl text-4xl font-bold md:py-6 py-2">
-          From resumes to interviews, we've got you covered
+          From resumes to interviews, we&lsquo;ve got you covered
         </h1>
         <p className="pt-4">
           Our platform connects job seekers and employers in one easy-to-use web platform. 
@@ -18,7 +18,7 @@ const Index = () => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default Index;

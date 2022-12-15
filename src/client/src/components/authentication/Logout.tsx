@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 import { logoutUser } from "../../reducers/authReducer";
 
@@ -11,7 +11,7 @@ const Logout = () => {
     <li className="p-4">
       <Link onClick={handleLogout} to="/">Logout</Link>
     </li>
-  )
+  );
 };
 
 export default Logout;

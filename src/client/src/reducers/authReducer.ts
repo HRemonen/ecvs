@@ -13,6 +13,7 @@ const authSlice = createSlice({
     login(state, action) {
       return action.payload;
     },
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     logout(state, action) {
       return initialState;
     }
@@ -22,7 +23,7 @@ const authSlice = createSlice({
 export const { login, logout } = authSlice.actions;
 
 export const isLogged = () => {
-  return async (dispatch: Dispatch) => {
+  return (dispatch: Dispatch) => {
     const loggedUser = window.localStorage.getItem("loggedUser");
     if (loggedUser) {
       const user: AuthenticatedUser = JSON.parse(loggedUser);
@@ -34,10 +35,10 @@ export const isLogged = () => {
 
 export const loginUser = (email: string, password: string) => {
   return async (dispatch: Dispatch) => {
-    const user = await loginService.login({
+    const user: AuthenticatedUser = await loginService.login({
       email,
       password
-    })
+    });
     window.localStorage.setItem("loggedUser", JSON.stringify(user));
     dispatch(login(user));
   };

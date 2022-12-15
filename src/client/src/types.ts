@@ -1,7 +1,7 @@
 export interface UserLogin {
   email: string;
   password: string;
-};
+}
 
 export interface AuthenticatedUser {
   token: string;
@@ -10,4 +10,4 @@ export interface AuthenticatedUser {
     email: string;
     id: string;
   }
-};
+}

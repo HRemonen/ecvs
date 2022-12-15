@@ -1,7 +1,7 @@
 import axios from "axios";
-import { User } from '@backend/types'
+import { User } from '@backend/types';
 
-const baseUrl = "api/users"
+const baseUrl = "api/users";
 
 const getUser = async (id: string): Promise<User> => {
   const response = await axios.get(`${baseUrl}/${id}`);

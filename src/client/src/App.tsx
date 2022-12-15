@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "./hooks/dispatchHooks";
 
@@ -15,9 +15,9 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(isLogged());
-    dispatch(initializeEcvs());
-    dispatch(initializeUsers());
+    void dispatch(isLogged());
+    void dispatch(initializeEcvs());
+    void dispatch(initializeUsers());
   }, [dispatch]);
 
   const ecvs = useAppSelector(state => state.ecvs);

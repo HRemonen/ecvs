@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-type LinkItemContent = { content: string; to: string }
+type LinkItemContent = { content: string; to: string };
 
 const NavItem = ({ content, to }: LinkItemContent) => (
   <li className="p-4">
