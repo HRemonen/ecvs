@@ -40,7 +40,8 @@ const Login = () => {
                     : "text-purple-200 border-purple-400"
                 }`
               }
-              {...register("email")} />
+              {...register("email")} 
+            />
             <p className='text-red-500 text-sm mt-2'>{errors.email?.message}</p>
           </div>
           
@@ -55,16 +56,18 @@ const Login = () => {
             </label>
             <input
               type="password"
-              name="password"
               id="password"
               placeholder="password"
-              className={`block w-full bg-transparent outline-none border-b-2 py-2 px-4 text-purple-200 focus:bg-purple-600 placeholder-purple-500 ${
+              className={
+                `block w-full bg-transparent outline-none border-b-2 py-2 px-4
+               text-purple-200 focus:bg-purple-600 placeholder-purple-500 
+               ${
                 errors.password ? "border-red-400" : "border-purple-400"
-              }`}
+              }`
+            }
+            {...register("password")} 
             />
-            {errors.password && (
-              <p className="text-red-500 text-sm mt-2">{errors.password?.message}</p>
-            )}
+            <p className="text-red-500 text-sm mt-2">{errors.password?.message}</p>
           </div>
           
           <button 

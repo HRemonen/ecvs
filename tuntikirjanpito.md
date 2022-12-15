@@ -36,3 +36,6 @@
 |       |      |                                                |
 | 14.12 | 2    | - Fronttiin reducerit jne alkupöhinät          |
 |       | 3    | - Komponentteja, tyylittelyjä jne.             |
+|       |      |                                                |
+| 15.12 | 3    | - Loginform, logout, tyylejä ja vääntöä        |
+|       |      |   importtien kanssa bäkkäristä.....            |
