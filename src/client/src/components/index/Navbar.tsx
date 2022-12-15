@@ -9,8 +9,8 @@ const Navbar = () => {
   const handleNavChange = () => setNav(!nav);
 
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1080px] mx-auto px-4 text-black">
-      <h1 className="w-full text-3xl text-[#1d1853]">ecves</h1>
+    <div className="flex justify-between items-center h-24 max-w-[1080px] mx-auto px-4">
+      <h1 className="w-full text-3xl text-[#1d1853] hover:text-yellow-500">ecves</h1>
       <ul className="hidden md:flex">
         <NavItems />
       </ul>

@@ -8,7 +8,7 @@ const Logout = () => {
   const handleLogout = () => dispatch(logoutUser());
 
   return (
-    <li className="p-4">
+    <li className="p-4 text-yellow-500 hover:text-red-400">
       <Link onClick={handleLogout} to="/">Logout</Link>
     </li>
   );

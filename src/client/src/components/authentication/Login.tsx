@@ -78,7 +78,7 @@ const Login = () => {
           
           <button 
             type="submit" 
-            className="inline-block bg-yellow-500 text-yellow-800 rounded shadow py-2 px-5 text-sm">
+            className="inline-block bg-yellow-500 text-yellow-800 rounded shadow py-2 px-5 text-sm hover:bg-purple-600 hover:text-yellow-500 hover:border hover:border-yellow-500">
             Login
           </button>
         </form>
