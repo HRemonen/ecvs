@@ -1,10 +1,17 @@
-import { useAppDispatch, useAppSelector } from "../../hooks/dispatchHooks";
-
-import { loginUser } from "../../reducers/authReducer";
+import { Link } from "react-router-dom"
+import { useAppDispatch } from "../../hooks/dispatchHooks";
+import { logoutUser } from "../../reducers/authReducer";
 
 const Logout = () => {
   const dispatch = useAppDispatch();
-  const user = useAppSelector(state => state.authentication);
 
-  return 
+  const handleLogout = () => dispatch(logoutUser());
+
+  return (
+    <li className="p-4">
+      <Link onClick={handleLogout} to="/">Logout</Link>
+    </li>
+  )
 };
+
+export default Logout;

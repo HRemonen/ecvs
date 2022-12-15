@@ -1,6 +1,7 @@
 import { useAppSelector } from '../../hooks/dispatchHooks';
 
 import NavItem from './NavItem';
+import Logout from '../authentication/Logout';
 
 const NavItems = () => {
   const user = useAppSelector(state => state.authentication);
@@ -17,7 +18,7 @@ const NavItems = () => {
           </>
         : <>
             <NavItem content='User page' to='/userpage' />
-            <NavItem content='Logout' to='/' />
+            <Logout />
           </>
       }
     </>
