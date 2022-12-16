@@ -4,7 +4,14 @@ import ecvsService from "../services/ecvsService";
 
 import { AuthenticatedUser } from "src/types";
 
-const initialState = null;
+const initialState: AuthenticatedUser = {
+  token: "",
+  user: {
+    email: "",
+    id: "",
+    name: ""
+  }
+};
 
 const authSlice = createSlice({
   name: 'authentication',
@@ -47,7 +54,7 @@ export const loginUser = (email: string, password: string) => {
 export const logoutUser = () => {
   return async (dispatch: Dispatch) => {
     window.localStorage.removeItem("loggedUser");
-    dispatch(logout(null));
+    dispatch(logout(initialState));
   };
 };
 

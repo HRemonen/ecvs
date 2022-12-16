@@ -2,7 +2,7 @@ import { createSlice, Dispatch } from "@reduxjs/toolkit";
 import ecvsService from "../services/ecvsService";
 import { Ecv } from '@backend/types';
 
-const initialState: Array<Ecv> = [];
+const initialState: Array<Ecv & {id: string}> = [];
 
 const ecvsSlice = createSlice({
   name: "ecvs",
