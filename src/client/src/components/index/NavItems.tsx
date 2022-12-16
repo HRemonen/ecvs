@@ -17,7 +17,7 @@ const NavItems = () => {
             <NavItem content='Login' to='/login' />
           </>
         : <>
-            <NavItem content='User page' to='/userpage' />
+            <NavItem content='Dashboard' to='/dashboard' />
             <Logout />
           </>
       }
