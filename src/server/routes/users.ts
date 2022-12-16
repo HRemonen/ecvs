@@ -13,6 +13,11 @@ usersRouter.get('/', async (_request, response) => {
   return response.json(users);
 });
 
+usersRouter.get('/:id', async (request, response) => {
+  const user: User = await usersService.getUser(request.params.id);
+  return response.json(user)
+});
+
 usersRouter.post('/', async (request, response) => {
   const parsedUser = UserZod.safeParse(request.body);
   
