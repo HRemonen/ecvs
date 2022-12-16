@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks/dispatchHooks";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "../index/Navbar";
 import NavItem from "../index/NavItem";
@@ -9,7 +9,6 @@ import UserEcvs from "./UserEcvs";
 const Dashboard = () => {
   const auth = useAppSelector(state => state.authentication);
   const users = useAppSelector(state => state.users);
-
 
   const user = users.find(u => u.id === auth.user.id);
   if (!user) return null;
@@ -27,15 +26,15 @@ const Dashboard = () => {
               <NavItem content='Postings' to='/dashboard/postings' />
             </ul>
           </div>
-          <div>
-            <Outlet />
+          <div className="">
+            <Routes>
+              <Route path="/ecvs" element={<UserEcvs user={user} />} />
+            </Routes>
           </div>
         </div>
       </div>
       
-      <Routes>
-        <Route path="/ecvs" element={<UserEcvs user={user} />} />
-      </Routes>
+
     </>
   )
 };

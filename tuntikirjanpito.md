@@ -44,3 +44,5 @@
 |       | 1    | - Lisää logo Naviin, muuta tyylittelyjä        |
 |       | 2    | - Suunnittele ja aloita Dashboardin,           |
 |       |      |   UserDetail sivun toteutus                    |
+|       | 3    | - Dashboardin, UserDetailin tyylittelyä        |
+|       |      |   Nested routes tutustumista ja toteutus       |
