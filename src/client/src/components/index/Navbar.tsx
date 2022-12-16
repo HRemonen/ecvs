@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-
+import Logo from '../../assets/logo.svg'
 import NavItems from './NavItems';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   
   const handleNavChange = () => setNav(!nav);
-
   return (
     <div className="flex justify-between items-center h-24 max-w-[1080px] mx-auto px-4">
-      <h1 className="w-full text-3xl text-[#1d1853] hover:text-yellow-500">ecves</h1>
+      <img className="hover:cursor-pointer" src={Logo} alt="Ecves logo"/>
       <ul className="hidden md:flex">
         <NavItems />
       </ul>

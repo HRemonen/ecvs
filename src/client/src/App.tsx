@@ -32,7 +32,6 @@ const App = () => {
     <Router>
       <section className="bg-white">
         <Navbar />
-
         <Routes>
           <Route path="/" element={ <Index /> } />
           <Route path="/login" element={ <Login /> } />
