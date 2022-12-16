@@ -4,12 +4,11 @@ import { MdOutlineLocationOn, MdPhoneIphone,MdFactCheck } from 'react-icons/md';
 
 const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
   return (
-    <div className="fixed left-0 h-full w-[30%] text-center items-center border-r border-r-gray-200">
+    <div className="text-center items-center border-r border-r-gray-200">
       <img 
         className="inline-block object-scale-down h-20 w-20 md:h-48 md:w-48 m-4" 
         src={Profile} alt="Profile picture of the user"
       />
-
       <h1>{ user.firstName } { user.lastName }</h1>
       <h1>{ user.email }</h1>
       <p>
@@ -25,6 +24,7 @@ const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
         </p>
       </div>
     </div>
+    
   )
 };
 
