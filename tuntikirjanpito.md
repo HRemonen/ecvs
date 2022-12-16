@@ -39,3 +39,8 @@
 |       |      |                                                |
 | 15.12 | 3    | - Loginform, logout, tyylejä ja vääntöä        |
 |       |      |   importtien kanssa bäkkäristä.....            |
+|       |      |                                                |
+| 16.12 | 2    | - Suunnittele ja tee logo                      |
+|       | 1    | - Lisää logo Naviin, muuta tyylittelyjä        |
+|       | 2    | - Suunnittele ja aloita Dashboardin,           |
+|       |      |   UserDetail sivun toteutus                    |

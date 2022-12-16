@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../hooks/dispatchHooks";
+import Navbar from "../index/Navbar";
 
 import UserDetails from "./UserDetails";
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Navbar />
       <UserDetails user={user}/>
     </div>
   )

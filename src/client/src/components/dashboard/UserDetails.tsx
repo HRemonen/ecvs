@@ -1,11 +1,15 @@
 import { User } from "@backend/types";
-
-import { MdOutlineLocationOn, MdPhoneIphone,
-  MdDynamicForm, MdFactCheck } from 'react-icons/md';
+import Profile from '../../assets/default_profile.svg';
+import { MdOutlineLocationOn, MdPhoneIphone,MdFactCheck } from 'react-icons/md';
 
 const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
   return (
-    <div>
+    <div className="fixed left-0 h-full w-[30%] text-center items-center border-r border-r-gray-200">
+      <img 
+        className="inline-block object-scale-down h-20 w-20 md:h-48 md:w-48 m-4" 
+        src={Profile} alt="Profile picture of the user"
+      />
+
       <h1>{ user.firstName } { user.lastName }</h1>
       <h1>{ user.email }</h1>
       <p>
@@ -14,12 +18,12 @@ const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
       <p>
         { user.phoneNumber? <MdPhoneIphone size={ 24 } /> && user.phoneNumber : null }
       </p>
-      <p>
-        <MdFactCheck size={ 24 } />{user.applications.length} applications
-      </p>
-      <p>
-        <MdDynamicForm size={ 24 } /> {user.ecvs.length} ecvs
-      </p>
+      <div className="flex justify-center">
+        <MdFactCheck className="mr-2" size={ 24 } />
+        <p>
+          {user.applications.length} applications · {user.ecvs.length} ecvs
+        </p>
+      </div>
     </div>
   )
 };
