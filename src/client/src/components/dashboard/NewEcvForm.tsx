@@ -143,30 +143,10 @@ const NewEcvForm = () => {
           <div className={inputWrapper}>
             <label
               className={labelClass}>
-              Expertise
-            </label>
-            <input type="text" className={inputClass}
-              {...register("expertise")}
-            />
-          </div>
-
-          <div className={inputWrapper}>
-            <label
-              className={labelClass}>
               Skills
             </label>
             <input type="text" className={inputClass}
               {...register("skills")}
-            />
-          </div>
-
-          <div className={inputWrapper}>
-            <label
-              className={labelClass}>
-              Qualifications
-            </label>
-            <input type="text" className={inputClass}
-              {...register("qualifications")}
             />
           </div>
 
@@ -187,26 +167,6 @@ const NewEcvForm = () => {
             </label>
             <input type="text" className={inputClass}
               {...register("languages")}
-            />
-          </div>
-
-          <div className={inputWrapper}>
-            <label
-              className={labelClass}>
-              References
-            </label>
-            <input type="text" className={inputClass}
-              {...register("references")}
-            />
-          </div>
-
-          <div className={inputWrapper}>
-            <label
-              className={labelClass}>
-              Socials
-            </label>
-            <input type="text" className={inputClass}
-              {...register("socials")}
             />
           </div>
 
