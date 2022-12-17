@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { UserLogin, AuthenticatedUser } from "src/types";
 
 const baseUrl = "/api/login";

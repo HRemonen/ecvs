@@ -1,5 +1,6 @@
 import axios from "axios";
-import { User } from '@backend/types';
+
+import type { User } from '@backend/types';
 
 const baseUrl = "api/users";
 

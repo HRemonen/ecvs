@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Ecv } from "@backend/types";
+
+import type { Ecv } from "@backend/types";
+
 
 const EcvField: React.FC<{field: string; content: string | string[]}> = ({ field, content }) => {
   const [visible, setVisible] = useState(false)

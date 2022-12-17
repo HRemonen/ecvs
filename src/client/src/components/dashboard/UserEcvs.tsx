@@ -1,7 +1,8 @@
-import { User } from "@backend/types";
 import { useAppSelector } from "../../hooks/dispatchHooks";
 
 import EcvCard from "./EcvCard";
+
+import type { User } from "@backend/types";
 
 const UserEcvs: React.FC<{user: User & {id: string}}> = ({ user }) => {
   const allEcvs = useAppSelector(state => state.ecvs);

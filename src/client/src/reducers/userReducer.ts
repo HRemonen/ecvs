@@ -1,6 +1,8 @@
 import { createSlice, Dispatch } from "@reduxjs/toolkit";
+
 import usersService from "../services/usersService";
-import { User } from "@backend/types";
+
+import type { User } from "@backend/types";
 
 const initialState: Array<User & {id: string}> = [];
 
