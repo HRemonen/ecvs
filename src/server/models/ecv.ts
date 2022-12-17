@@ -7,15 +7,10 @@ const ecvSchema = new mongoose.Schema<Ecv>({
     ref: 'User',
     required: true
   },
-  expertise: [String],
   skills: [String],
   education: [Object],
   experience: [Object],
-  qualifications: [String],
-  hobbies: [String],
   languages: [String],
-  references: [String],
-  socials: [String],
   profile: String
 });
 

@@ -23,15 +23,11 @@ const getEcvs = async (): Promise<Ecv[]> => {
 const createEcv = async (user: string, newEcv: ValidatedEcv): Promise<Ecv & { _id: Types.ObjectId }> => {
   const ecv: HydratedDocument<Ecv> = new EcvModel({
     user: user,
-    expertise: newEcv.expertise ?? [],
     skills: newEcv.skills ?? [],
     education: newEcv.education ?? [],
     experience: newEcv.experience ?? [],
-    qualifications: newEcv.qualifications ?? [],
     hobbies: newEcv.hobbies ?? [],
     languages: newEcv.languages ?? [],
-    references: newEcv.references ?? [],
-    socials: newEcv.socials ?? [],
     profile: newEcv.profile ?? ""
   });
 

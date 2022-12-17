@@ -47,14 +47,10 @@ interface Education {
 
 export interface Ecv {
   user: Types.ObjectId;
-  expertise?: Array<string>;
   skills?: Array<string>;
   education?: Array<Education>;
   experience?: Array<Experience>;
-  qualifications?: Array<string>;
   hobbies?: Array<string>;
   languages?: Array<string>;
-  references?: Array<string>;
-  socials?: Array<string>;
   profile?: string;
 }
