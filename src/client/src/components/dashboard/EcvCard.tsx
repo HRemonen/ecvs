@@ -28,16 +28,17 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
   return (
     <div className="w-full max-w-sm p-4 bg-white border rounded-lg shadow-md sm:p-6">
         <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl">
-            Ecv # { ecv.id }
+          Ecv # { ecv.id }
         </h5>
         <ul className="my-4 space-y-3">
           { Object.entries(ecv).map(([key, value]) => {
-              return <EcvField key={key} field={key} content={value}/>
+            return <EcvField key={key} field={key} content={value}/>
           })}
         </ul>
         <div>
-          <button onClick={() => dispatch(deleteEcv(ecv))}
-            >Delete
+          <button 
+            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full"
+            onClick={() => dispatch(deleteEcv(ecv))}>Delete
           </button>
         </div>
     </div>
