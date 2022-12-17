@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
 import { loginUser } from "../../reducers/authReducer";
+import { LoginZod } from "../../validators/zodValidators";
 
-import { LoginZod, ValidatedLogin } from "../../validators/usersValidator";
+import { ValidatedLogin } from "@backend/utils/usersValidator";
 
 const Login = () => {
   const dispatch = useAppDispatch();
