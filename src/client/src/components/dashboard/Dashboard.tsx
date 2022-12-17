@@ -20,10 +20,10 @@ const Dashboard = () => {
         <UserDetails user={user} />
         <div className="col-span-2">
           <div className="flex justify-between items-center h-24 mx-auto px-4">
-            <ul className="hidden md:flex">
-              <NavItem content='Dash' to='/dashboard' />
-              <NavItem content='Ecvs' to='/dashboard/ecvs' />
-              <NavItem content='Postings' to='/dashboard/postings' />
+            <ul className="flex">
+              <NavItem content='Dash' to='' />
+              <NavItem content='Ecvs' to='ecvs' />
+              <NavItem content='Postings' to='postings' />
             </ul>
           </div>
           <div className="">
@@ -33,8 +33,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      
-
     </>
   )
 };
