@@ -6,7 +6,7 @@ import { useAppDispatch } from "../../hooks/dispatchHooks";
 import { loginUser } from "../../reducers/authReducer";
 import { LoginZod } from "../../validators/zodValidators";
 
-import { ValidatedLogin } from "@backend/utils/usersValidator";
+import type { ValidatedLogin } from "@backend/utils/usersValidator";
 
 const Login = () => {
   const dispatch = useAppDispatch();
