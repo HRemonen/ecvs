@@ -1,6 +1,8 @@
-import { User } from "@backend/types";
-import Profile from '../../assets/default_profile.svg';
 import { MdOutlineLocationOn, MdPhoneIphone,MdFactCheck } from 'react-icons/md';
+
+import Profile from '../../assets/default_profile.svg';
+
+import type { User } from "@backend/types";
 
 const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
   return (

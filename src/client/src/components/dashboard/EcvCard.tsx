@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-import type { Ecv } from "@backend/types";
+import { useAppDispatch } from "../../hooks/dispatchHooks";
+import { deleteEcv } from "../../reducers/ecvReducer";
 
+import type { Ecv } from "@backend/types";
 
 const EcvField: React.FC<{field: string; content: string | string[]}> = ({ field, content }) => {
   const [visible, setVisible] = useState(false)
@@ -21,6 +23,8 @@ const EcvField: React.FC<{field: string; content: string | string[]}> = ({ field
 };
 
 const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className="w-full max-w-sm p-4 bg-white border rounded-lg shadow-md sm:p-6">
         <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl">
@@ -32,7 +36,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
           })}
         </ul>
         <div>
-          <button
+          <button onClick={() => dispatch(deleteEcv(ecv))}
             >Delete
           </button>
         </div>
