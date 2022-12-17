@@ -46,3 +46,5 @@
 |       |      |   UserDetail sivun toteutus                    |
 |       | 3    | - Dashboardin, UserDetailin tyylittelyä        |
 |       |      |   Nested routes tutustumista ja toteutus       |
+|       |      |                                                |
+| 17.12 | 1    | - Dashboard ecv renderöinti omalla spotille    |

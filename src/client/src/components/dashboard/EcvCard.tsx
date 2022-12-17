@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { Ecv } from "@backend/types";
 
 const EcvField: React.FC<{field: string; content: string | string[]}> = ({ field, content }) => {
+  const [visible, setVisible] = useState(false)
+
   if (field === "user" || field === "id") return null;
 
   return (
     <li>
-      <h1 className="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow">
-        <span className="flex-1 ml-3 whitespace-nowrap">{ field }</span>
-        <span className="flex-1 ml-3 whitespace-nowrap">{ content }</span>
-      </h1>
+      <div className="text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow">
+        <h1 className="flex items-center p-3 text-base font-bold">
+          <p className="flex-1 ml-3 whitespace-nowrap cursor-pointer" onClick={() => setVisible(!visible)}>{ field }</p>
+        </h1>
+        {visible && <p className="flex-1 ml-3">{ content }</p>}
+      </div>
     </li>
   )
 };
@@ -21,11 +26,14 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
         </h5>
         <ul className="my-4 space-y-3">
           { Object.entries(ecv).map(([key, value]) => {
-              <h1>{}</h1>
               return <EcvField key={key} field={key} content={value}/>
-            }
-          )}
+          })}
         </ul>
+        <div>
+          <button
+            >Delete
+          </button>
+        </div>
     </div>
   )
 };

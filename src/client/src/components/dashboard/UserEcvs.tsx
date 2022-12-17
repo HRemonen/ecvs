@@ -14,11 +14,11 @@ const UserEcvs: React.FC<{user: User & {id: string}}> = ({ user }) => {
   );
 
   return (
-    <>
+    <div className="flex">
       {ecvs && ecvs.map(e => {
         return <EcvCard key={e.id} ecv={e}></EcvCard>
       })}
-    </>
+    </div>
   )
 };
 
