@@ -1,6 +1,7 @@
 import axios from "axios";
-import { Ecv } from '@backend/types';
-import { ValidatedEcv } from '@backend/utils/ecvsValidator';
+
+import type { Ecv } from '@backend/types';
+import type { ValidatedEcv } from '@backend/utils/ecvsValidator';
 
 const baseUrl = "/api/ecvs";
 
@@ -33,4 +34,9 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv> => {
   return response.data;
 };
 
-export default { setToken, getEcv, getEcvs, createEcv };
+const removeEcv = async (id: string) => {
+  const response = await axios.delete(`${baseUrl}/${id}`, config);
+  return response.status;
+}
+
+export default { setToken, getEcv, getEcvs, createEcv, removeEcv };
