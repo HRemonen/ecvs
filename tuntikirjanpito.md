@@ -48,3 +48,7 @@
 |       |      |   Nested routes tutustumista ja toteutus       |
 |       |      |                                                |
 | 17.12 | 1    | - Dashboard ecv renderöinti omalla spotille    |
+|       | 2    | - Dashboard näyttää käyttäjän ecv:t, muutokset |
+|       |      |   Routeriin ja servicelle. Poisto mahdollista  |
+|       | 2    | - Ecv:n luontiin lomake, react hook forms      |
+|       |      |   opettelua jne.                               |
