@@ -28,7 +28,6 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='mb-8'>
             <label 
-              htmlFor="email"
               className={`block font-bold text-sm mb-2 ${
                 errors.email ? "text-red-400" : "text-cyan-400"
               }`}>
@@ -36,7 +35,6 @@ const Login = () => {
             </label>
             <input 
               type="text"
-              id="email"
               placeholder="hey@ecves.com"
               className={
                 `block w-full bg-transparent outline-none border-b-2 py-2 px-4
@@ -54,7 +52,6 @@ const Login = () => {
           
           <div className="mb-8">
             <label
-              htmlFor="password"
               className={`block font-bold text-sm mb-2 ${
                 errors.password ? "text-red-400" : "text-cyan-400"
               }`}
@@ -63,7 +60,6 @@ const Login = () => {
             </label>
             <input
               type="password"
-              id="password"
               placeholder="password"
               className={
                 `block w-full bg-transparent outline-none border-b-2 py-2 px-4
@@ -84,9 +80,7 @@ const Login = () => {
           </button>
         </form>
       </div>
-      
     </div>
-    
   );
 };
 

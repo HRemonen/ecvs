@@ -5,6 +5,8 @@ import Navbar from "../index/Navbar";
 import NavItem from "../index/NavItem";
 import UserDetails from "./UserDetails";
 import UserEcvs from "./UserEcvs";
+import Dash from "./Dash";
+import NewEcvForm from "./NewEcvForm";
 
 const Dashboard = () => {
   const auth = useAppSelector(state => state.authentication);
@@ -28,7 +30,9 @@ const Dashboard = () => {
           </div>
           <div className="">
             <Routes>
+              <Route path="" element={<Dash />} />
               <Route path="/ecvs" element={<UserEcvs user={user} />} />
+              <Route path="/ecvs/create" element={<NewEcvForm />} />
             </Routes>
           </div>
         </div>

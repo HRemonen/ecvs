@@ -14,9 +14,6 @@ const UserEcvs: React.FC<{user: User & {id: string}}> = ({ user }) => {
 
   return (
     <div className="ml-4">
-      <button className="mb-8 bg-yellow-500 hover:bg-transparent text-white hover:text-yellow-500 border hover:border-yellow-500 font-bold py-2 px-4 rounded-full">
-        Create new ecv
-      </button>
       <div className="flex">
         {ecvs && ecvs.map(e => {
           return <EcvCard key={e.id} ecv={e}></EcvCard>
