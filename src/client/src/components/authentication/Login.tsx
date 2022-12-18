@@ -21,7 +21,6 @@ const Login = () => {
     navigate('/')
   }
   
-
   return (
     <div className='grid h-screen place-items-center py-20 px-10 min-h-screen'>
       <div className='w-4/5 md:max-w-lg p-10 border border-cyan-400 rounded-lg shadow-lg bg-cyan-600'>
