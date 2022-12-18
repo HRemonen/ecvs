@@ -18,7 +18,7 @@ const ecvsSlice = createSlice({
       state.push(action.payload);
     },
     remove(state, action) {
-      return state.filter(ecv => ecv.id === action.payload);
+      return state.filter(ecv => ecv.id !== action.payload);
     }
   }
 });

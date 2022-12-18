@@ -1,9 +1,10 @@
-import { ValidatedEcv } from "@backend/utils/ecvsValidator";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
 import { createEcv } from "../../reducers/ecvReducer";
+
+import { ValidatedEcv } from "@backend/utils/ecvsValidator";
 
 const NewEcvForm = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ const NewEcvForm = () => {
 
   const onSubmit = (data: ValidatedEcv) => {
     void dispatch(createEcv(data));
-    navigate('')
+    navigate('/dashboard')
   };
 
   const inputWrapper = "p-4 text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
