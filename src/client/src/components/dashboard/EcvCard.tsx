@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import DeleteButton from "../misc/Buttons";
+
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 import { deleteEcv } from "../../reducers/ecvReducer";
 
@@ -36,10 +38,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
           })}
         </ul>
         <div>
-          <button 
-            className="bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => dispatch(deleteEcv(ecv))}>Delete
-          </button>
+          <DeleteButton onClick={() => dispatch(deleteEcv(ecv))} />
         </div>
     </div>
   )
