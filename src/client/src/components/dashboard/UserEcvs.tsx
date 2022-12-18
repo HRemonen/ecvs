@@ -5,22 +5,26 @@ import EcvCard from "./EcvCard";
 import type { User } from "@backend/types";
 
 const UserEcvs: React.FC<{user: User & {id: string}}> = ({ user }) => {
-  const allEcvs = useAppSelector(state => state.ecvs);
-  const ecvs = allEcvs.filter(e => (e.user.id) as unknown === user.id)
+  const ecvs = useAppSelector(state => state.ecvs);
 
-  if (!ecvs) return (
-    <h1>You don&lsquo;t have any ecv&lsquo;s created.</h1>
+  console.log("täältä:", ecvs)
+
+  if (!ecvs || ecvs.length === 0) return (
+    <div>
+      <h1>You don&lsquo;t have any ecv&lsquo;s created.</h1>
+    </div>
   );
 
   return (
     <div className="ml-4">
       <div className="flex">
-        {ecvs && ecvs.map(e => {
-          return <EcvCard key={e.id} ecv={e}></EcvCard>
+        {ecvs.map(e => {
+          if ((e.user.id) as unknown === user.id) {
+            return <EcvCard key={e.id} ecv={e}></EcvCard>
+          }
         })}
       </div>
     </div>
-    
   )
 };
 
