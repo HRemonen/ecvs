@@ -1,8 +1,18 @@
+import { ValidatedEcv } from "@backend/utils/ecvsValidator";
 import { useForm, useFieldArray } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/dispatchHooks";
+
+import { createEcv } from "../../reducers/ecvReducer";
 
 const NewEcvForm = () => {
-  const { register, handleSubmit, control } = useForm();
-  
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const { register, handleSubmit, control, formState:{ errors } } = useForm({
+    mode: "onBlur"
+});
+
   const { fields: eduFields, append: eduAppend, remove: eduRemove } = useFieldArray({
     name: "education", control});
   
@@ -18,8 +28,9 @@ const NewEcvForm = () => {
   const { fields: langFields, append: langAppend, remove: langRemove } = useFieldArray({
     name: "languages", control});
 
-  const onSubmit = (data: any) => {
-    console.log(data)
+  const onSubmit = (data: ValidatedEcv) => {
+    void dispatch(createEcv(data));
+    navigate('')
   };
 
   const inputWrapper = "p-4 text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
@@ -42,8 +53,8 @@ const NewEcvForm = () => {
               onClick={() => {
                 expAppend({
                   company: "",
-                  startDate: Date,
-                  endDate: Date,
+                  startDate: new Date(),
+                  endDate: new Date(),
                   position: "",
                   additionalInfo: ""
                 });
@@ -107,8 +118,8 @@ const NewEcvForm = () => {
                 onClick={() => {
                   eduAppend({
                     school: "",
-                    startDate: Date,
-                    endDate: Date,
+                    startDate: new Date(),
+                    graduationDate: new Date(),
                     additionalInfo: ""
                   });
                 }}> New education
@@ -137,7 +148,7 @@ const NewEcvForm = () => {
                       End date
                     </label>
                     <input type="date" className={inputClass}
-                      {...register(`education.${index}.endDate`, { required: false })}
+                      {...register(`education.${index}.graduationDate`, { required: false })}
                     />
                   </div>
                   

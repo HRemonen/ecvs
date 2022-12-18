@@ -4,14 +4,22 @@ const EcvZod = z.object({
   skills: z.array(z.string()).optional(),
   education: z.array(z.object({
     school: z.string(),
-    startDate: z.date(),
-    graduationDate: z.date().optional(),
+    startDate: z.preprocess((arg) => {
+      if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+    }, z.date()),
+    graduationDate: z.preprocess((arg) => {
+      if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+    }, z.date().optional()),
     additionalInfo: z.string().optional()
   })).optional(),
   experience: z.array(z.object({
     company: z.string(),
-    startDate: z.date(),
-    endDate: z.date().optional(),
+    startDate: z.preprocess((arg) => {
+      if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+    }, z.date()),
+    endDate: z.preprocess((arg) => {
+      if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+    }, z.date().optional()),
     position: z.string(),
     additionalInfo: z.string().optional()
   })).optional(),
