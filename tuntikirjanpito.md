@@ -52,3 +52,7 @@
 |       |      |   Routeriin ja servicelle. Poisto mahdollista  |
 |       | 2    | - Ecv:n luontiin lomake, react hook forms      |
 |       |      |   opettelua jne.                               |
+|       |      |                                                |
+| 17.12 | 2    | - Ecv formin toteutus loppuun, yritin tehdä    |
+|       |      |   tagi syötteen, mutta en saanut integroitua   |
+|       | 1    | - Tyylittelyä                                  |
