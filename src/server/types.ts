@@ -30,7 +30,7 @@ interface HiringManager extends BaseUser {
 export type User = NormalUser
 export type CompanyUser = HiringManager
 
-interface Experience {
+export interface Experience {
     company: string;
     startDate: Date;
     endDate?: Date;
@@ -38,7 +38,7 @@ interface Experience {
     additionalInfo?: string;
   }
 
-interface Education {
+export interface Education {
   school: string;
   startDate: Date;
   graduationDate?: Date;

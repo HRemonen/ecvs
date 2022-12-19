@@ -5,29 +5,53 @@ import DeleteButton from "../misc/Buttons";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 import { deleteEcv } from "../../reducers/ecvReducer";
 
-import type { Ecv } from "@backend/types";
+import type { Ecv, Experience, Education } from "@backend/types";
 
-const EcvField: React.FC<{field: string; content: string | string[] | object[]}> = ({ field, content }) => {
+const ExperienceField: React.FC<{entry: Experience;}> = ({ entry }) => (
+  <div key={entry.company} className="text-sm border-b-2 hover:border-gray-400">
+    <h1 className="text-lg font-semibold">{entry.company}</h1>
+    <p className="text-gray-400">{new Date(entry.startDate).toDateString()} - {new Date((entry.endDate) as Date).toDateString()}</p>
+    <p >{ entry.position }</p>
+    <p className="text-gray-600 mt-4">{entry.additionalInfo}</p>
+  </div>
+);
+
+const EducationField: React.FC<{entry: Education;}> = ({ entry }) => (
+  <div key={entry.school} className="text-sm border-b-2 hover:border-gray-400">
+    <h1 className="text-lg font-semibold">{entry.school}</h1>
+    <p className="text-gray-400">{new Date(entry.startDate).toDateString()} - {new Date((entry.graduationDate) as Date).toDateString()}</p>
+    <p className="text-gray-600 mt-4">{entry.additionalInfo}</p>
+  </div>
+);
+
+const EcvField: React.FC<{field: string; content: string | string[] | Experience[] | Education[]}> = ({ field, content }) => {
   const [visible, setVisible] = useState(false)
 
   if (field === "user" || field === "id") return null;
 
   const renderContent = () => {
-    if (field === "education" || field === "experience") {
-      return (
-        <div className="ml-6">
-          { content.map(entry => (
-            <div key={entry.company} className="text-sm border-b-2 hover:border-gray-400">
-              <h1 className="text-lg font-semibold">{entry.company}</h1>
-              <p className="text-gray-400">{new Date(entry.startDate).toDateString()} - {new Date(entry.endDate).toDateString()}</p>
-              <p >{ entry.position }</p>
-              <p className="text-gray-600 mt-4">{entry.additionalInfo}</p>
-            </div>
-          ))}
-        </div>
-      )
+    switch (field) {
+      case "experience":
+        return (
+          <div className="ml-6">
+            { content.map((entry: Experience) => (
+              <ExperienceField key={entry.company} entry={entry} />
+            ))}
+          </div>
+        );
+      case "education":
+        return (
+          <div className="ml-6">
+            { content.map((entry: Education) => (
+              <EducationField key={entry.school} entry={entry} />
+            ))}
+          </div>
+        );
+      case "profile":
+        return <p className="flex-1 ml-3">{ (content) as string }</p>
+      default:
+        return <p className="flex-1 ml-3">{ (content as string[]).join(", ") }</p> 
     }
-    return <p className="flex-1 ml-3">{ content as string }</p> 
   };
 
   return (
