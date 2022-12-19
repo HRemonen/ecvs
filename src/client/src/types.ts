@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react";
-import { FieldError, FieldErrorsImpl, UseFormRegister } from "react-hook-form";
+import { FieldError, UseFormRegister } from "react-hook-form";
 
 export interface UserLogin {
   email: string;
@@ -13,6 +13,16 @@ export interface AuthenticatedUser {
     email: string;
     id: string;
   }
+}
+
+export interface LoginInput extends InputHTMLAttributes<HTMLInputElement> {
+  register: UseFormRegister<{
+    email: string;
+    password: string;
+  }>;
+  error: FieldError | undefined;
+  label: string;
+  id: "email" | "password";
 }
 
 export interface RegisterInput extends InputHTMLAttributes<HTMLInputElement> {

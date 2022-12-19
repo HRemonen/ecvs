@@ -5,7 +5,6 @@ import { ValidatedUser } from '../utils/usersValidator';
 import UserModel from '../models/user';
 import { JsonWebTokenError } from 'jsonwebtoken';
 
-
 const getUsers = async (): Promise<User[]> => {
   const users = await UserModel
     .find({})

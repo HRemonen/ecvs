@@ -1,6 +1,6 @@
-import { RegisterInput } from "src/types";
+import { RegisterInput, LoginInput } from "src/types";
 
-const FormInput = ({ register, error, label, id, ...inputProps }: RegisterInput) => (
+const FormInput = ({ register, error, label, id, ...inputProps }: RegisterInput | LoginInput ) => (
   <div className="mb-8">
     <label 
       className="block mb-2 font-semibold text-gray-900 md:text-xl"

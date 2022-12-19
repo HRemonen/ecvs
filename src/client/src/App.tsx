@@ -11,6 +11,7 @@ import Index from "./components/index/Index";
 import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import NotFound from "./components/misc/NotFound";
+import Register from "./components/authentication/Register";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={ <Index /> } />
           <Route path="/login" element={ <Login /> } />
+          <Route path="/register" element={ <Register /> } />
           <Route path="/dashboard/*" element={ <Dashboard /> } />
           <Route path="*"element={ <NotFound /> }/>
         </Routes>
