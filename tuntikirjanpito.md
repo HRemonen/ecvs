@@ -56,3 +56,7 @@
 | 17.12 | 2    | - Ecv formin toteutus loppuun, yritin tehdä    |
 |       |      |   tagi syötteen, mutta en saanut integroitua   |
 |       | 1    | - Tyylittelyä                                  |
+|       |      |                                                |
+| 18.12 | 2    | - Ecv formin toteutus loppuun, yritin tehdä    |
+|       |      |   tagi syötteen, mutta en saanut integroitua   |
+|       | 1    | - Tyylittelyä                                  |

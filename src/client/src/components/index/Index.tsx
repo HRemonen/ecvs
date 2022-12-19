@@ -5,7 +5,7 @@ const Index = () => {
     <>
       <Navbar />
       <div>
-        <div className="md:max-w-[800px] w-4/5 h-screen mt-[-100px] mx-auto text-center flex flex-col justify-center">
+        <div className="md:max-w-[800px] w-4/5 h-screen mt-[-300px] mx-auto text-center flex flex-col justify-center">
           <p className="text-2xl font-bold pb-2">
             Your dream job is just a click away
           </p>
