@@ -4,9 +4,9 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "../index/Navbar";
 import NavItem from "../index/NavItem";
 import UserDetails from "./UserDetails";
-import UserEcvs from "./UserEcvs";
+import UserEcvs from "../ecv/UserEcvs";
 import Dash from "./Dash";
-import NewEcvForm from "./NewEcvForm";
+import NewEcvForm from "../ecv/NewEcvForm";
 
 const Dashboard = () => {
   const auth = useAppSelector(state => state.authentication);
