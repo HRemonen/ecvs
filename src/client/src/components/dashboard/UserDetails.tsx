@@ -13,20 +13,19 @@ const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
       />
       <h1>{ user.firstName } { user.lastName }</h1>
       <h1>{ user.email }</h1>
-      <p>
-        { user.address ? <MdOutlineLocationOn size={ 24 } /> && user.address : null }
-      </p>
-      <p>
-        { user.phoneNumber? <MdPhoneIphone size={ 24 } /> && user.phoneNumber : null }
-      </p>
-      <div className="flex justify-center">
+      { user.address 
+        ? <p className='flex justify-center'> <MdOutlineLocationOn size={ 24 } /> { user.address } </p>
+        : null 
+      }
+      { user.phoneNumber 
+        ? <p className='flex justify-center'> <MdPhoneIphone size={ 24 } /> { user.phoneNumber } </p> 
+        : null 
+      }
+      <p className='flex justify-center'>
         <MdFactCheck className="mr-2" size={ 24 } />
-        <p>
-          {user.applications.length} applications · {user.ecvs.length} ecvs
-        </p>
-      </div>
+        {user.applications.length} applications · {user.ecvs.length} ecvs
+      </p>
     </div>
-    
   )
 };
 
