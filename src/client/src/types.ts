@@ -38,3 +38,7 @@ export interface RegisterInput extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: "address" | "firstName" | "lastName" | "email" | "password" | "phoneNumber";
 }
+
+export type InputType =
+  | RegisterInput
+  | LoginInput

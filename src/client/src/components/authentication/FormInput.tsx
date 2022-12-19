@@ -1,6 +1,6 @@
-import { RegisterInput, LoginInput } from "src/types";
+import { InputType } from "../../types";
 
-const FormInput = ({ register, error, label, id, ...inputProps }: RegisterInput | LoginInput ) => (
+const FormInput = ({ register, error, label, id, ...inputProps }: InputType) => (
   <div className="mb-8">
     <label 
       className="block mb-2 font-semibold text-gray-900 md:text-xl"
@@ -13,7 +13,7 @@ const FormInput = ({ register, error, label, id, ...inputProps }: RegisterInput 
             : "border-gray-400"
         }`}
       id={ id }
-      {...register(id)}
+      { ...register(id) }
       { ...inputProps }
       />
       { error && <p className='text-red-500 text-sm mt-2'>{ error.message }</p>}
