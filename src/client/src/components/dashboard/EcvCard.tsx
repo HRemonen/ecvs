@@ -29,7 +29,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
 
   return (
     <div className="w-full max-w-sm p-4 bg-white border rounded-lg shadow-md sm:p-6">
-        <h5 className="mb-3 text-base font-semibold text-gray-900 md:text-xl">
+        <h5 className="text-base font-semibold text-gray-900 md:text-xl">
           Ecv # { ecv.id }
         </h5>
         <ul className="my-4 space-y-3">

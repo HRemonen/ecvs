@@ -16,8 +16,8 @@ const UserEcvs: React.FC<{user: User & {id: string}}> = ({ user }) => {
   );
 
   return (
-    <div className="ml-4">
-      <div className="flex">
+    <div className="md:ml-2">
+      <div className="grid gap-2 md:gap-4 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
         {ecvs.map(e => {
           if ((e.user.id) as unknown === user.id) {
             return <EcvCard key={e.id} ecv={e}></EcvCard>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Dash = () => {
   return (
-    <div className="md:max-w-[800px] w-4/5 h-screen ml-4 text-left flex flex-col">
+    <div className="md:max-w-[800px] w-4/5 h-screen ml-2 text-left flex flex-col">
       <h1 className="text-[#1d1853] md:text-4xl sm:text-3xl text-2xl font-bold py-2">
         Welcome back
       </h1>
