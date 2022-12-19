@@ -61,3 +61,5 @@
 |       |      |   Login sivun uudelleen tyylittely             |
 |       | 1    | - Bugi fixejä, refaktorointia                  |
 |       | 2    | - Ecv kortin valmistuminen                     |
+|       | 2    | - TS vääntöä, Register ja login formin         |
+|       |      |   refaktorointia                               |
