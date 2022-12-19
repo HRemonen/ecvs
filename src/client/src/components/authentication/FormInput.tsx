@@ -16,7 +16,7 @@ const FormInput = ({ register, error, label, id, ...inputProps }: RegisterInput)
       {...register(id)}
       { ...inputProps }
       />
-      { error && <p className='text-red-500 text-sm mt-2'>{error.message}</p>}
+      { error && <p className='text-red-500 text-sm mt-2'>{ error.message }</p>}
   </div>
 );
 
