@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/" element={ <Index /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/dashboard/*" element={ <Dashboard /> } />
-          <Route path="/pekka" element={ <NotFound /> }/>
+          <Route path="*"element={ <NotFound /> }/>
         </Routes>
       </section>
     </Router>
