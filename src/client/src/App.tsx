@@ -10,6 +10,7 @@ import { initializeUsers } from "./reducers/userReducer";
 import Index from "./components/index/Index";
 import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import NotFound from "./components/misc/NotFound";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/" element={ <Index /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/dashboard/*" element={ <Dashboard /> } />
+          <Route path="/pekka" element={ <NotFound /> }/>
         </Routes>
       </section>
     </Router>
