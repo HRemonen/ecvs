@@ -53,10 +53,11 @@
 |       | 2    | - Ecv:n luontiin lomake, react hook forms      |
 |       |      |   opettelua jne.                               |
 |       |      |                                                |
-| 17.12 | 2    | - Ecv formin toteutus loppuun, yritin tehdä    |
-|       |      |   tagi syötteen, mutta en saanut integroitua   |
-|       | 1    | - Tyylittelyä                                  |
-|       |      |                                                |
 | 18.12 | 2    | - Ecv formin toteutus loppuun, yritin tehdä    |
 |       |      |   tagi syötteen, mutta en saanut integroitua   |
 |       | 1    | - Tyylittelyä                                  |
+|       |      |                                                |
+| 19.12 | 2    | - Tyylittelyt jatkuu, NotFound sivun luonti    |
+|       |      |   Login sivun uudelleen tyylittely             |
+|       | 1    | - Bugi fixejä, refaktorointia                  |
+|       | 2    | - Ecv kortin valmistuminen                     |
