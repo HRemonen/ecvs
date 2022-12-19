@@ -84,7 +84,7 @@ const Login = () => {
         </p>
       </div>
       <div className="flex flex-col justify-center ">
-          <img src={clipboard}>
+          <img src={clipboard} alt="picture of a clipboard with checkmarks on items">
           </img>
       </div>
     </div>
