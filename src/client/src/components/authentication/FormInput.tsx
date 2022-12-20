@@ -1,6 +1,6 @@
 import { InputType } from "../../types";
 
-const FormInput = ({ register, error, label, id, ...inputProps }: InputType) => (
+const FormInput: React.FC<InputType> = ({ register, error, label, id, ...inputProps }) => (
   <div className="mb-8">
     <label 
       className="block mb-2 font-semibold text-gray-900 md:text-xl"
