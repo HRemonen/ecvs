@@ -63,3 +63,5 @@
 |       | 2    | - Ecv kortin valmistuminen                     |
 |       | 2    | - TS vääntöä, Register ja login formin         |
 |       |      |   refaktorointia                               |
+|       |      |                                                |
+| 20.12 | 2    | - Rekisteröinti logiikan viimeistely, bug fixes|
