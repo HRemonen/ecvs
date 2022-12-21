@@ -37,7 +37,7 @@ const NewEcvForm = () => {
   const inputWrapper = "p-4 text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
   const labelClass = "flex items-center p-3 text-base font-bold text-[#1d1853]"
   const propertyClass = "flex items-center p-3 text-base text-[#1d1853]"
-  const inputClass = "block w-full bg-transparent outline-none border-b-2 py-2 px-4 placeholder-gray-500 text-gray-900 border-gray-200"
+  const inputClass = "block w-[70%] bg-transparent outline-none border-b-2 py-2 px-4 placeholder-gray-500 text-gray-900 border-gray-200"
 
   return (
     <div className='w-full max-w-2xl p-4 bg-white border rounded-lg shadow-md sm:p-6'>
@@ -168,6 +168,7 @@ const NewEcvForm = () => {
             })}
           </div>
 
+              
           <div className={inputWrapper}>
             <div className="flex">
               <label className={labelClass}>
@@ -177,22 +178,18 @@ const NewEcvForm = () => {
                 skillAppend(""); }}> New skill 
               </button>
             </div>
-            
             {skillFields.map((field, index) => {
               return (
-                <div key={field.id}>
+                <div className="flex" key={field.id}>
                   <label className={propertyClass}>
                     Skill # {index + 1}
                   </label>
-
-                  <div className="flex">
-                    <input type="text" className={inputClass}
-                      {...register(`skills.${index}`, { required: true })}
-                    />
-                    <button type="button" onClick={() => skillRemove(index)}>
-                      Delete
-                    </button>
-                  </div>
+                  <input type="text" className={inputClass}
+                    {...register(`skills.${index}`, { required: true })}
+                  />
+                  <button type="button" onClick={() => skillRemove(index)}>
+                    Delete
+                  </button>
                 </div>
               );
             })}
@@ -209,19 +206,16 @@ const NewEcvForm = () => {
             </div>
             {hobbyFields.map((field, index) => {
               return (
-                <div key={field.id}>
+                <div className="flex" key={field.id}>
                   <label className={propertyClass}>
                     Hobby # {index + 1}
                   </label>
-
-                  <div className="flex">
-                    <input type="text" className={inputClass}
-                      {...register(`hobbies.${index}`, { required: true })}
-                    />
-                    <button type="button" onClick={() => hobbyRemove(index)}>
-                      Delete
-                    </button>
-                  </div>
+                  <input type="text" className={inputClass}
+                    {...register(`hobbies.${index}`, { required: true })}
+                  />
+                  <button type="button" onClick={() => hobbyRemove(index)}>
+                    Delete
+                  </button>
                 </div>
               );
             })}
@@ -238,19 +232,17 @@ const NewEcvForm = () => {
             </div>
             {langFields.map((field, index) => {
               return (
-                <div key={field.id}>
+                <div className="flex" key={field.id}>
                   <label className={propertyClass}>
                     Language # {index + 1}
                   </label>
+                  <input type="text" className={inputClass}
+                    {...register(`languages.${index}`, { required: true })}
+                  />
+                  <button type="button" onClick={() => langRemove(index)}>
+                    Delete
+                  </button>
 
-                  <div className="flex">
-                    <input type="text" className={inputClass}
-                      {...register(`languages.${index}`, { required: true })}
-                    />
-                    <button type="button" onClick={() => langRemove(index)}>
-                      Delete
-                    </button>
-                  </div>
                 </div>
               );
             })}

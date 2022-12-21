@@ -1,5 +1,3 @@
-import { useAppSelector } from "../../hooks/dispatchHooks";
-
 import EcvCard from "./EcvCard";
 
 import type { Ecv } from "@backend/types";
