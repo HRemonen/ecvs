@@ -2,10 +2,10 @@ import { MdOutlineLocationOn, MdPhoneIphone,MdFactCheck } from 'react-icons/md';
 
 import Profile from '../../assets/default_profile.svg';
 
-import type { User } from "@backend/types";
+import type { User, Ecv } from "@backend/types";
 
-const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
-  return (
+const UserDetails: React.FC<{user: User & {id: string}; 
+  ecvs: Array<Ecv & {id: string;}>}> = ({ user, ecvs }) => (
     <div className="text-center items-center border-r border-r-gray-200">
       <img 
         className="inline-block object-scale-down h-20 w-20 md:h-48 md:w-48 m-4" 
@@ -23,10 +23,9 @@ const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => {
       }
       <p className='flex justify-center'>
         <MdFactCheck className="mr-2" size={ 24 } />
-        {user.applications.length} applications · {user.ecvs.length} ecvs
+        {user.applications.length} applications · {ecvs.length} ecvs
       </p>
     </div>
-  )
-};
+  );
 
 export default UserDetails;

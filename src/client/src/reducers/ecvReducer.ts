@@ -33,10 +33,8 @@ export const initializeEcvs = () => {
 };
 
 export const createEcv = (ecv: ValidatedEcv) => {
-  console.log("create this:", ecv)
   return async (dispatch: Dispatch): Promise <void> => {
     const newEcv = await ecvsService.createEcv(ecv);
-    console.log("this was created:", newEcv)
     dispatch(append(newEcv));
   };
 };

@@ -11,17 +11,19 @@ import NewEcvForm from "../ecv/NewEcvForm";
 const Dashboard = () => {
   const auth = useAppSelector(state => state.authentication);
   const users = useAppSelector(state => state.users);
+  const ecvs = useAppSelector(state => state.ecvs);
 
   const user = users.find(u => u.id === auth.user.id);
 
-  console.log("auth:", auth, "user:", user)
-  if (!user) return null;
+  if (!user || !auth) return null;
 
+  const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
+  
   return (
     <>
       <Navbar />
       <div className="grid gap-4 grid-cols-3 grid-rows-1">
-        <UserDetails user={user} />
+        <UserDetails user={user} ecvs={userEcvs} />
         <div className="col-span-2">
           <div className="flex justify-between items-center h-24 mx-auto px-4">
             <ul className="flex">
@@ -33,7 +35,7 @@ const Dashboard = () => {
           <div className="">
             <Routes>
               <Route path="" element={<Dash />} />
-              <Route path="/ecvs" element={<UserEcvs user={user} />} />
+              <Route path="/ecvs" element={<UserEcvs ecvs={userEcvs} />} />
               <Route path="/ecvs/create" element={<NewEcvForm />} />
             </Routes>
           </div>
