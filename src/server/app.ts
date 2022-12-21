@@ -27,6 +27,12 @@ app.use('/api/ecvs', ecvsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
 
+if (process.env.NODE_ENV === 'test') {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const testingRouter = require('./routes/testing')
+  app.use('/api/testing', testingRouter)
+}
+
 app.use(errorHandler);
 
 export default app;
