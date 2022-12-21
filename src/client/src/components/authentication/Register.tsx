@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
+import { createUser } from "../../reducers/userReducer";
+
 import FormInput from "./FormInput";
 
 import { UserZod } from "../../validators/zodValidators";
@@ -12,15 +14,16 @@ import type { ValidatedUser } from "@backend/utils/usersValidator";
 const Register = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
+  
   const { register, handleSubmit, formState:{ errors } } = useForm<ValidatedUser>({
     mode: "onBlur", resolver: zodResolver(UserZod)
   });
-
+  
   const onSubmit = (data: ValidatedUser) => {
-    console.log(data)
+    dispatch(createUser(data));
+    navigate('/login')
   }
-
+  
   return (
     <div className='grid grid-cols-2 h-screen min-h-screen'>
       <div className="flex flex-col justify-center ">
