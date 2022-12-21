@@ -37,5 +37,22 @@ describe('When user has logged in', function () {
       cy.contains('Profile')
       cy.contains('Submit')
     })
+
+    it('user can fill in the information and submit the form', function() {
+      cy.get('#new-exp-button').click()
+      cy.get('input[id=exp-company-0]').type('Testfactory')
+      cy.get('input[id=exp-position-0]').type('Testmanager')
+      cy.get('input[id=exp-position-0]').type('Testmanager')
+      cy.get('input[id=exp-start-0]').type('2017-01-01')
+      cy.get('input[id=exp-end-0]').type('2022-01-01')
+
+      cy.get('#new-lang-button').click()
+      cy.get('input[id=lang-0]').type('English')
+      cy.get('#new-lang-button').click()
+      cy.get('input[id=lang-1]').type('Testing')
+      
+      cy.get('input[id=profile]').type('I am a nice tester man, please hire!')
+      cy.get('#submit-form-button').click()
+    })
   })
 })
