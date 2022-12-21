@@ -50,6 +50,7 @@ const NewEcvForm = () => {
               Experience
             </label>
             <button
+              id="new-exp-button"
               type="button"
               onClick={() => {
                 expAppend({
@@ -68,13 +69,13 @@ const NewEcvForm = () => {
                 <label className={propertyClass}>
                   Company
                 </label>
-                <input type="text" className={inputClass}
+                <input id={`exp-company-${index}`} type="text" className={inputClass}
                   {...register(`experience.${index}.company`, { required: true })}
                 />
                 <label className={propertyClass}>
                   Position
                 </label>
-                <input type="text" className={inputClass}
+                <input id={`exp-position-${index}`} type="text" className={inputClass}
                   {...register(`experience.${index}.position`, { required: true })}
                 />
 
@@ -82,14 +83,14 @@ const NewEcvForm = () => {
                   <label className={propertyClass}>
                     Start date
                   </label>
-                  <input type="date" className={inputClass}
+                  <input id={`exp-start-${index}`} type="date" className={inputClass}
                     {...register(`experience.${index}.startDate`, { required: true })}
                   />
 
                   <label className={propertyClass}>
                     End date
                   </label>
-                  <input type="date" className={inputClass}
+                  <input id={`exp-end-${index}`} type="date" className={inputClass}
                     {...register(`experience.${index}.endDate`, { required: false })}
                   />
                 </div>
@@ -97,11 +98,11 @@ const NewEcvForm = () => {
                 <label className={propertyClass}>
                   Additional information
                 </label>
-                <input type="text" className={inputClass}
+                <input id={`exp-info-${index}`} type="text" className={inputClass}
                   {...register(`experience.${index}.additionalInfo`, { required: false })}
                 />
 
-                <button type="button" onClick={() => expRemove(index)}>
+                <button id={`exp-remove-${index}`} type="button" onClick={() => expRemove(index)}>
                   Delete
                 </button>
               </div>
@@ -115,6 +116,7 @@ const NewEcvForm = () => {
                 Education
               </label>
               <button
+                id="new-edu-button"
                 type="button"
                 onClick={() => {
                   eduAppend({
@@ -133,7 +135,7 @@ const NewEcvForm = () => {
                   <label className={propertyClass}>
                     School
                   </label>
-                  <input type="text" className={inputClass}
+                  <input id={`edu-school-${index}`} type="text" className={inputClass}
                     {...register(`education.${index}.school`, { required: true })}
                   />
 
@@ -141,14 +143,14 @@ const NewEcvForm = () => {
                     <label className={propertyClass}>
                       Start date
                     </label>
-                    <input type="date" className={inputClass}
+                    <input id={`edu-start-${index}`} type="date" className={inputClass}
                       {...register(`education.${index}.startDate`, { required: true })}
                     />
 
                     <label className={propertyClass}>
                       End date
                     </label>
-                    <input type="date" className={inputClass}
+                    <input id={`edu-end-${index}`} type="date" className={inputClass}
                       {...register(`education.${index}.graduationDate`, { required: false })}
                     />
                   </div>
@@ -156,11 +158,11 @@ const NewEcvForm = () => {
                   <label className={propertyClass}>
                     Additional information
                   </label>
-                  <input type="text" className={inputClass}
+                  <input id={`edu-info-${index}`} type="text" className={inputClass}
                     {...register(`education.${index}.additionalInfo`, { required: false })}
                   />
 
-                  <button type="button" onClick={() => eduRemove(index)}>
+                  <button id={`edu-remove-${index}`} type="button" onClick={() => eduRemove(index)}>
                     Delete
                   </button>
                 </section>
@@ -174,7 +176,7 @@ const NewEcvForm = () => {
               <label className={labelClass}>
                 Skills
               </label>
-              <button type="button" onClick={() => {
+              <button id="new-skill-button" type="button" onClick={() => {
                 skillAppend(""); }}> New skill 
               </button>
             </div>
@@ -184,10 +186,10 @@ const NewEcvForm = () => {
                   <label className={propertyClass}>
                     Skill # {index + 1}
                   </label>
-                  <input type="text" className={inputClass}
+                  <input id={`skill-${index}`} type="text" className={inputClass}
                     {...register(`skills.${index}`, { required: true })}
                   />
-                  <button type="button" onClick={() => skillRemove(index)}>
+                  <button id={`skill-remove-${index}`} type="button" onClick={() => skillRemove(index)}>
                     Delete
                   </button>
                 </div>
@@ -200,7 +202,7 @@ const NewEcvForm = () => {
               <label className={labelClass}>
                 Hobbies
               </label>
-              <button type="button" onClick={() => {
+              <button id="new-hobby-button" type="button" onClick={() => {
                 hobbyAppend(""); }}> New hobby 
               </button>
             </div>
@@ -210,10 +212,10 @@ const NewEcvForm = () => {
                   <label className={propertyClass}>
                     Hobby # {index + 1}
                   </label>
-                  <input type="text" className={inputClass}
+                  <input id={`hobby-${index}`} type="text" className={inputClass}
                     {...register(`hobbies.${index}`, { required: true })}
                   />
-                  <button type="button" onClick={() => hobbyRemove(index)}>
+                  <button id={`hobby-remove-${index}`} type="button" onClick={() => hobbyRemove(index)}>
                     Delete
                   </button>
                 </div>
@@ -226,7 +228,7 @@ const NewEcvForm = () => {
               <label className={labelClass}>
                 Languages
               </label>
-              <button type="button" onClick={() => {
+              <button id="new-lang-button" type="button" onClick={() => {
                 langAppend(""); }}> New language 
               </button>
             </div>
@@ -236,10 +238,10 @@ const NewEcvForm = () => {
                   <label className={propertyClass}>
                     Language # {index + 1}
                   </label>
-                  <input type="text" className={inputClass}
+                  <input id={`lang-${index}`} type="text" className={inputClass}
                     {...register(`languages.${index}`, { required: true })}
                   />
-                  <button type="button" onClick={() => langRemove(index)}>
+                  <button id={`lang-remove-${index}`} type="button" onClick={() => langRemove(index)}>
                     Delete
                   </button>
 
@@ -253,12 +255,12 @@ const NewEcvForm = () => {
               className={labelClass}>
               Profile
             </label>
-            <input type="text" placeholder="Write something about yourself" className={inputClass}
+            <input id="profile" type="text" placeholder="Write something about yourself" className={inputClass}
               {...register("profile")}
             />
           </div>
           
-          <button type="submit"> Submit </button>
+          <button id="submit-form-button" type="submit"> Submit </button>
         </form>
       </div>
     </div>

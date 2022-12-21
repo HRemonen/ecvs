@@ -31,9 +31,9 @@ export const { login, logout } = authSlice.actions;
 
 export const isLogged = () => {
   return (dispatch: Dispatch) => {
-    const loggedUser = window.localStorage.getItem("loggedUser");
-    if (loggedUser) {
-      const user: AuthenticatedUser = JSON.parse(loggedUser);
+    const ecvesUser = window.localStorage.getItem("loggedUser");
+    if (ecvesUser) {
+      const user: AuthenticatedUser = JSON.parse(ecvesUser);
       ecvsService.setToken(user.token);
       dispatch(login(user));
     }

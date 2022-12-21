@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   const user = users.find(u => u.id === auth.user.id);
 
-  if (!user || !auth) return null;
+  if (!user) return null;
 
   const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
   

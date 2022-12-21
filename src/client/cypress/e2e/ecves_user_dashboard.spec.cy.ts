@@ -14,10 +14,28 @@ describe('When user has logged in', function () {
 
   beforeEach(function () {
     cy.login("testi@testi.fi", "salasana")
+    cy.contains('Dashboard').click()
   })
 
   it('user can navigate to the dashboard', function () {
-    cy.contains('Dashboard').click()
-    cy.contains('welcome')
+    cy.contains('Welcome back')
+    cy.contains('testi testi')
+    cy.contains('testi@testi.fi')
+  })
+
+  describe('inside ecv form window', function() {
+    beforeEach(function() {
+      cy.contains('Create new ecv').click()
+    })
+
+    it('user can open new ecv form', function () {  
+      cy.contains('Experience')
+      cy.contains('Education')
+      cy.contains('Skills')
+      cy.contains('Hobbies')
+      cy.contains('Languages')
+      cy.contains('Profile')
+      cy.contains('Submit')
+    })
   })
 })
