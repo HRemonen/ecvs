@@ -30,6 +30,7 @@ const getEcvs = async (): Promise<Ecv[]> => {
 };
 
 const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv> => {
+  console.log("config", config)
   const response = await axios.post(baseUrl, newEcv, config);
   return response.data;
 };

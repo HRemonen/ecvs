@@ -47,6 +47,7 @@ export const loginUser = (email: string, password: string) => {
       password
     });
     window.localStorage.setItem("loggedUser", JSON.stringify(user));
+    ecvsService.setToken(user.token);
     dispatch(login(user));
   };
 };
