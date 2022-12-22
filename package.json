@@ -1,0 +1,21 @@
+{
+  "name": "ecvs",
+  "version": "1.0.0",
+  "description": "Online job platform",
+  "scripts": {
+    "test:server": "cd ./src/server && npm run start:test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HRemonen/ecvs.git"
+  },
+  "author": "Henri Remonen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HRemonen/ecvs/issues"
+  },
+  "homepage": "https://github.com/HRemonen/ecvs#readme",
+  "devDependencies": {
+    "cypress": "^12.2.0"
+  }
+}
