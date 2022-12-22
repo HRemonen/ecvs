@@ -43,7 +43,7 @@ jobs:
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
 
-  e2e:
+  frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -57,10 +57,13 @@ jobs:
 
       - name: Init frontend
         run: cd ./src/client && npm install
+
       - name: Run lint
         run: cd ./src/client && npm run lint
+
       - name: Cypress run
         uses: cypress-io/github-action@v5
+
         env:
           MONGODB_URI: ${{secrets.MONGODB_URI}}
           TEST_MONGODB_URI: ${{secrets.TEST_MONGODB_URI}}
@@ -68,5 +71,5 @@ jobs:
           SECRET: ${{secrets.SECRET}}
         with:
           command: npm run test:client
-          start: npm run test:server && npm run start:client
+          start: npm run test:server, npm run start:client
           wait-on: 'http://localhost:5173/'
