@@ -6,10 +6,10 @@
   "scripts": {
     "ts-node": "ts-node",
     "lint": "eslint --ext .ts .",
-    "build": "tsc",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
     "dev": "cross-env NODE_ENV=development ts-node-dev index.ts",
-    "start": "node build/index.js",
+    "tsc": "tsc",
+    "start": "ts-node build/index.js",
     "start:test": "cross-env NODE_ENV=test ts-node index.ts",
     "coverage": "npm test -- --coverage"
   },
