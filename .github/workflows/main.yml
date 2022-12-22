@@ -53,11 +53,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Init backend
-        env: 
-          MONGODB_URI: ${{secrets.MONGODB_URI}}
-          TEST_MONGODB_URI: ${{secrets.TEST_MONGODB_URI}}
-          PORT: ${{secrets.PORT}}
-          SECRET: ${{secrets.SECRET}}
         run: cd ./src/server && npm install && npm install ts-node typescript
 
       - name: Init frontend
@@ -66,6 +61,11 @@ jobs:
         run: cd ./src/client && npm run lint
       - name: Cypress run
         uses: cypress-io/github-action@v5
+        env:
+          MONGODB_URI: ${{secrets.MONGODB_URI}}
+          TEST_MONGODB_URI: ${{secrets.TEST_MONGODB_URI}}
+          PORT: ${{secrets.PORT}}
+          SECRET: ${{secrets.SECRET}}
         with:
           command: npm run test:client
           start: npm run test:server
