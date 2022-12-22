@@ -51,6 +51,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./src/server/package-lock.json
       - name: Init backend
         env: 
           MONGODB_URI: ${{secrets.MONGODB_URI}}
@@ -66,7 +68,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          cache-dependency-path: ./src/client/package-lock.json
-          command: cd ./src/client && npm run test:e2e
+          command: cd ./src/client && npx cypress run
           start: cd ./src/server && npm run start:test
           wait-on: 'http://localhost:5173/'
