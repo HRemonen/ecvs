@@ -47,13 +47,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Init backend
         working-directory: ./src/server
         run: npm install && npm install ts-node typescript
+
       - name: run test server
         working-directory: ./src/server
         run: npm run start:test
@@ -61,9 +64,11 @@ jobs:
       - name: Init frontend
         working-directory: ./src/client
         run: npm install
+
       - name: Run lint
         working-directory: ./src/client
         run: npm run lint
+
       - name: Cypress run
         working-directory: ./src/client
         uses: cypress-io/github-action@v5
