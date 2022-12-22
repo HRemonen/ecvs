@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from "mongoose";
 import config from './utils/config';
+import path from 'path';
 
 import usersRouter from './routes/users';
 import ecvsRouter from './routes/ecvs';
@@ -30,10 +31,14 @@ app.use('/api/login', loginRouter);
 
 if (process.env.NODE_ENV === 'test') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const testingRouter = require('./routes/testing')
-  app.use('/api/testing', testingRouter)
+  const testingRouter = require('./routes/testing');
+  app.use('/api/testing', testingRouter);
 }
 
 app.use(errorHandler);
+
+app.get('/*',  (_request, response) => {
+  response.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 export default app;

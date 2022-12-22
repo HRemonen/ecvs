@@ -8,7 +8,7 @@
     "lint": "eslint --ext .ts .",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand --forceExit",
     "dev": "cross-env NODE_ENV=development ts-node-dev index.ts",
-    "tsc": "tsc",
+    "tsc": "tsc && cp -r dist build/",
     "start": "ts-node build/index.js",
     "start:test": "cross-env NODE_ENV=test ts-node index.ts",
     "coverage": "npm test -- --coverage"
