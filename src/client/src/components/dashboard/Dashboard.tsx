@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks/dispatchHooks";
-import { Routes, Route, redirect } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "../index/Navbar";
 import NavItem from "../index/NavItem";

@@ -69,5 +69,5 @@
 |       |      |                                                |
 | 21.12 | 2    | - Frontend ja e2e testit CI pipelineen         |
 |       | 6    | - Fly.io säätäminen, 1. production buildi      |
-|       |      |                                                |
-| total | 74,5 |                                                |
+|       |      |   Bug fixes ja refaktorointia                  |
+| total | 80,5 |                                                |
