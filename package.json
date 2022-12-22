@@ -5,7 +5,8 @@
   "scripts": {
     "start:client": "cd ./src/client && npm run dev",
     "test:client": "cd ./src/client && npm run test:e2e",
-    "test:server": "cd ./src/server && npm run start:test"
+    "test:server": "cd ./src/server && npm run start:test",
+    "cp:frontend": "cd ./src/client && npm run build && cp -r dist ../server/"
   },
   "repository": {
     "type": "git",
