@@ -10,8 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  backend:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -43,3 +42,36 @@ jobs:
       run: npm run coverage
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
+
+  frontend / integration:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./src/server/package-lock.json
+      - name: CD to backend
+        run: cd server 
+      - name: Install dependencies
+        run: npm install
+      - name: Run test server
+        run: npm run start:test
+
+      - name: CD to frontend
+        run: cd ../client/
+      - name: Install dependencies
+        run: npm install
+      - name: Run lint
+        run: npm run lint
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test:e2e
+          wait-on: 'http://localhost:5173/'
