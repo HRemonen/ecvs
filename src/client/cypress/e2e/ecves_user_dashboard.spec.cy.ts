@@ -18,14 +18,21 @@ describe('When user has logged in', function () {
   })
 
   it('user can navigate to the dashboard', function () {
+    cy.url().should('include', '/dashboard')
+
     cy.contains('Welcome back')
     cy.contains('testi testi')
     cy.contains('testi@testi.fi')
   })
 
+  it('user can logout from the site', function () {
+    cy.contains('Logout').click()
+  })
+
   describe('inside ecv form window', function() {
     beforeEach(function() {
       cy.contains('Create new ecv').click()
+      cy.url().should('include', '/dashboard/ecvs/create')
     })
 
     it('user can open new ecv form', function () {  
@@ -71,6 +78,7 @@ describe('When user has logged in', function () {
   describe('after creating ecv', function () {
     beforeEach(function() {
       cy.contains('Ecvs').click()
+      cy.url().should('include', '/dashboard/ecvs')
     })
 
     it('user ecvs should appear in the ecvs tab', function () {
