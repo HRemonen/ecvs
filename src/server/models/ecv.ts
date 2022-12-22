@@ -7,9 +7,9 @@ const ecvSchema = new mongoose.Schema<Ecv>({
     ref: 'User',
     required: true
   },
-  skills: [String],
-  education: [Object],
   experience: [Object],
+  education: [Object],
+  skills: [String],
   languages: [String],
   profile: String
 });

@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../hooks/dispatchHooks";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, redirect } from "react-router-dom";
 
 import Navbar from "../index/Navbar";
 import NavItem from "../index/NavItem";
@@ -15,8 +15,9 @@ const Dashboard = () => {
 
   const user = users.find(u => u.id === auth.user.id);
 
-  if (!user) return null;
-
+  if (!user) {
+    return null;
+  }
   const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
   
   return (

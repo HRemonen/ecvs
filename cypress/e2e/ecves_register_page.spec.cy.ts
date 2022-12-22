@@ -30,15 +30,13 @@ describe('Ecves register page', function () {
     cy.get('#firstName').type('t')
     cy.get('#lastName').type('t')
     cy.get('#email').type('testi')
-    cy.get('#phoneNumber').type('1')
     cy.get('#password').type('s')
 
     cy.get('#register-button').click()
 
-    cy.contains('Firstname must be 2 or more characters long')
-    cy.contains('Lastname must be 2 or more characters long')
+    cy.contains('First name must be 2 or more characters long')
+    cy.contains('Last name must be 2 or more characters long')
     cy.contains('Invalid email')
-    cy.contains('String must contain at least 10 character(s)')
     cy.contains('Password must be 8 or more characters long')
   })
 })
