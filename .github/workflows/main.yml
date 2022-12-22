@@ -57,8 +57,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: ./src/server/package-lock.json
-      - name: CD to backend
-        run: cd server 
       - name: Install dependencies
         run: npm install
       - name: Run test server
