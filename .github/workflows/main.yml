@@ -56,12 +56,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Init backend
-        run: cd backend && npm install && npm install ts-node typescript
+        run: cd src/backend && npm install && npm install ts-node typescript
       - name: run test server
         run: npm run start:test
 
       - name: Init frontend
-        run: cd client && npm install
+        run: cd src/client && npm install
       - name: Run lint
         run: npm run lint
       - name: Cypress run
