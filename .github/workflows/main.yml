@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./src/server
+        working-directory: ./src
 
     steps:
       - uses: actions/checkout@v3
@@ -55,17 +55,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: ./src/server/package-lock.json
-      - name: Install dependencies
-        run: npm install
-      - name: Run test server
+      - name: Init backend
+        run: cd backend && npm install && npm install ts-node typescript
+      - name: run test server
         run: npm run start:test
 
-      - name: CD to frontend
-        run: cd ../client/
-      - name: Install dependencies
-        run: npm install
+      - name: Init frontend
+        run: cd client && npm install
       - name: Run lint
         run: npm run lint
       - name: Cypress run
