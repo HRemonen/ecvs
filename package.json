@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Online job platform",
   "scripts": {
+    "start:client": "cd ./src/client && npm run dev",
     "test:client": "cd ./src/client && npm run test:e2e",
     "test:server": "cd ./src/server && npm run start:test"
   },

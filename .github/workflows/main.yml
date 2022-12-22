@@ -68,5 +68,5 @@ jobs:
           SECRET: ${{secrets.SECRET}}
         with:
           command: npm run test:client
-          start: npm run test:server
+          start: npm run test:server && npm run start:client
           wait-on: 'http://localhost:5173/'
