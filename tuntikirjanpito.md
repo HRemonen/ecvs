@@ -67,4 +67,6 @@
 | 20.12 | 2    | - Rekisteröinti logiikan viimeistely, bug fixes|
 |       | 6    | - E2e testauksen aloittelua, cypress, bugi fix |
 |       |      |                                                |
-| total | 72,5 | - Rekisteröinti logiikan viimeistely, bug fixes|
+| 21.12 | 2    | - Frontend ja e2e testit CI pipelineen         |
+|       |      |                                                |
+| total | 74,5 |                                                |
