@@ -68,5 +68,6 @@
 |       | 6    | - E2e testauksen aloittelua, cypress, bugi fix |
 |       |      |                                                |
 | 21.12 | 2    | - Frontend ja e2e testit CI pipelineen         |
+|       | 6    | - Fly.io säätäminen, 1. production buildi      |
 |       |      |                                                |
 | total | 74,5 |                                                |

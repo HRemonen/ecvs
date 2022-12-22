@@ -5,7 +5,8 @@
 [![codecov](https://codecov.io/gh/HRemonen/ecvs/branch/main/graph/badge.svg?token=PxyLJP4niU)](https://codecov.io/gh/HRemonen/ecvs)
 
 
-Ecves is an online CV / job hunting platform.
+[Ecves](https://ecves.fly.dev/) is an online CV / job hunting platform.
+
 
 ## What
 Users can create electronic CV's called "e-CV" that are used to apply for jobs opened by companies 

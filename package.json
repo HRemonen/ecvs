@@ -7,7 +7,8 @@
     "cypress:open": "cypress open",
     "test:server": "cd ./src/server && npm run start:test",
     "cp:frontend": "cd ./src/client && npm run build && cp -r dist ../server/",
-    "init:build": "cd ./src/server && npm run tsc"
+    "init:build": "cd ./src/server && npm run tsc",
+    "deploy": "npm run cp:frontend && npm run init:build && cd ./src/server && flyctl deploy"
   },
   "repository": {
     "type": "git",
