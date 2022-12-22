@@ -57,7 +57,7 @@ jobs:
           TEST_MONGODB_URI: ${{secrets.TEST_MONGODB_URI}}
           PORT: ${{secrets.PORT}}
           SECRET: ${{secrets.SECRET}}
-        run: cd ./src/server && npm install && npm install ts-node typescript && npm run start:test
+        run: cd ./src/server && npm install && npm install ts-node typescript
 
       - name: Init frontend
         run: cd ./src/client && npm install
@@ -67,4 +67,5 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           command: cd ./src/client && npm run test:e2e
+          start: cd ./src/server && npm run start:test
           wait-on: 'http://localhost:5173/'
