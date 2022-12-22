@@ -10,15 +10,17 @@ describe('Ecves login page', function () {
     }
 
     cy.request('POST', 'http://localhost:3001/api/users', user)
+    cy.visit('http://localhost:3001/')
   })
 
   it('login page can be opened', function () {
-    cy.visit('http://localhost:5173/login')
-    cy.contains('Login')
+    cy.contains('Login').click()
+    cy.contains('Email')
+    cy.contains('Password')
   })
 
   it('user can login with correct information', function() {
-    cy.visit('http://localhost:5173/login')
+    cy.contains('Login').click()
     cy.get('#email').type('testi@testi.fi')
     cy.get('#password').type('salasana')
     cy.get('#login-button').click()
@@ -28,7 +30,7 @@ describe('Ecves login page', function () {
   })
 
   it('user can not login with incorrect email', function () {
-    cy.visit('http://localhost:5173/login')
+    cy.contains('Login').click()
     cy.get('#email').type('test')
     cy.get('#password').type('salasana')
 
@@ -36,7 +38,7 @@ describe('Ecves login page', function () {
   })
 
   it('user can not login with too short password', function () {
-    cy.visit('http://localhost:5173/login')
+    cy.contains('Login').click()
     cy.get('#email').type('test@testi.fi')
     cy.get('#password').type('s')
 

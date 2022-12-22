@@ -1,15 +1,18 @@
 describe('Ecves register page', function () {
   beforeEach(function () {
     cy.request('POST', 'http://localhost:3001/api/testing/reset')
+
+    cy.visit('http://localhost:3001/')
+
   })
 
   it('register page can be opened', function () {
-    cy.visit('http://localhost:5173/register')
+    cy.contains('Get started').click()
     cy.contains('Register')
   })
 
   it('user can register with correct information', function() {
-    cy.visit('http://localhost:5173/register')
+    cy.contains('Get started').click()
     cy.get('#firstName').type('testi')
     cy.get('#lastName').type('testi')
     cy.get('#email').type('testi@testi.fi')
@@ -23,7 +26,7 @@ describe('Ecves register page', function () {
   })
 
   it('user can not register with invalid information', function() {
-    cy.visit('http://localhost:5173/register')
+    cy.contains('Get started').click()
     cy.get('#firstName').type('t')
     cy.get('#lastName').type('t')
     cy.get('#email').type('testi')

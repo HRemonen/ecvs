@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Online job platform",
   "scripts": {
-    "start:client": "cd ./src/client && npm run dev",
-    "test:client": "cd ./src/client && npm run test:e2e",
+    "test:e2e": "cypress run",
+    "cypress:open": "cypress open",
     "test:server": "cd ./src/server && npm run start:test",
     "cp:frontend": "cd ./src/client && npm run build && cp -r dist ../server/"
   },
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/HRemonen/ecvs#readme",
   "devDependencies": {
-    "cypress": "^12.2.0"
+    "cypress": "^12.2.0",
+    "typescript": "^4.9.4"
   }
 }

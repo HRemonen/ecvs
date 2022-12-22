@@ -18,7 +18,7 @@ Cypress.Commands.add('login', (email, password) => {
   }).then(({ body }) => {
     console.log(body)
     localStorage.setItem('loggedUser', JSON.stringify(body))
-    cy.visit('http://localhost:5173')
+    cy.visit('http://localhost:3001')
   })
 })
 //
