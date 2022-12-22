@@ -66,6 +66,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
+          cache-dependency-path: ./src/client/package-lock.json
           command: cd ./src/client && npm run test:e2e
           start: cd ./src/server && npm run start:test
           wait-on: 'http://localhost:5173/'
