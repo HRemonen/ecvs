@@ -52,16 +52,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Init backend
-        run: cd ./src/server && npm install && npm install ts-node typescript
-      - name: run test server
-        run: npm run start:test
+        run: cd ./src/server && npm install && npm install ts-node typescript && npm run start:test
 
       - name: Init frontend
         run: cd ./src/client && npm install
       - name: Run lint
-        run: npm run lint
+        run: cd ./src/client && npm run lint
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          command: npm run test:e2e
+          command: cd ./src/client && npm run test:e2e
           wait-on: 'http://localhost:5173/'
