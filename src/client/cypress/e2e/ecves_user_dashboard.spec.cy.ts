@@ -42,17 +42,53 @@ describe('When user has logged in', function () {
       cy.get('#new-exp-button').click()
       cy.get('input[id=exp-company-0]').type('Testfactory')
       cy.get('input[id=exp-position-0]').type('Testmanager')
-      cy.get('input[id=exp-position-0]').type('Testmanager')
       cy.get('input[id=exp-start-0]').type('2017-01-01')
       cy.get('input[id=exp-end-0]').type('2022-01-01')
 
+      cy.get('#new-edu-button').click()
+      cy.get('input[id=edu-school-0]').type('Testschool')
+      cy.get('input[id=edu-start-0]').type('2017-01-01')
+      cy.get('input[id=edu-end-0]').type('2022-01-01')
+      cy.get('input[id=edu-info-0]').type('We learned to test here')
+
+      cy.get('#new-skill-button').click()
+      cy.get('input[id=skill-0]').type('Testing')
+
+      cy.get('#new-hobby-button').click()
+      cy.get('input[id=hobby-0]').type('Testing')
+
       cy.get('#new-lang-button').click()
       cy.get('input[id=lang-0]').type('English')
+
       cy.get('#new-lang-button').click()
       cy.get('input[id=lang-1]').type('Testing')
       
       cy.get('input[id=profile]').type('I am a nice tester man, please hire!')
       cy.get('#submit-form-button').click()
+    })
+  })
+
+  describe('after creating ecv', function () {
+    beforeEach(function() {
+      cy.contains('Ecvs').click()
+    })
+
+    it('user ecvs should appear in the ecvs tab', function () {
+      cy.get('#skills-field').click()
+      cy.get('#skills-field-content')
+        .should('be.visible')
+        .should('contain.text', 'Testing')
+
+      cy.get('#experience-field').click()
+      cy.get('#experience-field-content')
+        .should('be.visible')
+        .should('contain.text', 'Testfactory')
+    })
+
+    it('user can delete ecv of choise', function () {
+      cy.get('#delete-button').click()
+
+      cy.contains("You don‘t have any ecv‘s created.")
     })
   })
 })

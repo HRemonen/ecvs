@@ -13,6 +13,8 @@ const Dashboard = () => {
   const users = useAppSelector(state => state.users);
   const ecvs = useAppSelector(state => state.ecvs);
 
+  console.log(users)
+
   const user = users.find(u => u.id === auth.user.id);
 
   if (!user) return null;

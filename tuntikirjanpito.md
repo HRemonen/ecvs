@@ -64,4 +64,7 @@
 |       | 2    | - TS vääntöä, Register ja login formin         |
 |       |      |   refaktorointia                               |
 |       |      |                                                |
-| 20.12 | 2    | - Rekisteröinti logiikan viimeistely, bug fixes| 75
+| 20.12 | 2    | - Rekisteröinti logiikan viimeistely, bug fixes|
+|       | 6    | - E2e testauksen aloittelua, cypress, bugi fix |
+|       |      |                                                |
+| total | 72,5 | - Rekisteröinti logiikan viimeistely, bug fixes|
