@@ -43,7 +43,7 @@ jobs:
     - name: Data to codecov
       run: bash <(curl -s https://codecov.io/bash)
 
-  frontend / integration:
+  e2e:
     runs-on: ubuntu-latest
     defaults:
       run:
