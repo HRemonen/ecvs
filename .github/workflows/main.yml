@@ -67,6 +67,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          command: cd ./src/client && npx cypress run
-          start: cd ./src/server && npm run test:server
+          command: npm run test:client
+          start: npm run test:server
           wait-on: 'http://localhost:5173/'
