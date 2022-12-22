@@ -52,6 +52,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Init backend
+        env: 
+          MONGODB_URI: ${{secrets.MONGODB_URI}}
+          TEST_MONGODB_URI: ${{secrets.TEST_MONGODB_URI}}
+          PORT: ${{secrets.PORT}}
+          SECRET: ${{secrets.SECRET}}
         run: cd ./src/server && npm install && npm install ts-node typescript && npm run start:test
 
       - name: Init frontend
