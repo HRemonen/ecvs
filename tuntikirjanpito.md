@@ -64,10 +64,13 @@
 |       | 2    | - TS vääntöä, Register ja login formin         |
 |       |      |   refaktorointia                               |
 |       |      |                                                |
-| 20.12 | 2    | - Rekisteröinti logiikan viimeistely, bug fixes|
+| 21.12 | 2    | - Rekisteröinti logiikan viimeistely, bug fixes|
 |       | 6    | - E2e testauksen aloittelua, cypress, bugi fix |
 |       |      |                                                |
-| 21.12 | 2    | - Frontend ja e2e testit CI pipelineen         |
+| 22.12 | 2    | - Frontend ja e2e testit CI pipelineen         |
 |       | 6    | - Fly.io säätäminen, 1. production buildi      |
 |       |      |   Bug fixes ja refaktorointia                  |
-| total | 80,5 |                                                |
+|       |      |                                                |
+| 23.12 | 2    | - Työilmoituksille API endpoint                |
+|       | 2    | - Työilmoituksien testausta                    |
+| total | 84,5 |                                                |
