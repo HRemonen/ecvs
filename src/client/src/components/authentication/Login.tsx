@@ -21,7 +21,6 @@ const Login = () => {
   });
 
   const onSubmit = async ({ email, password }: ValidatedLogin) => {
-
     try {
       await dispatch(loginUser(email, password))
       navigate('/')

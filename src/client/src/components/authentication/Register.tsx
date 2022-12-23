@@ -15,13 +15,19 @@ const Register = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   
-  const { register, handleSubmit, formState:{ errors } } = useForm<ValidatedUser>({
+  const { setError, register, handleSubmit, formState:{ errors } } = useForm<ValidatedUser>({
     mode: "onBlur", resolver: zodResolver(UserZod)
   });
   
-  const onSubmit = (data: ValidatedUser) => {
-    dispatch(createUser(data));
-    navigate('/login')
+  const onSubmit = async (data: ValidatedUser) => {
+    try {
+      console.log(data)
+      await dispatch(createUser(data));
+      navigate('/login')
+    } catch(error) {
+      console.log(error);
+      setError('email', {type: 'custom', message: 'Email already in use'});
+    }
   }
   
   return (

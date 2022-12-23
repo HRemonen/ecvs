@@ -14,7 +14,7 @@ export const UserZod = z.object({
     .max(18, { message: "Lastname must be 18 or less characters long" }),
   email: z.string().email(),
   password: z.string().min(8, { message: "Password must be 8 or more characters long" }),
-  phoneNumber: z.string().min(10).optional(),
+  phoneNumber: z.string().optional(),
   address: z.string().optional(),
 });
 
