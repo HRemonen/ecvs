@@ -10,6 +10,7 @@ const ecvSchema = new mongoose.Schema<Ecv>({
   experience: [Object],
   education: [Object],
   skills: [String],
+  hobbies: [String],
   languages: [String],
   profile: String
 });

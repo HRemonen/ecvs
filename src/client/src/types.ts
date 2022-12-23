@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from "react";
-import { FieldError, UseFormRegister, FieldValues, Control, FieldErrorsImpl } from "react-hook-form";
+import { FieldError, UseFormRegister, FieldValues, Control } from "react-hook-form";
 
 export interface UserLogin {
   email: string;
