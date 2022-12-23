@@ -16,13 +16,20 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { register, handleSubmit, formState:{ errors } } = useForm<ValidatedLogin>({
+  const { setError, register, handleSubmit, formState:{ errors } } = useForm<ValidatedLogin>({
     mode: "onBlur", resolver: zodResolver(LoginZod)
   });
 
   const onSubmit = async ({ email, password }: ValidatedLogin) => {
-    void dispatch(loginUser(email, password));
-    navigate('/');
+
+    try {
+      await dispatch(loginUser(email, password))
+      navigate('/')
+    } catch(error) {
+      console.log(error);
+      setError('email', {type: 'custom', message: 'Invalid email or password'});
+      setError('password', {type: 'custom', message: 'Invalid email or password'});
+    }
   }
   
   return (

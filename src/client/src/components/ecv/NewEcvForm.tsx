@@ -30,7 +30,9 @@ const NewEcvForm = () => {
     name: "languages", control});
 
   const onSubmit = (data: ValidatedEcv) => {
-    void dispatch(createEcv(data));
+    void dispatch(createEcv(data)).catch(error => {
+      console.log(error)
+    });
     navigate('/dashboard')
   };
 
