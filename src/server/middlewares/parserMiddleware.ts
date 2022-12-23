@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import EcvZod from '../utils/ecvsValidator';
-import PostingZod from '../utils/postingsValidator';
+import { PostingZod } from '../utils/postingsValidator';
 
 export const ecvExtractor = async (request: Request, response: Response, next: NextFunction) => {
   const parsedEcv = EcvZod.safeParse(request.body);
