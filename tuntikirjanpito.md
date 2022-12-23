@@ -74,4 +74,6 @@
 | 23.12 | 2    | - Työilmoituksille API endpoint                |
 |       | 2    | - Työilmoituksien testausta                    |
 |       | 1    | - Formien error handling                       |
+|       | 2    | - Ecv formin refaktorointia ja validatointi    |
+
 | total | 85,5 |                                                |

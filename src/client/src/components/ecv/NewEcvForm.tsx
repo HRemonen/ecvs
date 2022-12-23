@@ -66,28 +66,37 @@ const NewEcvForm = () => {
                   Company
                 </label>
                 <input id={`exp-company-${index}`} type="text" className={inputClass}
-                  {...register(`experience.${index}.company`, { required: true })}
+                  {...register(`experience.${index}.company`, { required: true,
+                  minLength: {value: 3, message: "Company name must be atleast 3 characters long"} })}
                 />
+                { errors && <p className='text-red-500 text-sm mt-2'>{errors?.experience?.[index]?.company?.message}</p>}
                 <label className={propertyClass}>
                   Position
                 </label>
                 <input id={`exp-position-${index}`} type="text" className={inputClass}
-                  {...register(`experience.${index}.position`, { required: true })}
+                  {...register(`experience.${index}.position`, { required: true,
+                    minLength: {value: 3, message: "Position must be atleast 3 characters long"} })}
                 />
+                { errors && <p className='text-red-500 text-sm mt-2'>{errors?.experience?.[index]?.position?.message}</p>}
 
                 <div className="flex">
                   <label className={propertyClass}>
                     Start date
                   </label>
                   <input id={`exp-start-${index}`} type="date" className={inputClass}
-                    {...register(`experience.${index}.startDate`, { required: true })}
+                    {...register(`experience.${index}.startDate`, { 
+                      required: {value: true, message: "Valid start date must be provided"},
+                      valueAsDate: true,
+                      validate: date => date <= new Date() || "Start date must be before today"
+                    })}
                   />
+                  { errors && <p className='text-red-500 text-sm mt-2'>{errors?.experience?.[index]?.startDate?.message}</p>}
 
                   <label className={propertyClass}>
                     End date
                   </label>
                   <input id={`exp-end-${index}`} type="date" className={inputClass}
-                    {...register(`experience.${index}.endDate`, { required: false })}
+                    {...register(`experience.${index}.endDate`)}
                   />
                 </div>
                 
@@ -95,7 +104,7 @@ const NewEcvForm = () => {
                   Additional information
                 </label>
                 <input id={`exp-info-${index}`} type="text" className={inputClass}
-                  {...register(`experience.${index}.additionalInfo`, { required: false })}
+                  {...register(`experience.${index}.additionalInfo`)}
                 />
 
                 <button id={`exp-remove-${index}`} type="button" onClick={() => expRemove(index)}>
