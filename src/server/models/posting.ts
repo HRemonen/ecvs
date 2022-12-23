@@ -1,20 +1,6 @@
 import mongoose from "mongoose";
 
-import { CompanyUser, Ecv } from "../types";
-
-interface Company {
-  name: string;
-  location: string;
-}
-
-interface Posting {
-  hiringManager: CompanyUser,
-  company: Company;
-  title: string;
-  info: string;
-  endDate: Date;
-  applicants: Array<Ecv>
-}
+import { Posting } from "../types";
 
 const postingSchema = new mongoose.Schema<Posting>({
   hiringManager: {
@@ -22,8 +8,8 @@ const postingSchema = new mongoose.Schema<Posting>({
     ref: 'User',
     required: true
   },
-  company: [Object],
-  title: String,
+  company: {type: [Object], required: true},
+  title: {type: String, required: true},
   info: String,
   endDate: Date,
   applicants: [{

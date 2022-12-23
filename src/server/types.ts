@@ -54,3 +54,17 @@ export interface Ecv {
   languages?: Array<string>;
   profile?: string;
 }
+
+export interface Company {
+  name: string;
+  location: string;
+}
+
+export interface Posting {
+  hiringManager: CompanyUser,
+  company: Company;
+  title: string;
+  info?: string;
+  endDate?: Date;
+  applicants: Array<Ecv>
+}
