@@ -255,7 +255,7 @@ const NewEcvForm = () => {
               className={labelClass}>
               Profile
             </label>
-            <input id="profile" type="text" placeholder="Write something about yourself" className={inputClass}
+            <textarea id="profile" placeholder="Write something about yourself" className={inputClass}
               {...register("profile")}
             />
           </div>
