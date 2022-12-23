@@ -1,6 +1,11 @@
 import { z } from 'zod';
 
 export const PostingZod = z.object({
+  hiringManager: z.object({
+    name: z.string(),
+    email: z.string(),
+    phoneNumber: z.string()
+  }),
   company: z.object({
     name: z.string(),
     location: z.string()

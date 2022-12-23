@@ -6,13 +6,12 @@ import PostingModel from "../models/posting";
 const getPostings = async (): Promise<Posting[]> => {
   const postings = await PostingModel
     .find({})
-    .populate('hiringManager')
   return postings;
 };
 
-const createPosting = async (manager: string, newPosting: ValidatedPosting): Promise<Posting> => {
+const createPosting = async (newPosting: ValidatedPosting): Promise<Posting> => {
   const posting: HydratedDocument<Posting> = new PostingModel({
-    hiringManager: manager,
+    hiringManager: newPosting.hiringManager,
     company: newPosting.company,
     title: newPosting.title,
     info: newPosting.info ?? "",
