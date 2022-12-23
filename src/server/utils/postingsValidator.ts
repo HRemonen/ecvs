@@ -18,4 +18,3 @@ export const PostingZod = z.object({
 });
 
 export type ValidatedPosting = z.infer<typeof PostingZod>;
-export default PostingZod;
