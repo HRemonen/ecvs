@@ -4,6 +4,8 @@ import { useAppDispatch } from "../../hooks/dispatchHooks";
 
 import { createEcv } from "../../reducers/ecvReducer";
 
+import WordField from "./WordField";
+
 import { ValidatedEcv } from "@backend/utils/ecvsValidator";
 
 const NewEcvForm = () => {
@@ -20,16 +22,8 @@ const NewEcvForm = () => {
   const { fields: expFields, append: expAppend, remove: expRemove } = useFieldArray({
     name: "experience", control});
 
-  const { fields: skillFields, append: skillAppend, remove: skillRemove } = useFieldArray({
-    name: "skills", control});
-
-  const { fields: hobbyFields, append: hobbyAppend, remove: hobbyRemove } = useFieldArray({
-    name: "hobbies", control});
-
-  const { fields: langFields, append: langAppend, remove: langRemove } = useFieldArray({
-    name: "languages", control});
-
   const onSubmit = (data: ValidatedEcv) => {
+    console.log(data)
     void dispatch(createEcv(data)).catch(error => {
       console.log(error)
     });
@@ -43,10 +37,10 @@ const NewEcvForm = () => {
 
   return (
     <div className='w-full max-w-2xl p-4 bg-white border rounded-lg shadow-md sm:p-6'>
-      <div>
+      <div className="">
         <form onSubmit={handleSubmit(onSubmit)}>
         <div className={inputWrapper}>
-          <div className="flex">
+          <div className="flex pb-4">
             <label
               className={labelClass}>
               Experience
@@ -170,87 +164,24 @@ const NewEcvForm = () => {
                 </section>
               );
             })}
-          </div>
+          </div>    
+          <WordField
+            label="skills"
+            control={control}
+            register={register}
+          />
 
-              
-          <div className={inputWrapper}>
-            <div className="flex">
-              <label className={labelClass}>
-                Skills
-              </label>
-              <button id="new-skill-button" type="button" onClick={() => {
-                skillAppend(""); }}> New skill 
-              </button>
-            </div>
-            {skillFields.map((field, index) => {
-              return (
-                <div className="flex" key={field.id}>
-                  <label className={propertyClass}>
-                    Skill # {index + 1}
-                  </label>
-                  <input id={`skill-${index}`} type="text" className={inputClass}
-                    {...register(`skills.${index}`, { required: true })}
-                  />
-                  <button id={`skill-remove-${index}`} type="button" onClick={() => skillRemove(index)}>
-                    Delete
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+          <WordField
+            label="hobbies"
+            control={control}
+            register={register}
+          />
 
-          <div className={inputWrapper}>
-            <div className="flex">
-              <label className={labelClass}>
-                Hobbies
-              </label>
-              <button id="new-hobby-button" type="button" onClick={() => {
-                hobbyAppend(""); }}> New hobby 
-              </button>
-            </div>
-            {hobbyFields.map((field, index) => {
-              return (
-                <div className="flex" key={field.id}>
-                  <label className={propertyClass}>
-                    Hobby # {index + 1}
-                  </label>
-                  <input id={`hobby-${index}`} type="text" className={inputClass}
-                    {...register(`hobbies.${index}`, { required: true })}
-                  />
-                  <button id={`hobby-remove-${index}`} type="button" onClick={() => hobbyRemove(index)}>
-                    Delete
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className={inputWrapper}>
-            <div className="flex">
-              <label className={labelClass}>
-                Languages
-              </label>
-              <button id="new-lang-button" type="button" onClick={() => {
-                langAppend(""); }}> New language 
-              </button>
-            </div>
-            {langFields.map((field, index) => {
-              return (
-                <div className="flex" key={field.id}>
-                  <label className={propertyClass}>
-                    Language # {index + 1}
-                  </label>
-                  <input id={`lang-${index}`} type="text" className={inputClass}
-                    {...register(`languages.${index}`, { required: true })}
-                  />
-                  <button id={`lang-remove-${index}`} type="button" onClick={() => langRemove(index)}>
-                    Delete
-                  </button>
-
-                </div>
-              );
-            })}
-          </div>
+          <WordField
+            label="languages"
+            control={control}
+            register={register}
+          />
 
           <div className={inputWrapper}>
             <label

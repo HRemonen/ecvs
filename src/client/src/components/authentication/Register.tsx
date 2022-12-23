@@ -21,7 +21,6 @@ const Register = () => {
   
   const onSubmit = async (data: ValidatedUser) => {
     try {
-      console.log(data)
       await dispatch(createUser(data));
       navigate('/login')
     } catch(error) {

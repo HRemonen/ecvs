@@ -38,9 +38,9 @@ describe('When user has logged in', function () {
     it('user can open new ecv form', function () {  
       cy.contains('Experience')
       cy.contains('Education')
-      cy.contains('Skills')
-      cy.contains('Hobbies')
-      cy.contains('Languages')
+      cy.contains('skills')
+      cy.contains('hobbies')
+      cy.contains('languages')
       cy.contains('Profile')
       cy.contains('Submit')
     })
@@ -58,17 +58,17 @@ describe('When user has logged in', function () {
       cy.get('input[id=edu-end-0]').type('2022-01-01')
       cy.get('input[id=edu-info-0]').type('We learned to test here')
 
-      cy.get('#new-skill-button').click()
-      cy.get('input[id=skill-0]').type('Testing')
+      cy.get('#new-skills-button').click()
+      cy.get('input[id=skills-0]').type('Testing')
 
-      cy.get('#new-hobby-button').click()
-      cy.get('input[id=hobby-0]').type('Testing')
+      cy.get('#new-hobbies-button').click()
+      cy.get('input[id=hobbies-0]').type('Testing')
 
-      cy.get('#new-lang-button').click()
-      cy.get('input[id=lang-0]').type('English')
+      cy.get('#new-languages-button').click()
+      cy.get('input[id=languages-0]').type('English')
 
-      cy.get('#new-lang-button').click()
-      cy.get('input[id=lang-1]').type('Testing')
+      cy.get('#new-languages-button').click()
+      cy.get('input[id=languages-1]').type('Testing')
       
       cy.get('textarea[id=profile]').type('I am a nice tester man, please hire!')
       cy.get('#submit-form-button').click()

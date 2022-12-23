@@ -73,4 +73,5 @@
 |       |      |                                                |
 | 23.12 | 2    | - Työilmoituksille API endpoint                |
 |       | 2    | - Työilmoituksien testausta                    |
-| total | 84,5 |                                                |
+|       | 1    | - Formien error handling                       |
+| total | 85,5 |                                                |
