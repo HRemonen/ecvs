@@ -70,7 +70,7 @@ describe('When user has logged in', function () {
       cy.get('#new-lang-button').click()
       cy.get('input[id=lang-1]').type('Testing')
       
-      cy.get('input[id=profile]').type('I am a nice tester man, please hire!')
+      cy.get('textarea[id=profile]').type('I am a nice tester man, please hire!')
       cy.get('#submit-form-button').click()
     })
   })
