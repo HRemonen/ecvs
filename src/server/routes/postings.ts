@@ -10,8 +10,15 @@ postingRouter.get('/', async (_request, response) => {
   return response.json(postings);
 });
 
+postingRouter.get('/:id', async (request, response) => {
+  const postings: Posting = await postingService.getPosting(request.params.id);
+  return response.json(postings);
+});
+
 postingRouter.post('/', postingExtractor, async (request, response) => {
   const savedPosting = await postingService.createPosting(request.body);
 
   return response.status(201).json(savedPosting);
-})
+});
+
+export default postingRouter;

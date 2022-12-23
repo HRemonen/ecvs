@@ -10,6 +10,7 @@ import ecvsRouter from './routes/ecvs';
 import loginRouter from './routes/login';
 
 import { errorHandler  } from "./middlewares/errorMiddleware";
+import postingRouter from "./routes/postings";
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(express.static('dist'));
 app.use('/api/ecvs', ecvsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/login', loginRouter);
+app.use('/api/postings', postingRouter)
 
 if (process.env.NODE_ENV === 'test') {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
