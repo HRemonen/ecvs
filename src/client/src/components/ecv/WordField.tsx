@@ -14,7 +14,7 @@ const WordField: React.FC<WordFieldType > = ({ label, control, register }) => {
           append(""); }}> Add new
         </button>
       </div>
-      {fields.map((field: any, index: number) => {
+      {fields.map((field: Record<"id", string>, index: number) => {
         return (
           <div className="flex" key={field.id}>
             <label className="flex items-center p-3 text-base text-[#1d1853]">
