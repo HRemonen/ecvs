@@ -69,7 +69,7 @@ const NewEcvForm = () => {
                   {...register(`experience.${index}.company`, { required: true,
                   minLength: {value: 3, message: "Company name must be atleast 3 characters long"} })}
                 />
-                { errors && <p className='text-red-500 text-sm mt-2'>{errors?.experience?.[index]?.company?.message}</p>}
+                { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.company?.message }</p>}
                 <label className={propertyClass}>
                   Position
                 </label>
@@ -77,7 +77,7 @@ const NewEcvForm = () => {
                   {...register(`experience.${index}.position`, { required: true,
                     minLength: {value: 3, message: "Position must be atleast 3 characters long"} })}
                 />
-                { errors && <p className='text-red-500 text-sm mt-2'>{errors?.experience?.[index]?.position?.message}</p>}
+                { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.position?.message }</p>}
 
                 <div className="flex">
                   <label className={propertyClass}>
@@ -90,7 +90,7 @@ const NewEcvForm = () => {
                       validate: date => date <= new Date() || "Start date must be before today"
                     })}
                   />
-                  { errors && <p className='text-red-500 text-sm mt-2'>{errors?.experience?.[index]?.startDate?.message}</p>}
+                  { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.startDate?.message }</p>}
 
                   <label className={propertyClass}>
                     End date
@@ -141,16 +141,23 @@ const NewEcvForm = () => {
                     School
                   </label>
                   <input id={`edu-school-${index}`} type="text" className={inputClass}
-                    {...register(`education.${index}.school`, { required: true })}
-                  />
+                    {...register(`education.${index}.school`, { required: true,
+                      minLength: {value: 3, message: "School name must be atleast 3 characters long"} })}
+                    />
+                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.school?.message }</p>}
 
                   <div className="flex">
                     <label className={propertyClass}>
                       Start date
                     </label>
                     <input id={`edu-start-${index}`} type="date" className={inputClass}
-                      {...register(`education.${index}.startDate`, { required: true })}
+                      {...register(`education.${index}.startDate`, { 
+                        required: {value: true, message: "Valid start date must be provided"},
+                        valueAsDate: true,
+                        validate: date => date <= new Date() || "Start date must be before today"
+                      })}
                     />
+                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.startDate?.message }</p>}
 
                     <label className={propertyClass}>
                       End date
