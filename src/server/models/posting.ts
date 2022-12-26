@@ -3,10 +3,12 @@ import mongoose from "mongoose";
 import { Posting } from "../types";
 
 const postingSchema = new mongoose.Schema<Posting>({
-  hiringManager: {type: [Object], required: true},
-  company: {type: [Object], required: true},
+  hiringManager: {type: Object, required: true},
+  company: {type: Object, required: true},
   title: {type: String, required: true},
+  type: {type: String, required: true},
   info: String,
+  postDate: Date,
   endDate: Date,
   applicants: [{
     type: mongoose.Schema.Types.ObjectId,

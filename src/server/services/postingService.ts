@@ -22,6 +22,8 @@ const createPosting = async (newPosting: ValidatedPosting): Promise<Posting> => 
     hiringManager: newPosting.hiringManager,
     company: newPosting.company,
     title: newPosting.title,
+    type: newPosting.type,
+    postDate: new Date(),
     info: newPosting.info ?? "",
     endDate: newPosting.endDate ?? "",
     applicants: []

@@ -11,6 +11,7 @@ export const PostingZod = z.object({
     location: z.string()
   }),
   title: z.string(),
+  type: z.string(),
   info: z.string().optional(),
   endDate: z.preprocess((arg) => {
     if (typeof arg == "string" || arg instanceof Date) return new Date(arg);

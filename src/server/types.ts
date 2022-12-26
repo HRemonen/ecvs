@@ -61,7 +61,9 @@ export interface Posting {
   hiringManager: HiringManager;
   company: Company;
   title: string;
-  info?: string;
+  type: string;
+  info: string;
+  postDate: Date;
   endDate?: Date;
   applicants: Array<Ecv>
 }

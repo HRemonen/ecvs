@@ -12,6 +12,7 @@ const getTestPostings = async () => {
         "location": "Helsinki"
     },
     "title": "Frontend developer",
+    "type": "Tech",
     "info": "Hiring FE developer with 30 years of exeperience and no children",
     "endDate": new Date(2025, 1, 1)
   });
@@ -26,6 +27,7 @@ const getTestPostings = async () => {
         "location": "Turku"
     },
     "title": "Agile coach",
+    "type": "Management",
     "info": "Hiring Agile coach, responsibilities includes cleaning the wc and daycare duties",
     "endDate": new Date(2025, 1, 1)
   });
