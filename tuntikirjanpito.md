@@ -78,6 +78,8 @@
 |       |      |                                                |
 | 26.12 | 1    | - Ecv formin validointi loppuun                |
 |       | 1    | - Lisää e2e testejä                            |
+|       | 1    | - Posting service ja reducerit jne.            |
+|       | 2    | - Posting sivun ja komponenttien suunnittelu   |
+|       |      | - Komponenttien toteutus, yms.                 |
 |       |      |                                                |
-
-| total | 98   |                                                |
+| total | 102  |                                                |
