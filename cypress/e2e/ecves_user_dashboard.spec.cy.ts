@@ -74,8 +74,7 @@ describe('When user has logged in', function () {
       cy.get('#submit-form-button').click()
     })
 
-    it('suer cannot create new ecv form with incorrect information', function () {
-      cy.get('#new-exp-button').click()
+    it('user cannot create new ecv form with incorrect information', function () {
       cy.get('#new-exp-button').click()
       cy.get('input[id=exp-company-0]').type('t')
       cy.get('input[id=exp-position-0]').type('t')

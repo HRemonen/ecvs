@@ -83,4 +83,4 @@
 |       |      |   Komponenttien toteutus, yms.                 |
 |       | 2    | - Postauksien sivutus ja tyylittelyt           |
 |       |      |                                                |
-| total | 102  |                                                |
+| total | 104  |                                                |
