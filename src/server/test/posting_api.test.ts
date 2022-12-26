@@ -63,18 +63,19 @@ describe('posting API', () => {
 
   test('creation succeeds if valid fields are provided', async () => {
     const post = {
-      "hiringManager": {
-          "name": "Henri Remonen",
-          "email": "henri.remonen@ecves.fi",
-          "phoneNumber": "123123123"
+      hiringManager: {
+          name: "Henri Remonen",
+          email: "henri.remonen@ecves.fi",
+          phoneNumber: "123123123"
       },
-      "company": {
-          "name": "Ecves",
-          "location": "Helsinki"
+      company: {
+          name: "Ecves",
+          location: "Helsinki"
       },
-      "title": "Frontend developer",
-      "info": "Hiring FE developer with 30 years of exeperience and no children",
-      "endDate": "2025-01-01"
+      type: "Tech",
+      title: "Frontend developer",
+      info: "Hiring FE developer with 30 years of exeperience and no children",
+      endDate: "2025-01-01"
     };
   
     const response = await api

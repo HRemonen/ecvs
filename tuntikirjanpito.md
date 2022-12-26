@@ -80,6 +80,7 @@
 |       | 1    | - Lisää e2e testejä                            |
 |       | 1    | - Posting service ja reducerit jne.            |
 |       | 2    | - Posting sivun ja komponenttien suunnittelu   |
-|       |      | - Komponenttien toteutus, yms.                 |
+|       |      |   Komponenttien toteutus, yms.                 |
+|       | 2    | - Postauksien sivutus ja tyylittelyt           |
 |       |      |                                                |
 | total | 102  |                                                |

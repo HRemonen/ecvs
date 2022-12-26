@@ -8,7 +8,7 @@ const Paginate: React.FC<{postsPerPage: number, totalPosts: number, paginate: (p
 
   return (
     <div className=" ">
-      <ul className="flex justify-center aling-center mt-12 gap-4">
+      <ul className="flex flex-wrap justify-center aling-center mt-12 gap-4">
         {pageNumbers.map((number) => (
           <li
             key={number}
