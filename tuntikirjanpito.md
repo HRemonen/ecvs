@@ -75,5 +75,9 @@
 |       | 2    | - Työilmoituksien testausta                    |
 |       | 1    | - Formien error handling                       |
 |       | 2    | - Ecv formin refaktorointia ja validatointi    |
+|       |      |                                                |
+| 26.12 | 1    | - Ecv formin validointi loppuun                |
+|       | 1    | - Lisää e2e testejä                            |
+|       |      |                                                |
 
-| total | 85,5 |                                                |
+| total | 98   |                                                |

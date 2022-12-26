@@ -46,4 +46,14 @@ describe('Ecves login page', function () {
 
     cy.contains("Password must be 8 or more characters long")
   })
+
+  it('user can not login with incorrect details', function () {
+    cy.contains('Login').click()
+    cy.get('#email').type('testi@testi.net')
+    cy.get('#password').type('Salainensalasana')
+
+    cy.get('#login-button').click()
+
+    cy.contains("Invalid email or password")
+  })
 })

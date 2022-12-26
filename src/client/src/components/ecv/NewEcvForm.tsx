@@ -14,7 +14,7 @@ const NewEcvForm = () => {
 
   const { register, handleSubmit, control, formState:{ errors } } = useForm({
     mode: "onBlur"
-});
+  });
 
   const { fields: eduFields, append: eduAppend, remove: eduRemove } = useFieldArray({
     name: "education", control});
@@ -23,11 +23,12 @@ const NewEcvForm = () => {
     name: "experience", control});
 
   const onSubmit = (data: ValidatedEcv) => {
-    console.log(data)
-    void dispatch(createEcv(data)).catch(error => {
-      console.log(error)
-    });
-    navigate('/dashboard')
+    try {
+      void dispatch(createEcv(data));
+      navigate('/dashboard');
+    } catch(error) {
+      console.log(error);
+    }
   };
 
   const inputWrapper = "p-4 text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"

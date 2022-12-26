@@ -73,6 +73,20 @@ describe('When user has logged in', function () {
       cy.get('textarea[id=profile]').type('I am a nice tester man, please hire!')
       cy.get('#submit-form-button').click()
     })
+
+    it('suer cannot create new ecv form with incorrect information', function () {
+      cy.get('#new-exp-button').click()
+      cy.get('#new-exp-button').click()
+      cy.get('input[id=exp-company-0]').type('t')
+      cy.get('input[id=exp-position-0]').type('t')
+      cy.get('input[id=exp-start-0]').type('2200-01-01')
+      cy.get('input[id=exp-end-0]').type('2022-01-01')
+      cy.get('#submit-form-button').click()
+
+      cy.contains('Company name must be atleast 3 characters long')
+      cy.contains('Position must be atleast 3 characters long')
+      cy.contains('Start date must be before today')
+    })
   })
 
   describe('after creating ecv', function () {
