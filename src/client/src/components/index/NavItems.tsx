@@ -11,6 +11,7 @@ const NavItems = () => {
       <NavItem content='Home' to='/' />
       <NavItem content='About' to='/about' />
       <NavItem content='Contact' to='/contact' />
+      <NavItem content='Postings' to='/postings' />
       {!user.token
         ? <>
             <NavItem content='Get started' to='/register'/>

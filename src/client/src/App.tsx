@@ -12,6 +12,8 @@ import Login from "./components/authentication/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import NotFound from "./components/misc/NotFound";
 import Register from "./components/authentication/Register";
+import { initializePostings } from "./reducers/postingReducer";
+import Postings from "./components/postings/Postings";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -20,6 +22,7 @@ const App = () => {
     void dispatch(isLogged());
     void dispatch(initializeEcvs());
     void dispatch(initializeUsers());
+    void dispatch(initializePostings())
   }, [dispatch]);
 
   return (
@@ -29,6 +32,7 @@ const App = () => {
           <Route path="/" element={ <Index /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/register" element={ <Register /> } />
+          <Route path="/postings" element={ <Postings /> } />
           <Route path="/dashboard/*" element={ <Dashboard /> } />
           <Route path="*"element={ <NotFound /> }/>
         </Routes>

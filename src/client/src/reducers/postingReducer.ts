@@ -1,6 +1,6 @@
 import { createSlice, Dispatch } from "@reduxjs/toolkit";
 
-import postingsService from "src/services/postingsService";
+import postingsService from "../services/postingsService";
 
 import type { Posting } from "@backend/types";
 import type { ValidatedPosting } from "@backend/utils/postingsValidator"
