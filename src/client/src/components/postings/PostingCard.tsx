@@ -2,13 +2,13 @@ import { Posting } from "@backend/types";
 
 const PostingCard: React.FC<{posting: Posting & {id: string}}> = ({ posting }) => {
   return (
-    <div className="p-10">
-      <div className=" w-full lg:max-w-full lg:flex">
+    <div className="p-4">
+      <div className="w-full md:flex">
         <div 
-          className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+          className="h-48 md:h-auto md:w-48 flex-none bg-cover rounded-t md:rounded-t-none md:rounded-l text-center overflow-hidden"
           style={{ backgroundImage: 'url(' + "https://www.w3schools.com/css/img_mountains.jpg " + ')'}}>
         </div>
-        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div className="grow border-r border-b border-l border-gray-400 md:border-l-0 md:border-t md:border-gray-400 bg-white rounded-b md:rounded-b-none md:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="mb-8">
             <p className="text-sm text-gray-600 flex items-center">
               <svg className="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
