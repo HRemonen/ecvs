@@ -17,7 +17,7 @@ const PostingCard: React.FC<{posting: Posting & {id: string}}> = ({ posting }) =
               Login to apply
             </p>
             <div className="text-gray-900 font-bold text-xl mb-2">{ posting.title }</div>
-            <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+            <p className="text-gray-700 text-base">{ posting.info }</p>
           </div>
           <div className="flex items-center">
             <div className="text-sm">

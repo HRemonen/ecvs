@@ -10,7 +10,7 @@ const Postings = () => {
     <>
       <Navbar />
       <SearchBar />
-      <div>
+      <div className="justify-center">
         <ul>
           { postings.map(p => (
             <PostingCard key={p.id} posting={p} />
