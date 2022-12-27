@@ -88,5 +88,6 @@
 |       | 1    | - Deployment säätöä flyn kanssa.               |
 |       | 1    | - Posting sivun tyylittelyä.                   |
 |       | 2    | - Suunnittelua, haku formin toteutusta.        |
+|       | 2    | - Ecv formin tyylien refaktorointia            |
 |       |      |                                                |
 | total | 112  |                                                |
