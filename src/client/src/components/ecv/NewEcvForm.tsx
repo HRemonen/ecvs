@@ -151,7 +151,14 @@ const NewEcvForm = () => {
 
             {eduFields.map((field, index) => {
               return (
-                <section key={field.id}>
+                <div className="my-8" key={field.id}>
+                  <div className="mb-4 grid grid-cols-2">
+                    <h1>Education {index + 1}</h1>
+                    <button id={`edu-remove-${index}`} type="button" onClick={() => eduRemove(index)}>
+                      <BsDashSquare size={24}/>
+                    </button>
+                  </div>
+                  
                   <label className={labelClass}>
                     School
                   </label>
@@ -161,38 +168,36 @@ const NewEcvForm = () => {
                     />
                     { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.school?.message }</p>}
 
-                  <div className="flex">
-                    <label className={labelClass}>
-                      Start date
-                    </label>
-                    <input id={`edu-start-${index}`} type="date" className={inputClass}
-                      {...register(`education.${index}.startDate`, { 
-                        required: {value: true, message: "Valid start date must be provided"},
-                        valueAsDate: true,
-                        validate: date => date <= new Date() || "Start date must be before today"
-                      })}
-                    />
-                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.startDate?.message }</p>}
-
-                    <label className={labelClass}>
-                      End date
-                    </label>
-                    <input id={`edu-end-${index}`} type="date" className={inputClass}
-                      {...register(`education.${index}.graduationDate`, { required: false })}
-                    />
+                  <div className="grid md:grid-cols-2 md:gap-6">
+                    <div className="relative z-0 w-full group">
+                      <label className={labelClass}>
+                        Start date
+                      </label>
+                      <input id={`edu-start-${index}`} type="date" className={inputClass}
+                        {...register(`education.${index}.startDate`, { 
+                          required: {value: true, message: "Valid start date must be provided"},
+                          valueAsDate: true,
+                          validate: date => date <= new Date() || "Start date must be before today"
+                        })}
+                      />
+                      { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.startDate?.message }</p>}
+                    </div>
+                    <div className="relative z-0 w-full group">
+                      <label className={labelClass}>
+                        End date
+                      </label>
+                      <input id={`edu-end-${index}`} type="date" className={inputClass}
+                        {...register(`education.${index}.graduationDate`, { required: false })}
+                      />
+                    </div>
                   </div>
-                  
                   <label className={labelClass}>
                     Additional information
                   </label>
                   <input id={`edu-info-${index}`} type="text" className={inputClass}
                     {...register(`education.${index}.additionalInfo`, { required: false })}
                   />
-
-                  <button id={`edu-remove-${index}`} type="button" onClick={() => eduRemove(index)}>
-                    Delete
-                  </button>
-                </section>
+                </div>
               );
             })}
           </div>
