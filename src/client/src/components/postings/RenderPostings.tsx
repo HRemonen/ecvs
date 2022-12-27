@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { useAppSelector } from "../../hooks/dispatchHooks";
+
 import PostingCard from "./PostingCard";
 
 import { Posting } from "@backend/types";
@@ -7,7 +9,9 @@ import Paginate from "./Paginate";
 
 const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ postings }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  const [postsPerPage] = useState(20);
+
+  if (useAppSelector(state => state.filter) && currentPage !== 1) setCurrentPage(1);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -15,7 +19,7 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
- };
+  };
 
   return (
     <>
