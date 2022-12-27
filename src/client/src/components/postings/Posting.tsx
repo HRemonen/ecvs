@@ -1,3 +1,5 @@
+import { SyntheticEvent, useState } from "react";
+
 import { useParams, Link } from "react-router-dom";
 
 import { useAppSelector } from "../../hooks/dispatchHooks";
@@ -5,11 +7,21 @@ import { useAppSelector } from "../../hooks/dispatchHooks";
 import Profile from '../../assets/default_profile.svg';
 
 const Posting = () => {
+  const [selectedEcv, setSelectedEcv] = useState('');
   const id = useParams().id;
-  const auth = useAppSelector(state => state.authentication);
+  const user = useAppSelector(state => (
+    state.users.find(u => u.id === state.authentication.user.id)
+  ));
   const posting = useAppSelector(state => state.postings.find(p => p.id === id));
+  const ecvs = useAppSelector(state => state.ecvs);
+  if (!posting || !user) return null;
 
-  if (!posting) return null;
+  const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
+
+  const onSubmit = (event: SyntheticEvent) => {
+    event.preventDefault();
+    console.log(selectedEcv)
+  }
 
   return (
     <div className="max-w-screen-lg mx-auto">
@@ -51,6 +63,21 @@ const Posting = () => {
       <div className="mt-8">
         { posting.info }
       </div>
+      {userEcvs &&
+        <form onSubmit={onSubmit}>
+          <select value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
+            {userEcvs.map(e => (
+              <option key={JSON.stringify(e.id)}>{e.id}</option>
+            ))}
+          </select>
+          <button
+            id="apply-button"
+            type="submit" 
+            className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+            Apply now
+          </button>
+        </form>
+      }
       <div className="w-full md:w-2/4 m-auto mt-12 max-w-screen-sm">
         <div className="p-4 border-t border-b md:border md:rounded">
           <p className="mb-2">More info</p>
