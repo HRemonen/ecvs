@@ -84,5 +84,6 @@
 |       | 2    | - Postauksien sivutus ja tyylittelyt           |
 |       |      |                                                |
 | 27.12 | 2    | - Filter ominaisuus                            |
+|       | 2    | - Yhden postauksen sivun suunnittelu ja tot.   |
 |       |      |                                                |
-| total | 104  |                                                |
+| total | 108  |                                                |
