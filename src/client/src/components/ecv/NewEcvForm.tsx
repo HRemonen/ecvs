@@ -6,6 +6,8 @@ import { createEcv } from "../../reducers/ecvReducer";
 
 import WordField from "./WordField";
 
+import { BsPlusSquare, BsDashSquare } from "react-icons/bs";
+
 import { ValidatedEcv } from "@backend/utils/ecvsValidator";
 
 const NewEcvForm = () => {
@@ -31,17 +33,16 @@ const NewEcvForm = () => {
     }
   };
 
-  const inputWrapper = "p-4 text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow"
-  const labelClass = "flex items-center p-3 text-base font-bold text-[#1d1853]"
-  const propertyClass = "flex items-center p-3 text-base text-[#1d1853]"
-  const inputClass = "block w-[70%] bg-transparent outline-none border-b-2 py-2 px-4 placeholder-gray-500 text-gray-900 border-gray-200"
+  const inputWrapper = "p-4 text-gray-900 group"
+  const labelClass = "block mb-2 text-sm font-medium text-[#1d1853]"
+  const inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 
   return (
     <div className='w-full max-w-2xl p-4 bg-white border rounded-lg shadow-md sm:p-6'>
       <div className="">
         <form onSubmit={handleSubmit(onSubmit)}>
         <div className={inputWrapper}>
-          <div className="flex pb-4">
+          <div className="grid grid-cols-2">
             <label
               className={labelClass}>
               Experience
@@ -57,66 +58,79 @@ const NewEcvForm = () => {
                   position: "",
                   additionalInfo: ""
                 });
-              }}> New experience
+              }}> <BsPlusSquare size={24}/>
             </button>
           </div>
           {expFields.map((field, index) => {
             return (
-              <div key={field.id}>
-                <label className={propertyClass}>
-                  Company
-                </label>
-                <input id={`exp-company-${index}`} type="text" className={inputClass}
-                  {...register(`experience.${index}.company`, { required: true,
-                  minLength: {value: 3, message: "Company name must be atleast 3 characters long"} })}
-                />
-                { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.company?.message }</p>}
-                <label className={propertyClass}>
-                  Position
-                </label>
-                <input id={`exp-position-${index}`} type="text" className={inputClass}
-                  {...register(`experience.${index}.position`, { required: true,
-                    minLength: {value: 3, message: "Position must be atleast 3 characters long"} })}
-                />
-                { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.position?.message }</p>}
-
-                <div className="flex">
-                  <label className={propertyClass}>
-                    Start date
-                  </label>
-                  <input id={`exp-start-${index}`} type="date" className={inputClass}
-                    {...register(`experience.${index}.startDate`, { 
-                      required: {value: true, message: "Valid start date must be provided"},
-                      valueAsDate: true,
-                      validate: date => date <= new Date() || "Start date must be before today"
-                    })}
-                  />
-                  { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.startDate?.message }</p>}
-
-                  <label className={propertyClass}>
-                    End date
-                  </label>
-                  <input id={`exp-end-${index}`} type="date" className={inputClass}
-                    {...register(`experience.${index}.endDate`)}
-                  />
+              <div className="my-8" key={field.id}>
+                <div className="mb-4 grid grid-cols-2">
+                  <h1>Experience {index + 1}</h1>
+                  <button id={`exp-remove-${index}`} type="button" onClick={() => expRemove(index)}>
+                    <BsDashSquare size={24}/>
+                  </button>
                 </div>
                 
-                <label className={propertyClass}>
+                <div className="grid md:grid-cols-2 md:gap-6">
+                  <div className="relative z-0 w-full group">
+                    <label className={labelClass}>
+                      Company
+                    </label>
+                    <input id={`exp-company-${index}`} type="text" className={inputClass}
+                      {...register(`experience.${index}.company`, { required: true,
+                      minLength: {value: 3, message: "Company name must be atleast 3 characters long"} })}
+                    />
+                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.company?.message }</p>}
+                  </div>
+                  <div className="relative z-0 w-full group">
+                    <label className={labelClass}>
+                      Position
+                    </label>
+                    <input id={`exp-position-${index}`} type="text" className={inputClass}
+                      {...register(`experience.${index}.position`, { required: true,
+                        minLength: {value: 3, message: "Position must be atleast 3 characters long"} })}
+                    />
+                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.position?.message }</p>}
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 md:gap-6">
+                  <div className="relative z-0 w-full group">
+                    <label className={labelClass}>
+                      Start date
+                    </label>
+                    <input id={`exp-start-${index}`} type="date" className={inputClass}
+                      {...register(`experience.${index}.startDate`, { 
+                        required: {value: true, message: "Valid start date must be provided"},
+                        valueAsDate: true,
+                        validate: date => date <= new Date() || "Start date must be before today"
+                      })}
+                    />
+                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.experience?.[index]?.startDate?.message }</p>}
+                  </div>
+                
+                  <div className="relative z-0 w-full group">
+                    <label className={labelClass}>
+                      End date
+                    </label>
+                    <input id={`exp-end-${index}`} type="date" className={inputClass}
+                      {...register(`experience.${index}.endDate`)}
+                    />
+                  </div>
+                </div>
+                
+                <label className={labelClass}>
                   Additional information
                 </label>
                 <input id={`exp-info-${index}`} type="text" className={inputClass}
                   {...register(`experience.${index}.additionalInfo`)}
                 />
-
-                <button id={`exp-remove-${index}`} type="button" onClick={() => expRemove(index)}>
-                  Delete
-                </button>
               </div>
             )})}
           </div>
 
           <div className={inputWrapper}>
-            <div className="flex">
+            <div className="grid grid-cols-2">
               <label
                 className={labelClass}>
                 Education
@@ -131,14 +145,14 @@ const NewEcvForm = () => {
                     graduationDate: new Date(),
                     additionalInfo: ""
                   });
-                }}> New education
+                }}> <BsPlusSquare size={24}/>
               </button>
             </div>
 
             {eduFields.map((field, index) => {
               return (
                 <section key={field.id}>
-                  <label className={propertyClass}>
+                  <label className={labelClass}>
                     School
                   </label>
                   <input id={`edu-school-${index}`} type="text" className={inputClass}
@@ -148,7 +162,7 @@ const NewEcvForm = () => {
                     { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.school?.message }</p>}
 
                   <div className="flex">
-                    <label className={propertyClass}>
+                    <label className={labelClass}>
                       Start date
                     </label>
                     <input id={`edu-start-${index}`} type="date" className={inputClass}
@@ -160,7 +174,7 @@ const NewEcvForm = () => {
                     />
                     { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.startDate?.message }</p>}
 
-                    <label className={propertyClass}>
+                    <label className={labelClass}>
                       End date
                     </label>
                     <input id={`edu-end-${index}`} type="date" className={inputClass}
@@ -168,7 +182,7 @@ const NewEcvForm = () => {
                     />
                   </div>
                   
-                  <label className={propertyClass}>
+                  <label className={labelClass}>
                     Additional information
                   </label>
                   <input id={`edu-info-${index}`} type="text" className={inputClass}
@@ -181,7 +195,8 @@ const NewEcvForm = () => {
                 </section>
               );
             })}
-          </div>    
+          </div>
+
           <WordField
             label="skills"
             control={control}
