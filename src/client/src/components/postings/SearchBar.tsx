@@ -10,7 +10,6 @@ const SearchBar = () => {
 
   const onSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-    
     dispatch(newFilter(searchInput));
   }
 

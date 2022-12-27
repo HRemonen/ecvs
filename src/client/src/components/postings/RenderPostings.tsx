@@ -3,11 +3,12 @@ import { useState } from "react";
 import { useAppSelector } from "../../hooks/dispatchHooks";
 
 import PostingCard from "./PostingCard";
-
-import { Posting } from "@backend/types";
 import Paginate from "./Paginate";
 
+import { Posting } from "@backend/types";
+
 const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ postings }) => {
+  const auth = useAppSelector(state => state.authentication);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(20);
 
@@ -29,7 +30,7 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
       <div>
         <ul>
           { currentPosts.map(p => (
-            <PostingCard key={p.id} posting={p} />
+            <PostingCard key={p.id} user={auth.user.id} posting={p} />
           ))}
         </ul>
       </div>
