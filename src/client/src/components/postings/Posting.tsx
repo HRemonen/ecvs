@@ -7,13 +7,14 @@ import { useAppSelector } from "../../hooks/dispatchHooks";
 import Profile from '../../assets/default_profile.svg';
 
 const Posting = () => {
-  const [selectedEcv, setSelectedEcv] = useState('');
   const id = useParams().id;
   const user = useAppSelector(state => (
     state.users.find(u => u.id === state.authentication.user.id)
-  ));
+    ));
   const posting = useAppSelector(state => state.postings.find(p => p.id === id));
   const ecvs = useAppSelector(state => state.ecvs);
+  const [selectedEcv, setSelectedEcv] = useState('');
+  
   if (!posting || !user) return null;
 
   const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
@@ -63,7 +64,7 @@ const Posting = () => {
       <div className="mt-8">
         { posting.info }
       </div>
-      {userEcvs &&
+      { userEcvs &&
         <form onSubmit={onSubmit}>
           <select value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
             {userEcvs.map(e => (
