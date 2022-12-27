@@ -85,5 +85,7 @@
 |       |      |                                                |
 | 27.12 | 2    | - Filter ominaisuus                            |
 |       | 2    | - Yhden postauksen sivun suunnittelu ja tot.   |
+|       | 1    | - Deployment säätöä flyn kanssa.               |
+|       | 1    | - Posting sivun tyylittelyä.                   |
 |       |      |                                                |
-| total | 108  |                                                |
+| total | 110  |                                                |
