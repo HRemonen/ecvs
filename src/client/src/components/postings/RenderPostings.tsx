@@ -18,15 +18,13 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = postings.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
-    <div>
-      <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} />
-    </div>
+      <div>
+        <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} />
+      </div>
       <div>
         <ul>
           { currentPosts.map(p => (

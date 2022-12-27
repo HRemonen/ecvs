@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import { useAppDispatch } from "./hooks/dispatchHooks";
+import { useAppDispatch, useAppSelector } from "./hooks/dispatchHooks";
 
 import { isLogged } from "./reducers/authReducer";
 import { initializeEcvs } from "./reducers/ecvReducer";
@@ -14,9 +14,11 @@ import NotFound from "./components/misc/NotFound";
 import Register from "./components/authentication/Register";
 import { initializePostings } from "./reducers/postingReducer";
 import Postings from "./components/postings/Postings";
+import Posting from "./components/postings/Posting";
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const auth = useAppSelector(state => state.authentication.user.id);
 
   useEffect(() => {
     void dispatch(isLogged());
@@ -33,8 +35,8 @@ const App = () => {
           <Route path="/login" element={ <Login /> } />
           <Route path="/register" element={ <Register /> } />
           <Route path="/postings" element={ <Postings /> } />
-          <Route path="/postings/:id" />
-          <Route path="/dashboard/*" element={ <Dashboard /> } />
+          <Route path="/postings/:id" element={ auth ? <Posting /> : <Navigate replace to="/login" />} />
+          <Route path="/dashboard/*" element={ auth ? <Dashboard /> : <Navigate replace to="/login" /> } />
           <Route path="*"element={ <NotFound /> }/>
         </Routes>
       </section>

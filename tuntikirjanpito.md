@@ -83,4 +83,6 @@
 |       |      |   Komponenttien toteutus, yms.                 |
 |       | 2    | - Postauksien sivutus ja tyylittelyt           |
 |       |      |                                                |
+| 27.12 | 2    | - Filter ominaisuus                            |
+|       |      |                                                |
 | total | 104  |                                                |
