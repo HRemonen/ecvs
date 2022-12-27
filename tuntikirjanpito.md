@@ -87,5 +87,6 @@
 |       | 2    | - Yhden postauksen sivun suunnittelu ja tot.   |
 |       | 1    | - Deployment säätöä flyn kanssa.               |
 |       | 1    | - Posting sivun tyylittelyä.                   |
+|       | 2    | - Suunnittelua, haku formin toteutusta.        |
 |       |      |                                                |
-| total | 110  |                                                |
+| total | 112  |                                                |
