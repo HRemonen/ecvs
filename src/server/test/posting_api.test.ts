@@ -144,24 +144,4 @@ describe('posting API', () => {
 
     expect(response.body.error).toContain("malformatted id")
   });
-
-  test('applying succeeds with correct status code', async () => {
-    const ecv = await EcvModel.findOne({});
-    const user = await UserModel.findById((ecv as Ecv).user.id);
-    const post = await PostingModel.findOne({});
-
-    const login = await api
-      .post(LOGIN_API)
-      .send({
-        email: user?.email,
-        password: "salainen"
-      });
-
-    const token = login.body.token;
-
-    await api
-      .post(`${POSTING_API}/${post?.id}/apply`)
-      .set('Authorization', `bearer ${token}`)
-      .expect(204)
-  });
 })
