@@ -10,10 +10,12 @@ const postingSchema = new mongoose.Schema<Posting>({
   info: String,
   postDate: Date,
   endDate: Date,
-  applicants: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Ecv'
-  }]
+  applicants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Ecv'
+    }
+  ]
 });
 
 postingSchema.set('toJSON', {
