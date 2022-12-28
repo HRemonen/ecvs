@@ -154,7 +154,7 @@ describe('posting API', () => {
       .post(LOGIN_API)
       .send({
         email: user?.email,
-        password: "salasana"
+        password: "salainen"
       });
 
     const token = login.body.token;
