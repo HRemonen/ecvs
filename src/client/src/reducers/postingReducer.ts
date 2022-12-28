@@ -46,7 +46,7 @@ export const applyPosting = (id: string, ecv: string) => {
   return async (dispatch: Dispatch): Promise <void> => {
     await postingsService.applyPosting(id, ecv);
     dispatch(apply({ id, ecv }));
-  }
-}
+  };
+};
 
 export default postingSlice.reducer;

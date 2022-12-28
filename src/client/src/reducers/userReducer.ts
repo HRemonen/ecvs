@@ -16,11 +16,23 @@ const userSlice = createSlice({
     },
     append(state, action) {
       state.push(action.payload)
-    }
+    },
+    appendUserApplication(state, action) {
+      const id = action.payload.id;
+
+      const user = state.find(user => user.id === id);
+      user?.applications.push(action.payload.posting);
+    },
+    appendUserEcv(state, action) {
+      const id = action.payload.id;
+
+      const user = state.find(user => user.id === id);
+      user?.ecvs.push(action.payload.ecv);
+    },
   }
 });
 
-export const { setUsers, append } = userSlice.actions;
+export const { setUsers, append, appendUserApplication, appendUserEcv } = userSlice.actions;
 
 export const initializeUsers = () => {
   return async (dispatch: Dispatch) => {
@@ -33,7 +45,19 @@ export const createUser = (user: ValidatedUser) => {
   return async (dispatch: Dispatch): Promise <void> => {
     const newUser = await usersService.createUser(user);
     dispatch(append(newUser));
-  }
+  };
 };
+
+export const appendApplication = (id: string, posting: string) => {
+  return async (dispatch: Dispatch): Promise <void> => {
+    dispatch(appendUserApplication({ id, posting }));
+  };
+};
+
+export const appendEcv = (id: string, ecv: string) => {
+  return async (dispatch: Dispatch): Promise <void> => {
+    dispatch(appendUserEcv({ id, ecv }));
+  };
+}
 
 export default userSlice.reducer;
