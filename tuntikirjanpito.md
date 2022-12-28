@@ -94,5 +94,5 @@
 | 28.12 | 2    | - Postauksiin hakeminen onnistuu backendissä   |
 |       | 1    | - Testien kanssa säätämistä                    |
 |       | 2    | - Postauksiin hakeminen onnistuu frontendistä  |
-|       |      |                                                |
+|       |      | - Tyylittelyä postauksen formiin               |
 | total | 118  |                                                |

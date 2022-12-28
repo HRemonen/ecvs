@@ -70,21 +70,6 @@ const Posting = () => {
         <div className="mt-8">
           { posting.info }
         </div>
-        { userEcvs &&
-          <form onSubmit={onSubmit}>
-            <select value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
-              {userEcvs.map(e => (
-                <option key={JSON.stringify(e.id)}>{e.id}</option>
-              ))}
-            </select>
-            <button
-              id="apply-button"
-              type="submit" 
-              className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-              Apply now
-            </button>
-          </form>
-        }
         <div className="w-full md:w-2/4 m-auto mt-12 max-w-screen-sm">
           <div className="p-4 border-t border-b md:border md:rounded">
             <p className="mb-2">More info</p>
@@ -97,6 +82,25 @@ const Posting = () => {
               </div>
             </div>
           </div>
+          { userEcvs &&
+            <form onSubmit={onSubmit}>
+              <label className="block mt-8 mb-2 text-sm font-medium text-gray-900">Apply now</label>
+              <select 
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
+                <option defaultValue={""}>Choose an Ecv to apply with</option>
+                {userEcvs.map(e => (
+                  <option key={JSON.stringify(e.id)}>{e.id}</option>
+                ))}
+              </select>
+              <button
+                id="apply-button"
+                type="submit" 
+                className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                Apply now
+              </button>
+            </form>
+          }
         </div>
       </div>
     </>
