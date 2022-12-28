@@ -1,12 +1,18 @@
 import app from "../app";
 import supertest from "supertest";
 
+import EcvModel from "../models/ecv";
+import UserModel from "../models/user";
 import PostingModel from "../models/posting";
 
+import getEcvsData from "./data/ecvs";
 import getTestPostings from "./data/postings";
+
+import { Ecv } from "../types";
 
 const api = supertest(app);
 
+const LOGIN_API = "/api/login"
 const POSTING_API = "/api/postings";
 
 describe('Database returns JSON content', () => {
@@ -58,7 +64,9 @@ describe('postings in the database', () => {
 describe('posting API', () => {
   beforeEach(async () => {
     await PostingModel.deleteMany({});
-
+    await EcvModel.deleteMany({});
+  
+    await getEcvsData();
     await getTestPostings();
   });
 
@@ -135,5 +143,25 @@ describe('posting API', () => {
       .expect('Content-type', /application\/json/);
 
     expect(response.body.error).toContain("malformatted id")
+  });
+
+  test('applying succeeds with correct status code', async () => {
+    const ecv = await EcvModel.findOne({});
+    const user = await UserModel.findById((ecv as Ecv).user.id);
+    const post = await PostingModel.findOne({});
+
+    const login = await api
+      .post(LOGIN_API)
+      .send({
+        email: user?.email,
+        password: "salasana"
+      });
+
+    const token = login.body.token;
+
+    await api
+      .post(`${POSTING_API}/${post?.id}/apply`)
+      .set('Authorization', `bearer ${token}`)
+      .expect(204)
   });
 })
