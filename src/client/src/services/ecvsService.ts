@@ -12,7 +12,7 @@ interface Config {
 }
 
 let token = "";
-const config: Config = {headers: { Authorization: "" }};
+export const config: Config = {headers: { Authorization: "" }};
 
 const setToken = (newToken: string) => {
   token = `bearer ${newToken}`;
