@@ -1,18 +1,12 @@
 import app from "../app";
 import supertest from "supertest";
 
-import EcvModel from "../models/ecv";
-import UserModel from "../models/user";
 import PostingModel from "../models/posting";
 
-import getEcvsData from "./data/ecvs";
 import getTestPostings from "./data/postings";
-
-import { Ecv } from "../types";
 
 const api = supertest(app);
 
-const LOGIN_API = "/api/login"
 const POSTING_API = "/api/postings";
 
 describe('Database returns JSON content', () => {
@@ -64,9 +58,6 @@ describe('postings in the database', () => {
 describe('posting API', () => {
   beforeEach(async () => {
     await PostingModel.deleteMany({});
-    await EcvModel.deleteMany({});
-  
-    await getEcvsData();
     await getTestPostings();
   });
 
