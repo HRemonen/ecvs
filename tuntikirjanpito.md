@@ -89,5 +89,8 @@
 |       | 1    | - Posting sivun tyylittelyä.                   |
 |       | 2    | - Suunnittelua, haku formin toteutusta.        |
 |       | 2    | - Ecv formin tyylien refaktorointia            |
+|       |      | - Codeclimate pöhinää                          |
 |       |      |                                                |
-| total | 112  |                                                |
+| 28.12 | 2    | - Postauksiin hakeminen onnistuu backendissä   |
+|       |      |                                                |
+| total | 114  |                                                |
