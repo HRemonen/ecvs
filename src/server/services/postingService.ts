@@ -1,6 +1,9 @@
 import { HydratedDocument, Types } from "mongoose";
 import { Posting } from "../types";
 import { ValidatedPosting } from "../utils/postingsValidator";
+
+import EcvModel from "../models/ecv";
+import UserModel from "../models/user";
 import PostingModel from "../models/posting";
 
 const getPosting = async (id: string): Promise<Posting & { _id: Types.ObjectId }> => {
@@ -34,4 +37,19 @@ const createPosting = async (newPosting: ValidatedPosting): Promise<Posting> => 
   return createdPosting;
 };
 
-export default { getPosting, getPostings, createPosting }
+const applyPosting = async (userId: string, ecvId: string, postingId: string): Promise <void> => {
+  const user = await UserModel.findById(userId);
+  const ecv = await EcvModel.findById(ecvId);
+  const posting = await PostingModel.findById(postingId);
+
+  if (!user || !posting || !ecv) {
+    throw new Error("Something went wront")
+  }
+
+  user.applications.push(posting.id);
+  await user.save();
+  posting.applicants.push(ecv.id);
+  await posting.save();
+};
+
+export default { getPosting, getPostings, createPosting, applyPosting }

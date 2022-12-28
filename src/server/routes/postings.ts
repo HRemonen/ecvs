@@ -1,9 +1,11 @@
 import express from 'express';
-import { Posting } from '../types';
-import applyService from '../services/applyService';
+
 import postingService from '../services/postingService';
+
 import { CustomRequest, userExtractor } from '../middlewares/userMiddleware';
 import { postingExtractor } from '../middlewares/parserMiddleware';
+
+import { Posting } from '../types';
 
 const postingRouter = express.Router();
 
@@ -23,11 +25,11 @@ postingRouter.post('/', postingExtractor, async (request, response) => {
   return response.status(201).json(savedPosting);
 });
 
-postingRouter.post('/:id/apply', userExtractor,async (request, response) => {
+postingRouter.post('/:id/apply', userExtractor, async (request, response) => {
   const user = (request as CustomRequest).user;
   const ecv: string = request.body.ecv;
 
-  await applyService.applyJob(user as string, ecv, request.params.id);
+  await postingService.applyPosting(user as string, ecv, request.params.id);
 
   return response.status(204).end();
 });
