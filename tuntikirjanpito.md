@@ -93,4 +93,4 @@
 |       |      |                                                |
 | 28.12 | 2    | - Postauksiin hakeminen onnistuu backendissä   |
 |       |      |                                                |
-| total | 114  |                                                |
+| total | 116  |                                                |

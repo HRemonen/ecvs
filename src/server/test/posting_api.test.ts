@@ -2,6 +2,7 @@ import app from "../app";
 import supertest from "supertest";
 
 import PostingModel from "../models/posting";
+
 import getTestPostings from "./data/postings";
 
 const api = supertest(app);
@@ -57,7 +58,7 @@ describe('postings in the database', () => {
 describe('posting API', () => {
   beforeEach(async () => {
     await PostingModel.deleteMany({});
-  
+
     await getTestPostings();
   });
 

@@ -59,6 +59,8 @@ const deleteEcv = async (user: string, ecvToDelete: string): Promise<Types.Objec
   const loggedUser = await usersService.getUser(user);
 
   loggedUser.ecvs = loggedUser?.ecvs.filter(ecv => ecv.toString() !== ecvToDelete);
+  
+  await loggedUser.save();
 
   return loggedUser.ecvs;
 };
