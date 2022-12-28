@@ -2,13 +2,15 @@ import { SyntheticEvent, useState } from "react";
 
 import { useParams, Link } from "react-router-dom";
 
-import { useAppSelector } from "../../hooks/dispatchHooks";
+import { useAppSelector, useAppDispatch } from "../../hooks/dispatchHooks";
 
 import Profile from '../../assets/default_profile.svg';
 import Navbar from "../index/Navbar";
+import { applyPosting } from "../../reducers/postingReducer";
 
 const Posting = () => {
   const id = useParams().id;
+  const dispatch = useAppDispatch();
   const user = useAppSelector(state => (
     state.users.find(u => u.id === state.authentication.user.id)
     ));
@@ -22,7 +24,7 @@ const Posting = () => {
 
   const onSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-    console.log(selectedEcv)
+    dispatch(applyPosting(id as string, selectedEcv))
   }
 
   return (

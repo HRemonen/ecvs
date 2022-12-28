@@ -16,11 +16,17 @@ const postingSlice = createSlice({
     },
     append(state, action) {
       state.push(action.payload);
+    },
+    apply(state, action) {
+      const id = action.payload.id;
+
+      const posting = state.find(posting => posting.id === id);
+      posting?.applicants.push(action.payload.ecv);
     }
   }
 });
 
-export const { setPostings, append } = postingSlice.actions;
+export const { setPostings, append, apply } = postingSlice.actions;
 
 export const initializePostings = () => {
   return async (dispatch: Dispatch): Promise <void> => {
@@ -35,5 +41,12 @@ export const createPosting = (posting: ValidatedPosting) => {
     dispatch(append(newPosting));
   };
 };
+
+export const applyPosting = (id: string, ecv: string) => {
+  return async (dispatch: Dispatch): Promise <void> => {
+    await postingsService.applyPosting(id, ecv);
+    dispatch(apply({ id, ecv }));
+  }
+}
 
 export default postingSlice.reducer;

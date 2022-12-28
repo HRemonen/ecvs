@@ -92,5 +92,7 @@
 |       |      | - Codeclimate pöhinää                          |
 |       |      |                                                |
 | 28.12 | 2    | - Postauksiin hakeminen onnistuu backendissä   |
+|       | 1    | - Testien kanssa säätämistä                    |
+|       | 2    | - Postauksiin hakeminen onnistuu frontendistä  |
 |       |      |                                                |
-| total | 116  |                                                |
+| total | 118  |                                                |

@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { config } from "./ecvsService";
+
 import type { Posting } from "@backend/types";
 import type { ValidatedPosting } from "@backend/utils/postingsValidator"
 
@@ -18,6 +20,11 @@ const getPostings = async (): Promise<Posting[]> => {
 const createPosting = async (newPosting: ValidatedPosting): Promise<Posting> => {
   const response = await axios.post(baseUrl, newPosting);
   return response.data;
-} 
+};
 
-export default { getPosting, getPostings, createPosting }
+const applyPosting = async (id: string, ecv: string) => {
+  const response = await axios.post(`${baseUrl}/${id}/apply`, { ecv }, config);
+  return response.status;
+}
+
+export default { getPosting, getPostings, createPosting, applyPosting }
