@@ -31,7 +31,7 @@ const Posting = () => {
     }
   }
 
-  const applied = () => userEcvs.some(e => posting.applicants.includes(e.id as any))
+  const applied = () => userEcvs.some(e => posting.applicants.includes(e.id as never))
 
   return (
     <>

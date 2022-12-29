@@ -6,14 +6,15 @@ const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    newFilter(state, action) {
-      return action.payload
+    newFilter(_state, action) {
+      return action.payload;
     },
-    clearFilter(state, action) {
-      return initialState
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    clearFilter(_state, _action) {
+      return initialState;
     }
   }
-})
+});
 
 export const { newFilter, clearFilter } = filterSlice.actions;
 export default filterSlice.reducer;

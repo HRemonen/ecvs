@@ -16,7 +16,7 @@ export interface AuthenticatedUser {
 }
 
 export interface InputType extends InputHTMLAttributes<HTMLInputElement> {
-  register: UseFormRegister<FieldValues> | UseFormRegister<any>;
+  register: UseFormRegister<FieldValues> | UseFormRegister<never>;
   error: FieldError | undefined;
   label: string;
   id: string;
@@ -24,6 +24,6 @@ export interface InputType extends InputHTMLAttributes<HTMLInputElement> {
 
 export interface WordFieldType extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
-  control: Control<FieldValues, any>;
-  register: UseFormRegister<FieldValues> | UseFormRegister<any>;
+  control: Control<FieldValues, never>;
+  register: UseFormRegister<FieldValues> | UseFormRegister<never>;
 }
