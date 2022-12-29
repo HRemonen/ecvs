@@ -99,5 +99,6 @@
 | 28.12 | 2    | - Postauksien logiikka jos on jo hakenut jne.  |
 |       |      | - Postin sivun sivunumeroiden tyylittelyä      |
 |       | 2    | - Käyttäjän ecv sivun uudelleentyylittely      |
+|       | 2    | - MongoDB bugas, selvittelyä. Bugi fixejä      |
 |       |      |                                                |
 | total | 121  |                                                |

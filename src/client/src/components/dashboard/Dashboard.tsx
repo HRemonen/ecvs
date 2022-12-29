@@ -24,7 +24,7 @@ const Dashboard = () => {
     <>
       <Navbar />
       <div className="grid gap-4 grid-cols-3 grid-rows-1">
-        <UserDetails user={user} ecvs={userEcvs} />
+        <UserDetails user={user} />
         <div className="col-span-2">
           <div className="flex justify-between items-center h-24 mx-auto px-4">
             <ul className="flex">
