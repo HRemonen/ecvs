@@ -98,4 +98,6 @@
 |       |      |                                                |
 | 28.12 | 2    | - Postauksien logiikka jos on jo hakenut jne.  |
 |       |      | - Postin sivun sivunumeroiden tyylittelyä      |
-| total | 119  |                                                |
+|       | 2    | - Käyttäjän ecv sivun uudelleentyylittely      |
+|       |      |                                                |
+| total | 121  |                                                |
