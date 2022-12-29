@@ -7,6 +7,7 @@ import UserDetails from "./UserDetails";
 import RenderEcvs from "../ecv/RenderEcvs";
 import Dash from "./Dash";
 import NewEcvForm from "../ecv/NewEcvForm";
+import Applications from "./Applications";
 
 const Dashboard = () => {
   const auth = useAppSelector(state => state.authentication);
@@ -38,6 +39,7 @@ const Dashboard = () => {
               <Route path="" element={<Dash />} />
               <Route path="/ecvs" element={<RenderEcvs ecvs={userEcvs} />} />
               <Route path="/ecvs/create" element={<NewEcvForm />} />
+              <Route path="/applications" element={<Applications user={user}/>} />
             </Routes>
           </div>
         </div>
