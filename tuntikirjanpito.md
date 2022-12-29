@@ -100,5 +100,6 @@
 |       |      | - Postin sivun sivunumeroiden tyylittelyä      |
 |       | 2    | - Käyttäjän ecv sivun uudelleentyylittely      |
 |       | 2    | - MongoDB bugas, selvittelyä. Bugi fixejä      |
+|       | 2    | - Tyylittelyä                                  |
 |       |      |                                                |
-| total | 121  |                                                |
+| total | 125  |                                                |
