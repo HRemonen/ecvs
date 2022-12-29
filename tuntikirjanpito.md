@@ -95,4 +95,7 @@
 |       | 1    | - Testien kanssa säätämistä                    |
 |       | 2    | - Postauksiin hakeminen onnistuu frontendistä  |
 |       |      | - Tyylittelyä postauksen formiin               |
-| total | 118  |                                                |
+|       |      |                                                |
+| 28.12 | 2    | - Postauksien logiikka jos on jo hakenut jne.  |
+|       |      | - Postin sivun sivunumeroiden tyylittelyä      |
+| total | 119  |                                                |

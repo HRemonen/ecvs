@@ -23,7 +23,7 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
   return (
     <>
       <div>
-        <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} />
+        <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} currentPage={currentPage}/>
       </div>
       <div>
         <ul>
