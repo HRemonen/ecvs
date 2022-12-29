@@ -22,9 +22,13 @@ const Posting = () => {
   const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
 
   const onSubmit = (event: SyntheticEvent) => {
-    event.preventDefault();
-    dispatch(applyPosting(id as string, selectedEcv))
-    dispatch(appendApplication(user.id, id as string))
+    try {
+      event.preventDefault();
+      dispatch(applyPosting(id as string, selectedEcv))
+      dispatch(appendApplication(user.id, id as string))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const applied = () => userEcvs.some(e => posting.applicants.includes(e.id as any))
@@ -108,7 +112,8 @@ const Posting = () => {
                     <button
                       id="apply-button"
                       type="submit" 
-                      className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                      className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                      disabled={selectedEcv === ""}>
                       Apply now
                     </button>
                   </form>
