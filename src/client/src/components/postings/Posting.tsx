@@ -6,7 +6,6 @@ import { useAppSelector, useAppDispatch } from "../../hooks/dispatchHooks";
 import Navbar from "../index/Navbar";
 import Profile from '../../assets/default_profile.svg';
 
-
 const Posting = () => {
   const dispatch = useAppDispatch();
   
@@ -27,6 +26,8 @@ const Posting = () => {
     dispatch(applyPosting(id as string, selectedEcv))
     dispatch(appendApplication(user.id, id as string))
   }
+
+  const applied = () => userEcvs.some(e => posting.applicants.includes(e.id as any))
 
   return (
     <>
@@ -82,24 +83,37 @@ const Posting = () => {
               </div>
             </div>
           </div>
-          { userEcvs &&
-            <form onSubmit={onSubmit}>
-              <label className="block mt-8 mb-2 text-sm font-medium text-gray-900">Apply now</label>
-              <select 
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
-                <option defaultValue={""}>Choose an Ecv to apply with</option>
-                {userEcvs.map(e => (
-                  <option key={JSON.stringify(e.id)}>{e.id}</option>
-                ))}
-              </select>
-              <button
-                id="apply-button"
-                type="submit" 
-                className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                Apply now
-              </button>
-            </form>
+          { applied()
+            ? <div className="my-4 p-4 mb-4 border border-green-300 rounded-lg bg-green-50">
+                <div className="flex items-center">
+                  <svg aria-hidden="true" className="w-5 h-5 mr-2 text-green-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd"></path></svg>
+                  <h3 className="text-lg font-medium text-green-700">Application received succesfully</h3>
+                </div>
+                <div className="mt-2 mb-4 text-sm text-green-700">
+                  Poster of this posting has succesfully received your application. Check out more of our postings in the mean time.
+                </div>
+              </div>
+            : userEcvs.length > 0 
+              ? <div>
+                  <form onSubmit={onSubmit}>
+                    <label className="block mt-8 mb-2 text-sm font-medium text-gray-900">Apply now</label>
+                    <select 
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                      value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
+                      <option defaultValue={""}>Choose an Ecv to apply with</option>
+                      {userEcvs.map(e => (
+                        <option key={JSON.stringify(e.id)}>{e.id}</option>
+                      ))}
+                    </select>
+                    <button
+                      id="apply-button"
+                      type="submit" 
+                      className="inline-block mt-6 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                      Apply now
+                    </button>
+                  </form>
+                </div>
+              : <div className="block mt-8 mb-2 text-sm font-medium text-gray-900"> You dont have any Ecvs to apply with. </div>
           }
         </div>
       </div>
