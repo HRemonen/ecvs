@@ -2,7 +2,7 @@ import EcvCard from "./EcvCard";
 
 import type { Ecv } from "@backend/types";
 
-const UserEcvs: React.FC<{ecvs: Array<Ecv & {id: string;}>}> = ({ ecvs }) => {
+const RenderEcvs: React.FC<{ecvs: Array<Ecv & {id: string;}>}> = ({ ecvs }) => {
 
   if (!ecvs || ecvs.length === 0) return (
     <div>
@@ -19,4 +19,4 @@ const UserEcvs: React.FC<{ecvs: Array<Ecv & {id: string;}>}> = ({ ecvs }) => {
   )
 };
 
-export default UserEcvs;
+export default RenderEcvs;

@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "../index/Navbar";
 import NavItem from "../index/NavItem";
 import UserDetails from "./UserDetails";
-import UserEcvs from "../ecv/UserEcvs";
+import RenderEcvs from "../ecv/RenderEcvs";
 import Dash from "./Dash";
 import NewEcvForm from "../ecv/NewEcvForm";
 
@@ -36,7 +36,7 @@ const Dashboard = () => {
           <div className="">
             <Routes>
               <Route path="" element={<Dash />} />
-              <Route path="/ecvs" element={<UserEcvs ecvs={userEcvs} />} />
+              <Route path="/ecvs" element={<RenderEcvs ecvs={userEcvs} />} />
               <Route path="/ecvs/create" element={<NewEcvForm />} />
             </Routes>
           </div>

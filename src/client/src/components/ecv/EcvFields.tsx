@@ -5,7 +5,6 @@ import type { Experience, Education } from "@backend/types";
 
 const EcvFields: React.FC<{field: string; content: string | string[] | Experience[] | Education[]}> = ({ field, content }) => {
   if (field === "user" || field === "id" || content.length === 0) return null;
-  console.log(content)
 
   const renderContent = () => {
     switch (field) {

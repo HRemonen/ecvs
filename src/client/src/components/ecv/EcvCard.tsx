@@ -9,7 +9,6 @@ import type { Ecv } from "@backend/types";
 
 const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
   const dispatch = useAppDispatch();
-  console.log(ecv)
 
   return (
     <div className="grid grid-cols-1 max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md">
