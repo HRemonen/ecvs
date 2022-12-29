@@ -1,7 +1,5 @@
 import DeleteButton from "../misc/Buttons";
 
-import { TbGridDots } from "react-icons/tb";
-
 import EcvFields from "./EcvFields";
 
 import { useAppDispatch } from "../../hooks/dispatchHooks";
@@ -14,23 +12,25 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
   console.log(ecv)
 
   return (
-    <div className="w-full max-w-sm p-4 bg-white border rounded-lg shadow-md sm:p-6">
-      <div className="flex relative">
-        <h5 className="text-base text-gray-900 md:text-lg">
+    <div className="grid grid-cols-1 max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md">
+      <div className="flex justify-between items-center">
+        <h5 className="font-light text-gray-600">
           Ecv # { ecv.id }
         </h5>
-        <TbGridDots className="absolute top-1 right-0 cursor-pointer" size={20} />
+        <div>
+          <DeleteButton onClick={() => dispatch(deleteEcv(ecv))} />
+        </div>
       </div>
       
-      <ul className="my-4 space-y-3">
-        <li>
-          { Object.entries(ecv).map(([key, value]) => (
-            <EcvFields key={key} field={key} content={value}/>
-          ))}
-        </li>
-      </ul>
-      <div>
-        <DeleteButton onClick={() => dispatch(deleteEcv(ecv))} />
+      <div className="">
+        <ul className="">
+          <li className="">
+            { Object.entries(ecv).map(([key, value]) => (
+              <EcvFields key={key} field={key} content={value}/>
+            ))}
+          </li>
+        </ul>
+        
       </div>
     </div>
   )

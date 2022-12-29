@@ -1,20 +1,17 @@
-import { useState } from "react";
-
 import ExperienceField from "./ExperienceField";
 import EducationField from "./EducationField";
 
 import type { Experience, Education } from "@backend/types";
 
 const EcvFields: React.FC<{field: string; content: string | string[] | Experience[] | Education[]}> = ({ field, content }) => {
-  const [visible, setVisible] = useState(false)
-
-  if (field === "user" || field === "id") return null;
+  if (field === "user" || field === "id" || content.length === 0) return null;
+  console.log(content)
 
   const renderContent = () => {
     switch (field) {
       case "experience":
         return (
-          <div id="experience-field-content" className="ml-6">
+          <div id="experience-field-content">
             { (content as Experience[]).map((entry: Experience) => (
               <ExperienceField key={entry.company} entry={entry} />
             ))}
@@ -22,25 +19,25 @@ const EcvFields: React.FC<{field: string; content: string | string[] | Experienc
         );
       case "education":
         return (
-          <div id="education-field-content" className="ml-6">
+          <div id="education-field-content">
             { (content as Education[]).map((entry: Education) => (
               <EducationField key={entry.school} entry={entry} />
             ))}
           </div>
         );
       case "profile":
-        return <p id="profile-field-content" className="flex-1 ml-3">{ (content) as string }</p>
+        return <p className="ml-4 pb-2 text-sm border-b-2 hover:border-gray-400" id="profile-field-content">{ (content) as string }</p>
       default:
-        return <p id={`${field}-field-content`} className="flex-1 ml-3">{ (content as string[]).join(", ") }</p> 
+        return <p className="ml-4 pb-2 text-sm border-b-2 hover:border-gray-400" id={`${field}-field-content`}>{ (content as string[]).join(", ") }</p> 
     }
   };
 
   return (
-    <div className="text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow">
-      <h1 className="flex items-center p-3 text-xl font-bold">
-        <p id={`${field}-field`} className="flex-1 whitespace-nowrap cursor-pointer" onClick={() => setVisible(!visible)}>{ field }</p>
+    <div id={`${field}-field`}>
+      <h1 className="py-2 items-center text-lg underline capitalize">
+        { field }
       </h1>
-      { visible && renderContent() }
+      { renderContent() }
     </div>
   )
 };
