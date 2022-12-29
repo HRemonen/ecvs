@@ -30,7 +30,7 @@ const Dashboard = () => {
             <ul className="flex">
               <NavItem content='Dash' to='' />
               <NavItem content='Ecvs' to='ecvs' />
-              <NavItem content='Postings' to='postings' />
+              <NavItem content='Applications' to='applications' />
             </ul>
           </div>
           <div className="">
