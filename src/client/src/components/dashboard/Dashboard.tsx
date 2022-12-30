@@ -27,7 +27,7 @@ const Dashboard = () => {
       <div className="grid gap-4 grid-cols-3 grid-rows-1">
         <UserDetails user={user} />
         <div className="col-span-2">
-          <div className="flex border-b border-gray-400 justify-between items-center h-24 mx-auto px-4">
+          <div className="flex items-center border-b border-gray-400 justify-between h-12 mx-auto px-4">
             <ul className="flex">
               <NavItem content='Dash' to='' />
               <NavItem content='Ecvs' to='ecvs' />
