@@ -104,5 +104,6 @@
 |       |      |                                                |
 | 2.1   | 2    | - Suunnittele ja uudelleen tyylittele dash     |
 |       | 2    | - Tyylittele sivuja                            |
+|       | 2    | - Lisää integraatio ja e2e testejä             |
 |       |      |                                                |
-| total | 125  |                                                |
+| total | 131  |                                                |
