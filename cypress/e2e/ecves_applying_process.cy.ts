@@ -92,10 +92,6 @@ describe('Authenticated user applying process', function () {
     cy.contains('More info').click()
     cy.get('select').select(1)
     cy.get('#apply-button').should('not.be.disabled').click()
-  })
-
-  it('After applying post should show message of succesful application', function () {
-    cy.contains('More info').click()
     cy.contains('Application received succesfully')
   })
 
