@@ -103,6 +103,6 @@
 |       | 2    | - Tyylittelyä                                  |
 |       |      |                                                |
 | 2.1   | 2    | - Suunnittele ja uudelleen tyylittele dash     |
-|       |      |                                                |
+|       | 2    | - Tyylittele sivuja                            |
 |       |      |                                                |
 | total | 125  |                                                |
