@@ -9,8 +9,8 @@ const Dash = () => {
       <p className="pt-4">
         Here is the Ecves user dashboard where you can view your profile. 
         Click above links to navigate on the dashboard. On the Ecvs tab you can
-        view, create, modify and delete your ecv&lsquo;s.
-        Below you can click the link to create new ecv.
+        view and delete your ecv&lsquo;s and on the applications tab you can view posts that you have applied to.
+        Below you can click the link to create an new Ecv.
       </p>
       <p className="mt-2 flex text-blue-600"> 
         <Link className="inline-flex items-center font-medium hover:underline" to="/dashboard/ecvs/create">Create new ecv</Link>

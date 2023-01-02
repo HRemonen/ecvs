@@ -102,4 +102,7 @@
 |       | 2    | - MongoDB bugas, selvittelyä. Bugi fixejä      |
 |       | 2    | - Tyylittelyä                                  |
 |       |      |                                                |
+| 2.1   | 2    | - Suunnittele ja uudelleen tyylittele dash     |
+|       |      |                                                |
+|       |      |                                                |
 | total | 125  |                                                |
