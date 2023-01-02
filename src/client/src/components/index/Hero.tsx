@@ -6,7 +6,7 @@ const Hero = () => (
           <p className="text-2xl font-bold pb-2">
             Your dream job is just a click away
           </p>
-          <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-5xl font-extrabold text-transparent sm:text-5xl">
+          <h1 className="bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-5xl font-extrabold text-transparent sm:text-5xl">
             From resumes to interviews, we&lsquo;ve got you covered
           </h1>
           <p className="pt-4">
