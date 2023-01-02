@@ -20,6 +20,14 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  if (postings.length === 0) {
+    return (
+      <div className="flex mt-24 w-screen">
+        <h1 className="m-auto">No postings match search criteria...</h1>
+      </div>
+    )
+  }
+
   return (
     <>
       <div>
