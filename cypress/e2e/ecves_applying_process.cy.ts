@@ -59,3 +59,50 @@ describe('Authenticated user posting page', function () {
     cy.contains('You dont have any Ecvs to apply with.')
   })
 })
+
+describe('Authenticated user applying process', function () {
+  before(function () {
+    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+  
+    const user = {
+      firstName: "testi",
+      lastName: "testi",
+      email: "testi@testi.fi",
+      password: "salasana"
+    }
+  
+    cy.request('POST', 'http://localhost:3001/api/users', user)
+
+    cy.login("testi@testi.fi", "salasana")
+    cy.createEcv()
+  })
+  beforeEach(function () {
+    cy.login("testi@testi.fi", "salasana")
+    cy.visit('http://localhost:3001/postings')
+  })
+
+  it('user can not apply to a posting without selecting an Ecv', function () {
+    cy.contains('More info').click()
+    cy.contains('Apply now')
+    cy.contains('Choose an Ecv to apply with')
+    cy.get('#apply-button').should('be.disabled')
+  })
+
+  it('user can apply to a posting after selecting an Ecv', function () {
+    cy.contains('More info').click()
+    cy.get('select').select(1)
+    cy.get('#apply-button').should('not.be.disabled').click()
+  })
+
+  it('After applying post should show message of succesful application', function () {
+    cy.contains('More info').click()
+    cy.contains('Application received succesfully')
+  })
+
+  it('After applying application should appear in the dashboad tab', function () {
+    cy.contains('Dashboard').click()
+    cy.contains('Applications').click()
+    cy.contains('More info').click()
+    cy.contains('Application received succesfully')
+  })
+})
