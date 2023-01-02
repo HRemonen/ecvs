@@ -24,16 +24,18 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <div className="grid gap-4 grid-cols-3 grid-rows-1">
-        <UserDetails user={user} />
-        <div className="col-span-2">
-          <div className="flex items-center border-b border-gray-400 justify-between h-12 mx-auto px-4">
+      <div className="grid gap-4 grid-cols-4">
+        <div className="row-start-1 col-span-4 items-center border-b border-gray-400 h-12 px-4">
+          <div className="ml-[25%]">
             <ul className="flex">
               <NavItem content='Dash' to='' />
               <NavItem content='Ecvs' to='ecvs' />
               <NavItem content='Applications' to='applications' />
             </ul>
           </div>
+        </div>
+        <UserDetails user={user} />
+        <div className="col-span-3">
           <div className="">
             <Routes>
               <Route path="" element={<Dash />} />

@@ -5,7 +5,7 @@ import Profile from '../../assets/default_profile.svg';
 import type { User } from "@backend/types";
 
 const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => (
-    <div className="text-center items-center border-r border-r-gray-200">
+    <div className="text-center items-center">
       <img 
         className="inline-block object-scale-down h-20 w-20 md:h-48 md:w-48 m-4" 
         src={Profile} alt="Profile picture of the user"
