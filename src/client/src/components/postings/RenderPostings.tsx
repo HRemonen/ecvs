@@ -34,7 +34,7 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
         <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} currentPage={currentPage}/>
       </div>
       <div>
-        <ul>
+        <ul id="posting-list">
           { currentPosts.map(p => (
             <PostingCard key={p.id} user={auth.user.id} posting={p} />
           ))}
