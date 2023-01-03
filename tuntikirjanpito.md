@@ -108,5 +108,6 @@
 |       |      |                                                |
 | 3.1   | 2    | - Refaktoroi Ecv formin fieldit omiin komp.    |
 |       | 1    | - Refaktoroi Login sivu ja poista validointi   |
+|       | 1    | - Refaktoroi Register sivu                     |
 |       |      |                                                |
 | total | 136  |                                                |
