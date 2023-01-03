@@ -26,7 +26,7 @@ const PostingCard: React.FC<{user:string; posting: Posting & {id: string}}> = ({
                 </Link>
             }
             <div className="text-gray-900 font-bold text-xl mb-2">{ posting.title }</div>
-            <p className="text-gray-700 text-base">{ posting.info }</p>
+            <p className="text-gray-700 text-base">{ `${posting.info.substring(0, 80)}...` }</p>
           </div>
           <div className="flex items-center">
             <div className="text-sm">
