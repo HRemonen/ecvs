@@ -106,4 +106,6 @@
 |       | 2    | - Tyylittele sivuja                            |
 |       | 2    | - Lisää integraatio ja e2e testejä             |
 |       |      |                                                |
-| total | 131  |                                                |
+| 3.1   | 2    | - Refaktoroi Ecv formin fieldit omiin komp.    |
+|       |      |                                                |
+| total | 133  |                                                |
