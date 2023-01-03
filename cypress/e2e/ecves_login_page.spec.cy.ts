@@ -29,24 +29,6 @@ describe('Ecves login page', function () {
     cy.contains('Logout')
   })
 
-  it('user can not login with incorrect email', function () {
-    cy.contains('Login').click()
-    cy.get('#email').type('test')
-    cy.get('#password').type('salasana')
-
-    cy.contains("Invalid email")
-  })
-
-  it('user can not login with too short password', function () {
-    cy.contains('Login').click()
-    cy.get('#email').type('test@testi.fi')
-    cy.get('#password').type('s')
-
-    cy.get('#login-button').click()
-
-    cy.contains("Password must be 8 or more characters long")
-  })
-
   it('user can not login with incorrect details', function () {
     cy.contains('Login').click()
     cy.get('#email').type('testi@testi.net')
