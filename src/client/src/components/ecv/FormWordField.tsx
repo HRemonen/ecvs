@@ -3,10 +3,9 @@ import { useFieldArray } from "react-hook-form";
 
 import { BsPlusSquare, BsDashSquare } from "react-icons/bs";
 
-const labelClass = "block mb-2 text-lg font-semibold capitalize text-[#1d1853]"
-const inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+import { labelClass, inputClass } from "./NewEcvForm";
 
-const FormWordField: React.FC<WordFieldType > = ({ label, control, register }) => {
+const FormWordField: React.FC<WordFieldType> = ({ label, control, register }) => {
   const { fields: fields, append: append, remove: remove } = useFieldArray({
     name: label, control});
   return (
