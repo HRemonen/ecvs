@@ -11,7 +11,7 @@ const FormWordField: React.FC<WordFieldType> = ({ label, control, register }) =>
   return (
     <div className="p-4 text-gray-900 group">
       <div className="grid grid-cols-2">
-        <label className={labelClass}>
+        <label className="block mb-2 text-lg font-semibold capitalize text-[#1d1853]">
           {label}
         </label>
         <button id={`new-${label}-button`} type="button" onClick={() => {

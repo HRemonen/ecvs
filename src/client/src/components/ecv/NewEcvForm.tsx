@@ -1,18 +1,17 @@
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
 import { createEcv } from "../../reducers/ecvReducer";
 
 import FormWordField from "./FormWordField";
-
-import { BsPlusSquare, BsDashSquare } from "react-icons/bs";
+import FormExperienceField from "./FormExperienceField";
+import FormEducationField from "./FormEducationField";
 
 import { ValidatedEcv } from "@backend/utils/ecvsValidator";
-import FormExperienceField from "./FormExperienceField";
 
 export const inputWrapper = "p-4 text-gray-900 group"
-export const labelClass = "block mb-2 text-lg capitalize text-[#1d1853]"
+export const labelClass = "block mb-2 text-md capitalize"
 export const inputClass = "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 
 const NewEcvForm = () => {
@@ -22,9 +21,6 @@ const NewEcvForm = () => {
   const { register, handleSubmit, control, formState:{ errors } } = useForm({
     mode: "onBlur"
   });
-
-  const { fields: eduFields, append: eduAppend, remove: eduRemove } = useFieldArray({
-    name: "education", control});
 
   const onSubmit = (data: ValidatedEcv) => {
     try {
@@ -46,78 +42,11 @@ const NewEcvForm = () => {
             register={register}
           />
 
-          <div className={inputWrapper}>
-            <div className="grid grid-cols-2">
-              <label
-                className="block mb-2 text-lg font-semibold capitalize text-[#1d1853]">
-                Education
-              </label>
-              <button
-                id="new-edu-button"
-                type="button"
-                onClick={() => {
-                  eduAppend({
-                    school: "",
-                    startDate: new Date(),
-                    graduationDate: new Date(),
-                    additionalInfo: ""
-                  });
-                }}> <BsPlusSquare size={24}/>
-              </button>
-            </div>
-
-            {eduFields.map((field, index) => {
-              return (
-                <div className="my-8" key={field.id}>
-                  <div className="mb-4 grid grid-cols-2">
-                    <h1>Education {index + 1}</h1>
-                    <button id={`edu-remove-${index}`} type="button" onClick={() => eduRemove(index)}>
-                      <BsDashSquare size={24}/>
-                    </button>
-                  </div>
-                  
-                  <label className={labelClass}>
-                    School
-                  </label>
-                  <input id={`edu-school-${index}`} type="text" className={inputClass}
-                    {...register(`education.${index}.school`, { required: true,
-                      minLength: {value: 3, message: "School name must be atleast 3 characters long"} })}
-                    />
-                    { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.school?.message }</p>}
-
-                  <div className="grid md:grid-cols-2 md:gap-6">
-                    <div className="relative z-0 w-full group">
-                      <label className={labelClass}>
-                        Start date
-                      </label>
-                      <input id={`edu-start-${index}`} type="date" className={inputClass}
-                        {...register(`education.${index}.startDate`, { 
-                          required: {value: true, message: "Valid start date must be provided"},
-                          valueAsDate: true,
-                          validate: date => date <= new Date() || "Start date must be before today"
-                        })}
-                      />
-                      { errors && <p className='text-red-500 text-sm mt-2'>{ errors?.education?.[index]?.startDate?.message }</p>}
-                    </div>
-                    <div className="relative z-0 w-full group">
-                      <label className={labelClass}>
-                        End date
-                      </label>
-                      <input id={`edu-end-${index}`} type="date" className={inputClass}
-                        {...register(`education.${index}.graduationDate`, { required: false })}
-                      />
-                    </div>
-                  </div>
-                  <label className={labelClass}>
-                    Additional information
-                  </label>
-                  <input id={`edu-info-${index}`} type="text" className={inputClass}
-                    {...register(`education.${index}.additionalInfo`, { required: false })}
-                  />
-                </div>
-              );
-            })}
-          </div>
+          <FormEducationField
+            error={errors}
+            control={control}
+            register={register}
+          />
 
           <FormWordField
             label="skills"
