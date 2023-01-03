@@ -1,12 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
 import FormInput from "./FormInput";
 
 import { loginUser } from "../../reducers/authReducer";
-import { LoginZod } from "../../validators/zodValidators";
 
 import clipboard from "../../assets/clipboard.webp";
 
@@ -17,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const { setError, register, handleSubmit, formState:{ errors } } = useForm<ValidatedLogin>({
-    mode: "onBlur", resolver: zodResolver(LoginZod)
+    mode: "onBlur"
   });
 
   const onSubmit = async ({ email, password }: ValidatedLogin) => {
@@ -32,9 +30,10 @@ const Login = () => {
   }
   
   return (
-    <div className='grid grid-cols-2 h-screen min-h-screen'>
-      <div className='flex flex-col justify-center text-left p-10 border-r-2 border-solid border-gray-300 shadow-lg'>
-        <form onSubmit={handleSubmit(onSubmit)} className="md:max-w-sm">
+    <div className='md:grid md:grid-cols-2 text-center'>
+      <div className='flex flex-col h-screen justify-center text-center items-center p-12 border-r-2 border-solid border-gray-300 md:shadow-lg'>
+        <h1 className='text-[#1d1853] mx-auto mb-12 font-Satisfy text-6xl hover:blur-sm drop-shadow-xl'>Ecves</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center text-left">
           <FormInput
             id="email"
             type="email"
@@ -62,14 +61,15 @@ const Login = () => {
             Login
           </button>
         </form>
+
         <p className="mt-4">
           Don&lsquo;t have an account? 
           <Link to="/register" className="ml-2 text-blue-600 inline-flex items-center font-medium hover:underline">Register here</Link>
         </p>
       </div>
-      <div className="flex flex-col justify-center ">
-          <img src={clipboard} alt="picture of a clipboard with checkmarks on items">
-          </img>
+      <div className="invisible md:visible flex flex-col justify-center ">
+        <img src={clipboard} alt="picture of a clipboard with checkmarks on items">
+        </img>
       </div>
     </div>
   );
