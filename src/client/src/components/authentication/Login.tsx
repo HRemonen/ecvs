@@ -33,7 +33,7 @@ const Login = () => {
     <div className='md:grid md:grid-cols-2 text-center'>
       <div className='flex flex-col h-screen justify-center text-center items-center p-12 border-r-2 border-solid border-gray-300 md:shadow-lg'>
         <h1 className='text-[#1d1853] mx-auto mb-12 font-Satisfy text-6xl hover:blur-sm drop-shadow-xl'>Ecves</h1>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center text-left">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center text-left w-[80%]">
           <FormInput
             id="email"
             type="email"
@@ -67,7 +67,7 @@ const Login = () => {
           <Link to="/register" className="ml-2 text-blue-600 inline-flex items-center font-medium hover:underline">Register here</Link>
         </p>
       </div>
-      <div className="invisible md:visible flex flex-col justify-center ">
+      <div className="hidden md:flex flex-col justify-center ">
         <img src={clipboard} alt="picture of a clipboard with checkmarks on items">
         </img>
       </div>

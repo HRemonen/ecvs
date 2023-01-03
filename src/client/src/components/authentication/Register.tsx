@@ -2,11 +2,10 @@ import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "../../hooks/dispatchHooks";
-
 import { createUser } from "../../reducers/userReducer";
 
 import FormInput from "./FormInput";
-
+import clipboard from "../../assets/clipboard.webp";
 import { UserZod } from "../../validators/zodValidators";
 
 import type { ValidatedUser } from "@backend/utils/usersValidator";
@@ -30,13 +29,13 @@ const Register = () => {
   }
   
   return (
-    <div className='grid grid-cols-2 h-screen min-h-screen'>
-      <div className="flex flex-col justify-center ">
-        <img src={""} alt="picture of a clipboard with checkmarks on items">
+    <div className='md:grid md:grid-cols-2 text-center'>
+      <div className="hidden md:flex flex-col justify-center ">
+        <img src={clipboard} alt="picture of a clipboard with checkmarks on items">
       </img>
       </div>
-      <div className='flex flex-col justify-center text-left p-10 border-l-2 border-solid border-gray-300 shadow-lg'>
-        <form onSubmit={handleSubmit(onSubmit)} className="md:max-w-sm">
+      <div className='flex flex-col h-screen justify-center text-center items-center p-12 border-r-2 border-solid border-gray-300 md:shadow-lg'>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center text-left w-[80%]">
           <FormInput
             id="firstName"
             type="text"

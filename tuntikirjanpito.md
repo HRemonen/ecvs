@@ -107,5 +107,6 @@
 |       | 2    | - Lisää integraatio ja e2e testejä             |
 |       |      |                                                |
 | 3.1   | 2    | - Refaktoroi Ecv formin fieldit omiin komp.    |
+|       | 1    | - Refaktoroi Login sivu ja poista validointi   |
 |       |      |                                                |
-| total | 133  |                                                |
+| total | 136  |                                                |
