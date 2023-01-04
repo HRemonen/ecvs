@@ -1,6 +1,5 @@
 import { useAppSelector } from "../../hooks/dispatchHooks";
 
-import Navbar from "../index/Navbar";
 import SearchBar from "./SearchBar";
 import RenderPostings from "./RenderPostings";
 
@@ -15,7 +14,6 @@ const Postings = () => {
     
   return (
     <>
-      <Navbar />
       <SearchBar />
       <RenderPostings postings={postings} />
     </>
