@@ -1,4 +1,5 @@
-import { SyntheticEvent, useState } from "react";
+import { ChangeEvent, SyntheticEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import { useAppDispatch } from "../../hooks/dispatchHooks";
 
@@ -6,8 +7,17 @@ import { newFilter } from "../../reducers/filterReducer";
 
 const SearchBar = () => {
   const dispatch = useAppDispatch();
-  const [searchInput, setSearchInput] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
+  const searchInput = searchParams.get('title') || '';
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    const title = event.target.value;
+
+    if (title) setSearchParams({ title });
+    else setSearchParams({});
+
+  }
   const onSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     dispatch(newFilter(searchInput));
@@ -23,7 +33,7 @@ const SearchBar = () => {
             value={searchInput}
             className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-300 focus:border-blue-500" 
             placeholder="Search job titles"
-            onChange={(e) => setSearchInput(e.target.value)}
+            onChange={handleSearch}
           />
           <button type="submit" 
             className="absolute top-0 right-0 p-2.5 text-sm font-medium  text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg px-5 py-2.5 text-center mb-2">

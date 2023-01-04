@@ -109,5 +109,9 @@
 | 3.1   | 2    | - Refaktoroi Ecv formin fieldit omiin komp.    |
 |       | 1    | - Refaktoroi Login sivu ja poista validointi   |
 |       | 1    | - Refaktoroi Register sivu                     |
+|       | 1    | - Jatko suunnittelua                           |
 |       |      |                                                |
-| total | 137  |                                                |
+| 4.1   | 2    | - Opettele search params käyttöä ja muuta      |
+|       |      |   postauksien filtteröinti käyttämään sitä     |
+|       |      |                                                |
+| total | 140  |                                                |
