@@ -113,5 +113,6 @@
 |       |      |                                                |
 | 4.1   | 2    | - Opettele search params käyttöä ja muuta      |
 |       |      |   postauksien filtteröinti käyttämään sitä     |
+|       | 2    | - Suunnittele ja aloita landingpagen tyylittely|
 |       |      |                                                |
-| total | 140  |                                                |
+| total | 142  |                                                |
