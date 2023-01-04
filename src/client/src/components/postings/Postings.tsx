@@ -2,6 +2,7 @@ import { useAppSelector } from "../../hooks/dispatchHooks";
 
 import SearchBar from "./SearchBar";
 import RenderPostings from "./RenderPostings";
+import Navbar from "../index/Navbar";
 
 const Postings = () => {
   const postings = useAppSelector(state => {
@@ -14,6 +15,7 @@ const Postings = () => {
     
   return (
     <>
+      <Navbar />
       <SearchBar />
       <RenderPostings postings={postings} />
     </>

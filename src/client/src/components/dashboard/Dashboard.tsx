@@ -23,6 +23,7 @@ const Dashboard = () => {
   
   return (
     <>
+      <Navbar />
       <div className="grid gap-4 grid-cols-4">
         <div className="row-start-1 col-span-4 items-center border-b border-gray-400 h-12 px-4">
           <div className="ml-[25%]">

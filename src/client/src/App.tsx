@@ -15,7 +15,6 @@ import Register from "./components/authentication/Register";
 import { initializePostings } from "./reducers/postingReducer";
 import Postings from "./components/postings/Postings";
 import Posting from "./components/postings/Posting";
-import Navbar from "./components/index/Navbar";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +30,6 @@ const App = () => {
   return (
     <Router>
       <section className="bg-white">
-        <Navbar />
         <Routes>
           <Route path="/" element={ <Index /> } />
           <Route path="/login" element={ <Login /> } />
@@ -43,7 +41,6 @@ const App = () => {
         </Routes>
       </section>
     </Router>
-
   );
 };
 
