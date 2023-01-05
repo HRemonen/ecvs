@@ -118,5 +118,8 @@
 | 5.1   | 2    | - Landing sivun tyylittelyä, scrollaus bugi fix|
 |       |      | - Contact komponentti ja sen lisääminen Index  |
 |       | 1    | - About us sivun suunnittelua                  |
+|       | 1    | - About us sivun toteutus                      |
+|       | 2    | - Contact sivu & yritä toteuttaa linkit        |
+|       |      |   Navbarista sectioneille leanding sivulla     |
 |       |      |                                                |
-| total | 145  |                                                |
+| total | 148  |                                                |
