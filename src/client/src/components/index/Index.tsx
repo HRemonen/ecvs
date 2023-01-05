@@ -1,3 +1,4 @@
+import About from "./About";
 import Contact from "./Contact";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
@@ -10,10 +11,7 @@ const Index = () => {
           <Navbar />
           <Hero />
         </div>
-
-        <div className="snap-start bg-amber-300 w-full h-screen flex items-center justify-center text-4xl">
-          2
-        </div>
+        <About />
         <Contact />
       </div>
     </>

@@ -115,4 +115,8 @@
 |       |      |   postauksien filtteröinti käyttämään sitä     |
 |       | 2    | - Suunnittele ja aloita landingpagen tyylittely|
 |       |      |                                                |
-| total | 142  |                                                |
+| 5.1   | 2    | - Landing sivun tyylittelyä, scrollaus bugi fix|
+|       |      | - Contact komponentti ja sen lisääminen Index  |
+|       | 1    | - About us sivun suunnittelua                  |
+|       |      |                                                |
+| total | 145  |                                                |
