@@ -1,19 +1,20 @@
+import Contact from "./Contact";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 
 const Index = () => {
   return (
     <>
-      <Navbar />
-      <div className="snap-y snap-mandatory h-screen w-screen overflow-scroll">
-        <Hero />
+      <div className="snap-y snap-mandatory h-screen w-full overflow-scroll">
+        <div className="snap-start w-full h-screen">
+          <Navbar />
+          <Hero />
+        </div>
 
-        <div className="snap-start bg-amber-300 w-screen h-screen flex items-center justify-center text-4xl">
+        <div className="snap-start bg-amber-300 w-full h-screen flex items-center justify-center text-4xl">
           2
         </div>
-        <div className="snap-start bg-gray-900 w-screen h-screen flex items-center justify-center text-4xl">
-          3
-        </div>
+        <Contact />
       </div>
     </>
   );

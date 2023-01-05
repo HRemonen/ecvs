@@ -11,8 +11,8 @@ const NumberAnimation: React.FC<{n: number}> = ({ n }) => {
 }
 
 const Hero = () => (
-  <div className="snap-start w-screen h-screen">
-    <div className="pt-8 md:pt-64 md:max-w-[800px] w-4/5 mx-auto text-center flex flex-col justify-center">
+  <div>
+    <div className="pt-8 md:pt-48 md:max-w-[800px] w-4/5 mx-auto text-center flex flex-col justify-center">
       <div className="">
         <p className="text-2xl font-bold pb-2">
           Your dream job is just a click away
@@ -27,18 +27,18 @@ const Hero = () => (
         </p>
       </div>
     </div>
-    <div className="flex justify-between items-center pt-16 md:pt-96 md:mx-48 text-center md:text-5xl font-semibold">
+    <div className="flex md:max-w-[800px] justify-between items-center pt-16 md:pt-96 md:mx-48 text-center md:text-6xl font-light">
       <div>
         <NumberAnimation n={3} />
-        <p className="pt-8 font-light md:text-lg">Users on platform</p>
+        <p className="pt-8 font-thin md:text-lg">Users on platform</p>
       </div>
       <div>
         <NumberAnimation n={21} />
-        <p className="pt-8 font-light md:text-lg">Ecvs created</p>
+        <p className="pt-8 font-thin md:text-lg">Ecvs created</p>
       </div>
       <div>
         <NumberAnimation n={103} />
-        <p className="pt-8 font-light md:text-lg">Job opportunities</p>
+        <p className="pt-8 font-thin md:text-lg">Job opportunities</p>
       </div>
     </div>
   </div>
