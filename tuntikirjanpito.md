@@ -121,5 +121,6 @@
 |       | 1    | - About us sivun toteutus                      |
 |       | 2    | - Contact sivu & yritä toteuttaa linkit        |
 |       |      |   Navbarista sectioneille leanding sivulla     |
+|       |      |   ReadMe uudelleen toteutusta. ChatGPT hauskaa |
 |       |      |                                                |
 | total | 148  |                                                |

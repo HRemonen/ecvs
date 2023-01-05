@@ -1,5 +1,5 @@
 const Contact = () => (
-  <div className="snap-start w-full h-screen flex items-center bg-gray-900 text-white justify-center">
+  <div id="contact" className="snap-start w-full h-screen flex items-center bg-gray-900 text-white justify-center">
     <div className="grid grid-flow-row grid-cols-12 grid-rows-1 gap-8">
       <div className="col-span-10 col-start-2">
         <h2 className="font-thin text-4xl">Get in touch with us</h2>

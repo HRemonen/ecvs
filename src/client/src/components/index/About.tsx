@@ -1,7 +1,7 @@
 import Illustration from '../../assets/illustration.png';
 
 const About = () => (
-  <div className="snap-start bg-gray-300 w-full h-screen flex items-center justify-center">
+  <div id="about" className="snap-start bg-gray-300 w-full h-screen flex items-center justify-center">
     <div className=''>
       <h1 className='font-thin text-4xl'>Whats going on.</h1>
       <div className='text-lg font-thin max-w-[400px]'>
