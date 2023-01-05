@@ -1,4 +1,5 @@
 import { useSpring, animated } from "@react-spring/web";
+import Navbar from "./Navbar";
 
 const NumberAnimation: React.FC<{n: number}> = ({ n }) => {
   const { number } = useSpring({
@@ -11,7 +12,8 @@ const NumberAnimation: React.FC<{n: number}> = ({ n }) => {
 }
 
 const Hero = () => (
-  <div>
+  <div className="snap-start w-full h-screen">
+    <Navbar />
     <div className="pt-8 md:pt-48 md:max-w-[800px] w-4/5 mx-auto text-center flex flex-col justify-center">
       <div className="">
         <p className="text-2xl font-bold pb-2">
