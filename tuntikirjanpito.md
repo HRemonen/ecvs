@@ -122,5 +122,6 @@
 |       | 2    | - Contact sivu & yritä toteuttaa linkit        |
 |       |      |   Navbarista sectioneille leanding sivulla     |
 |       |      |   ReadMe uudelleen toteutusta. ChatGPT hauskaa |
+|       | 1    | - About ja contact linkit scrollaavat paikalle |
 |       |      |                                                |
-| total | 148  |                                                |
+| total | 149  |                                                |
