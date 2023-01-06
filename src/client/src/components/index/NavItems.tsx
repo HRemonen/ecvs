@@ -15,10 +15,10 @@ const NavItems = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className={listItemStyle}>
-        <HashLink smooth to="#about">About</HashLink>
+        <HashLink smooth to="/#about">About</HashLink>
       </li>
       <li className={listItemStyle}>
-        <HashLink smooth to="#contact">Contact</HashLink>
+        <HashLink smooth to="/#contact">Contact</HashLink>
       </li>
       <li className={listItemStyle}>
         <NavLink to='/postings'>Postings</NavLink>
