@@ -2,7 +2,6 @@ import { useAppSelector } from "../../hooks/dispatchHooks";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "../index/Navbar";
-import NavItem from "../index/NavItem";
 import UserDetails from "./UserDetails";
 import RenderEcvs from "../ecv/RenderEcvs";
 import Dash from "./Dash";
@@ -22,10 +21,10 @@ const Dashboard = () => {
   }
   const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
   
-  const dashItemStyle = ({ isActive }) => isActive ? activeStyle : listItemStyle;
+  const dashItemStyle = ({ isActive }: { isActive: boolean }) => isActive ? activeStyle : listItemStyle;
 
-  const activeStyle = "inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white"
-  const listItemStyle = "inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-1 px-3";
+  const activeStyle = "inline-block border border-amber-500 rounded py-1 px-3 bg-amber-300 text-white"
+  const listItemStyle = "inline-block border border-white rounded hover:border-gray-200 text-black hover:bg-gray-200 py-1 px-3";
 
   return (
     <>
