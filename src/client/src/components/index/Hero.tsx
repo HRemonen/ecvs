@@ -29,7 +29,7 @@ const Hero = () => (
         </p>
       </div>
     </div>
-    <div className="flex md:max-w-[800px] justify-between items-center pt-16 md:pt-96 md:mx-48 text-center md:text-6xl font-light">
+    <div className="flex justify-between items-center pt-16 md:pt-96 md:mx-48 text-center md:text-6xl font-light">
       <div>
         <NumberAnimation n={3} />
         <p className="pt-8 font-thin md:text-lg">Users on platform</p>
