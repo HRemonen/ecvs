@@ -124,4 +124,6 @@
 |       |      |   ReadMe uudelleen toteutusta. ChatGPT hauskaa |
 |       | 1    | - About ja contact linkit scrollaavat paikalle |
 |       |      |                                                |
-| total | 149  |                                                |
+| 6.1   | 2    | - Pieniä päivityksiä ja bugi fixejä            |
+|       |      |                                                |
+| total | 151  |                                                |
