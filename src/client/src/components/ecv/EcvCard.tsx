@@ -15,8 +15,6 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
   const [editMode, setEditMode] = useState(false);
   const dispatch = useAppDispatch();
 
-  console.log(ecv.name)
-
   const handleNameChange = async () => {
     try {
       await dispatch(updateEcv({ ...ecv, name: newName }));

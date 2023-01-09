@@ -127,5 +127,7 @@
 | 6.1   | 2    | - Pieniä päivityksiä ja bugi fixejä            |
 |       |      |                                                |
 | 9.1   | 1    | - Ecv nimen voi muuttaa halutessaan            |
+|       | 1    | - Valmistele backend ecv muokkaamiseen         |
+|       | 2    | - Toteuta Ecv:n nimen muokkaus kokonaisuudessa |
 |       |      |                                                |
-| total | 151  |                                                |
+| total | 155  |                                                |
