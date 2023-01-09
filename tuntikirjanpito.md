@@ -126,4 +126,6 @@
 |       |      |                                                |
 | 6.1   | 2    | - Pieniä päivityksiä ja bugi fixejä            |
 |       |      |                                                |
+| 9.1   | 1    | - Ecv nimen voi muuttaa halutessaan            |
+|       |      |                                                |
 | total | 151  |                                                |

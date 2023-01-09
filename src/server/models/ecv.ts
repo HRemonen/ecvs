@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { Ecv } from "../types";
 
 const ecvSchema = new mongoose.Schema<Ecv>({
+  name: { type: String, default: '' },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

@@ -37,6 +37,7 @@ export interface Education {
 }
 
 export interface Ecv {
+  name?: string,
   user: Types.ObjectId;
   experience?: Array<Experience>;
   education?: Array<Education>;
