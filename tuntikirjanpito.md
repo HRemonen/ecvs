@@ -130,6 +130,6 @@
 |       | 1    | - Valmistele backend ecv muokkaamiseen         |
 |       | 2    | - Toteuta Ecv:n nimen muokkaus kokonaisuudessa |
 |       | 1    | - Ecv nimen mukauttamista                      |
-|       | 2    | - Mobiili tyylittelyjä jne. säätämistä         |
+|       | 3    | - Mobiili tyylittelyjä jne. säätämistä         |
 |       |      |                                                |
 | total | 158  |                                                |
