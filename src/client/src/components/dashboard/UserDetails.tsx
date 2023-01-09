@@ -10,7 +10,7 @@ const UserDetails: React.FC<{user: User & {id: string}}> = ({ user }) => (
         className="inline-block object-scale-down h-24 w-24 md:h-64 md:w-64 m-4 md:mt-[-48px]" 
         src={Profile} alt="Profile picture of the user"
       />
-      <div className='text-left ml-8'>
+      <div className='inline-block text-left ml-auto'>
         <h1 className='text-gray-800 font-semibold md:text-3xl'>{ user.firstName } { user.lastName }</h1>
         <h1 className='text-gray-400'>{ user.email }</h1>
         { user.address 
