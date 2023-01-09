@@ -129,5 +129,6 @@
 | 9.1   | 1    | - Ecv nimen voi muuttaa halutessaan            |
 |       | 1    | - Valmistele backend ecv muokkaamiseen         |
 |       | 2    | - Toteuta Ecv:n nimen muokkaus kokonaisuudessa |
+|       | 1    | - Ecv nimen mukauttamista                      |
 |       |      |                                                |
-| total | 155  |                                                |
+| total | 156  |                                                |
