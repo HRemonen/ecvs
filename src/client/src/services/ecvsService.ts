@@ -35,7 +35,7 @@ const createEcv = async (newEcv: ValidatedEcv): Promise<Ecv> => {
 };
   
 const updateEcv = async (content: Ecv): Promise<Ecv> => {
-  const response = await axios.put(`${baseUrl}/${content.id}`, config);
+  const response = await axios.put(`${baseUrl}/${content.id}`, content, config);
   return response.data;
 };
 
