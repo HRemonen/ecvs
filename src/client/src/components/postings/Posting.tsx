@@ -106,7 +106,7 @@ const Posting = () => {
                       value={selectedEcv} onChange={(e) => setSelectedEcv(e.target.value)}>
                       <option defaultValue={""}>Choose an Ecv to apply with</option>
                       {userEcvs.map(e => (
-                        <option key={JSON.stringify(e.id)}>{e.id}</option>
+                        <option key={JSON.stringify(e.id)} value={ e.id }>{ e.name ? e.name : e.id }</option>
                       ))}
                     </select>
                     <button
