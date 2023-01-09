@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useAppDispatch } from "../../hooks/dispatchHooks";
-import { deleteEcv } from "../../reducers/ecvReducer";
+import { updateEcv, deleteEcv } from "../../reducers/ecvReducer";
 
 import DeleteButton from "../misc/Buttons";
 import EcvFields from "./EcvFields";
@@ -9,14 +9,23 @@ import EcvFields from "./EcvFields";
 import type { Ecv } from "@backend/types";
 
 const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
-  const [name, setName] = useState(`Ecv # ${ ecv.id }`);
+  const initialName = ecv.name ? ecv.name : `Ecv # ${ ecv.id }`
+  const [name, setName] = useState(initialName);
   const [newName, setNewName] = useState(name);
   const [editMode, setEditMode] = useState(false);
   const dispatch = useAppDispatch();
 
-  const handleNameChange = () => {
-    setName(newName);
-    setEditMode(false);
+  console.log(ecv.name)
+
+  const handleNameChange = async () => {
+    try {
+      await dispatch(updateEcv({ ...ecv, name: newName }));
+      setName(newName);
+      setEditMode(false);
+    } 
+    catch (error) {
+      console.log(error);
+    }
   }
 
   return (
