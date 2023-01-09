@@ -27,7 +27,7 @@ const Dash = () => {
       </div>
 
       <p className="mt-2 flex text-blue-600"> 
-        <Link className="inline-flex items-center font-medium hover:underline" to="/dashboard/ecvs/create">Create a new ecv</Link>
+        <Link id="new-ecv" className="inline-flex items-center font-medium hover:underline" to="/dashboard/ecvs/create">Create a new ecv</Link>
         <svg aria-hidden="true" className="ml-1 mt-[2px] w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <path 
             fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd">

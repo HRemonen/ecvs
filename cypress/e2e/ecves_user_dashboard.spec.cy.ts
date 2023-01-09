@@ -31,7 +31,7 @@ describe('When user has logged in', function () {
 
   describe('inside ecv form window', function() {
     beforeEach(function() {
-      cy.contains('Create new ecv').click()
+      cy.get('#new-ecv').click()
       cy.url().should('include', '/dashboard/ecvs/create')
     })
 
