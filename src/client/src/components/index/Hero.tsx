@@ -20,7 +20,7 @@ const Hero = () => {
   return (
     <div className="snap-center w-full h-screen">
       <Navbar />
-      <div className="md:mt-[200px] md:max-w-[800px] w-4/5 mx-auto text-center flex flex-col justify-center">
+      <div className="mt-[100px] md:mt-[200px] md:max-w-[800px] max-h-fit w-4/5 mx-auto text-center flex flex-col justify-center">
         <div className="">
           <p className="text-2xl font-bold pb-2">
             Your dream job is just a click away
@@ -35,7 +35,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-between items-center mt-12 md:mt-[200px] md:mx-24 lg:mx-48 text-center md:text-6xl font-light">
+      <div className="flex justify-between items-center mt-24 md:mt-[300px] md:mx-24 lg:mx-48 text-center md:text-6xl font-light">
         <div>
           <NumberAnimation n={users.length} />
           <p className="pt-8 font-thin md:text-lg">Users on platform</p>
