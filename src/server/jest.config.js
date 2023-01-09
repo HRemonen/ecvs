@@ -9,6 +9,7 @@ module.exports = {
       "dist",
       "utils",
       "data",
-      "testing.ts"
+      "testing.ts",
+      "middlewares"
   ]
 };
