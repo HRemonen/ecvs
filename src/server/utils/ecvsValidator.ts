@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 const EcvZod = z.object({
+  name: z.string().optional(),
   experience: z.array(z.object({
     company: z.string(),
     startDate: z.preprocess((arg) => {
