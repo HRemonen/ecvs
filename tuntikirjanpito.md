@@ -134,5 +134,7 @@
 |       |      |                                                |
 | 10.1  | 2    | - Mobiili tyylittelyjä, bugi fix               |
 |       | 3    | - Suunnittelua. Scroll to top ominaisuus       |
+|       | 2    | - Ecv model uusia attribuutteja                |
+|       |      | - Ecv kortin muokkausta                        |
 |       |      |                                                |
-| total | 163  |                                                |
+| total | 165  |                                                |
