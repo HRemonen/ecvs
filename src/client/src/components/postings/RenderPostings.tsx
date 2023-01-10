@@ -5,6 +5,7 @@ import PostingCard from "./PostingCard";
 import Paginate from "./Paginate";
 
 import { Posting } from "@backend/types";
+import ScrollToTop from "../index/ScrollToTop";
 
 const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ postings }) => {
   const auth = useAppSelector(state => state.authentication);
@@ -17,7 +18,10 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = postings.slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0 });
+  };
 
   if (postings.length === 0) {
     return (
@@ -29,6 +33,7 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
 
   return (
     <>
+      <ScrollToTop />
       <div>
         <h1 className="mt-8 mx-auto text-center text-lg md:text-2xl font-thin">
           Showing { postings.length } postings matching your search parameters.

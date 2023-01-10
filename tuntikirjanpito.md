@@ -133,5 +133,6 @@
 |       | 3    | - Mobiili tyylittelyjä jne. säätämistä         |
 |       |      |                                                |
 | 10.1  | 2    | - Mobiili tyylittelyjä, bugi fix               |
+|       | 3    | - Suunnittelua. Scroll to top ominaisuus       |
 |       |      |                                                |
-| total | 160  |                                                |
+| total | 163  |                                                |
