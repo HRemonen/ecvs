@@ -36,12 +36,12 @@ const Posting = () => {
   return (
     <>
       <Navbar />
-      <div className="max-w-screen-lg mx-auto">
+      <div className="max-w-screen-lg mx-4 md:mx-auto">
         <div className="grid grid-cols-2">
           <h1 className="text-4xl font-semibold text-gray-800 leading-tight">{ posting.title }</h1>
           <Link className="inline-flex mt-6 md:mt-0 justify-end" to="/postings">
-            <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-black hover:bg-black hover:text-white transition duration-500 ease-in-out">Back to postings</span>
-            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-black hover:bg-black hover:text-white transition duration-500 ease-in-out">
+            <span className="hidden h-12 md:flex items-center justify-center uppercase font-semibold px-8 border border-black hover:bg-black hover:text-white transition duration-500 ease-in-out">Back to postings</span>
+            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border md:border-l-0 border-black hover:bg-black hover:text-white transition duration-500 ease-in-out">
               <svg 
                 className="h-3 w-3 svg-inline--fa fa-chevron-right fa-w-8 fa-9x" 
                 aria-hidden="true" focusable="false" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" 
@@ -51,8 +51,8 @@ const Posting = () => {
             </span>
           </Link>
         </div>
-        <div className="mb-4 md:mb-0 w-full mx-auto relative">
-          <div className="px-4 lg:px-0">
+        <div className="mb-4 md:mb-0 w-full relative">
+          <div className="lg:px-0">
             {posting.endDate &&
               <p className="py-2 text-blue-400 inline-flex items-center justify-center mb-2">
                 Ends on { new Date(posting.endDate).toDateString() }

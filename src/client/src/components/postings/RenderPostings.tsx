@@ -30,14 +30,20 @@ const RenderPostings: React.FC<{postings: Array<Posting & {id: string}>}> = ({ p
   return (
     <>
       <div>
+        <h1 className="mt-8 mx-auto text-center text-lg md:text-2xl font-thin">
+          Showing { postings.length } postings matching your search parameters.
+        </h1>
         <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} currentPage={currentPage}/>
       </div>
-      <div>
+      <div className="mx-auto mt-4 max-w-[800px]">
         <ul id="posting-list">
           { currentPosts.map(p => (
             <PostingCard key={p.id} user={auth.user.id} posting={p} />
           ))}
         </ul>
+      </div>
+      <div className="pb-8">
+        <Paginate postsPerPage={postsPerPage} totalPosts={postings.length} paginate={paginate} currentPage={currentPage}/>
       </div>
     </>
   )
