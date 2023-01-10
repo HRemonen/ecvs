@@ -27,7 +27,12 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
     }
   };
 
-  console.log(ecv.applied)
+  const handleDelete = async () => {
+    if (ecv.applied.length > 0) alert('Cannot delete this Ecv because it has open applications');
+    else {
+      await dispatch(deleteEcv(ecv));
+    }
+  }
 
   return (
     <div className="p-4">
@@ -55,7 +60,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
             <h1 className="font-light text-gray-600">{ new Date(ecv.createdOn).toDateString() }</h1>
           </div>
           <div>
-            <DeleteButton onClick={() => dispatch(deleteEcv(ecv))} />
+            <DeleteButton onClick={handleDelete} />
           </div>
         </div>
         <div>
