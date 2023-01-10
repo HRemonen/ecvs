@@ -136,5 +136,7 @@
 |       | 3    | - Suunnittelua. Scroll to top ominaisuus       |
 |       | 2    | - Ecv model uusia attribuutteja                |
 |       |      | - Ecv kortin muokkausta                        |
+|       | 1    | - Ecv korttia ei voi poistaa jos sillä on      |
+|       |      |   haettu jotain paikkaa                        |
 |       |      |                                                |
-| total | 165  |                                                |
+| total | 166  |                                                |
