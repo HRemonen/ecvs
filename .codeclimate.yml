@@ -8,6 +8,9 @@ checks:
   similar-code:
     config:
       threshold: 75
+  method-lines:
+    config:
+      threshold: 250
 
 plugins:
   duplication:
