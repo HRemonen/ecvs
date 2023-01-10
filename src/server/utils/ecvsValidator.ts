@@ -8,7 +8,8 @@ const EcvZod = z.object({
       if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
     }, z.date()),
     endDate: z.preprocess((arg) => {
-      if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+      if (arg === "") return new Date()
+      else if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
     }, z.date().optional()),
     position: z.string(),
     additionalInfo: z.string().optional()
@@ -19,7 +20,8 @@ const EcvZod = z.object({
       if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
     }, z.date()),
     graduationDate: z.preprocess((arg) => {
-      if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+      if (arg === "") return new Date()
+      else if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
     }, z.date().optional()),
     additionalInfo: z.string().optional()
   })).optional(),

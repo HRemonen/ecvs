@@ -22,9 +22,9 @@ const NewEcvForm = () => {
     mode: "onBlur"
   });
 
-  const onSubmit = (data: ValidatedEcv) => {
+  const onSubmit = async (data: ValidatedEcv) => {
     try {
-      void dispatch(createEcv(data));
+      await dispatch(createEcv(data));
       navigate('/dashboard');
     } catch(error) {
       console.log(error);
