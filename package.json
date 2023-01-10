@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Online job platform",
   "scripts": {
-    "test:e2e": "cypress run",
+    "cypress:e2e": "cypress run",
     "cypress:open": "cypress open",
-    "test:server": "cd ./src/server && npm run start:test",
-    "cp:frontend": "cd ./src/client && npm run build && cp -r dist ../server/",
-    "init:build": "cd ./src/server && npm run tsc",
-    "deploy": "npm run cp:frontend && npm run init:build && cd ./src/server && flyctl deploy"
+    "build:server": "cd ./src/server && npm run tsc",
+    "build:frontend": "cd ./src/client && npm run build && cp -r dist ../server/",
+    "deploy": "npm run cp:frontend && npm run init:build && cd ./src/server && flyctl deploy",
+    "test:server": "cd ./src/server && npm run start:test"
   },
   "repository": {
     "type": "git",

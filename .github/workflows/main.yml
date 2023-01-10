@@ -52,16 +52,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Init backend
+      - name: Install backend dependencies
         run: cd ./src/server && npm install && npm install ts-node typescript
 
-      - name: Init frontend
+      - name: Install frontend dependencies
         run: cd ./src/client && npm install
 
       - name: Run lint
         run: cd ./src/client && npm run lint
 
-      - name: Cypress run
+      - name: Run Cypress
         uses: cypress-io/github-action@v5
 
         env:
@@ -71,6 +71,6 @@ jobs:
           SECRET: ${{secrets.SECRET}}
 
         with:
-          command: npm run test:e2e
-          start: npm run cp:frontend, npm run test:server
+          command: npm run cypress:e2e
+          start: npm run build:frontend, npm run test:server
           wait-on: 'http://localhost:3001/'
