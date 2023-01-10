@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { Ecv } from "../types";
 
 const ecvSchema = new mongoose.Schema<Ecv>({
+  createdOn: Date,
   name: { type: String, default: '' },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -13,7 +14,8 @@ const ecvSchema = new mongoose.Schema<Ecv>({
   skills: [String],
   hobbies: [String],
   languages: [String],
-  profile: String
+  profile: String,
+  applied: [String]
 });
 
 ecvSchema.set('toJSON', {

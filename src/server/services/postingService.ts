@@ -45,7 +45,8 @@ const applyPosting = async (userId: string, ecvId: string, postingId: string): P
   if (!user || !posting || !ecv) {
     throw new Error("Something went wront")
   }
-
+  ecv.applied.push(posting.id);
+  await ecv.save();
   user.applications.push(posting.id);
   await user.save();
   posting.applicants.push(ecv.id);

@@ -4,7 +4,7 @@ import EducationField from "./EducationField";
 import type { Experience, Education } from "@backend/types";
 
 const EcvFields: React.FC<{field: string; content: string | string[] | Experience[] | Education[]}> = ({ field, content }) => {
-  if (["user", "name", "id"].find(el => el.includes(field)) || content.length === 0) return null;
+  if (["createdOn", "applied", "user", "name", "id"].find(el => el.includes(field)) || content.length === 0) return null;
 
   const renderContent = () => {
     switch (field) {

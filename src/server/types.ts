@@ -38,6 +38,7 @@ export interface Education {
 
 export interface Ecv {
   id?: Types.ObjectId | string;
+  createdOn: Date;
   name?: string,
   user: Types.ObjectId;
   experience?: Array<Experience>;
@@ -46,6 +47,7 @@ export interface Ecv {
   hobbies?: Array<string>;
   languages?: Array<string>;
   profile?: string;
+  applied: Array<string>;
 }
 
 export interface HiringManager {

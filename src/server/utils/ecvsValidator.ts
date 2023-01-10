@@ -28,7 +28,7 @@ const EcvZod = z.object({
   skills: z.array(z.string()).optional(),
   hobbies: z.array(z.string()).optional(),
   languages: z.array(z.string()).optional(),
-  profile: z.string().optional()
+  profile: z.string().optional(),
 });
 
 export type ValidatedEcv = z.infer<typeof EcvZod>;

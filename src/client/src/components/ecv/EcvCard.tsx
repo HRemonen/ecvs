@@ -24,7 +24,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
     catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div className="p-4">
@@ -40,6 +40,9 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
                 { name }
               </h5>
           }
+          <div>
+            <h1>{ JSON.stringify(ecv.createdOn) }</h1>
+          </div>
           <div>
             <DeleteButton onClick={() => dispatch(deleteEcv(ecv))} />
           </div>
