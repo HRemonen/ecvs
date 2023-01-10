@@ -27,6 +27,8 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
     }
   };
 
+  console.log(ecv.applied)
+
   return (
     <div className="p-4">
       <div className="grow border border-gray-400 md:border-gray-400 bg-white rounded p-4 flex flex-col justify-between leading-normal">

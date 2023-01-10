@@ -1,6 +1,7 @@
 import { SyntheticEvent, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { applyPosting } from "../../reducers/postingReducer";
+import { updateApplied } from "../../reducers/ecvReducer";
 import { appendApplication } from "../../reducers/userReducer";
 import { useAppSelector, useAppDispatch } from "../../hooks/dispatchHooks";
 import Navbar from "../index/Navbar";
@@ -26,6 +27,7 @@ const Posting = () => {
       event.preventDefault();
       await dispatch(applyPosting(id as string, selectedEcv))
       await dispatch(appendApplication(user.id, id as string))
+      await dispatch(updateApplied(selectedEcv, id as string))
     } catch (error) {
       console.log(error)
     }

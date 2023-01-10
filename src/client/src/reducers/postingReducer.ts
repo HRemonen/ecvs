@@ -19,9 +19,9 @@ const postingSlice = createSlice({
     },
     apply(state, action) {
       const id = action.payload.id;
-
+      const ecv = action.payload.ecv;
       const posting = state.find(posting => posting.id === id);
-      posting?.applicants.push(action.payload.ecv);
+      posting?.applicants.push(ecv);
     }
   }
 });

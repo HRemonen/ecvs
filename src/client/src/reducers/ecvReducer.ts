@@ -17,6 +17,12 @@ const ecvsSlice = createSlice({
     append(state, action) {
       state.push(action.payload);
     },
+    apply(state, action) {
+      const id = action.payload.id;
+      const posting = action.payload.posting;
+      const ecv = state.find(ecv => ecv.id === id);
+      ecv?.applied.push(posting);
+    },
     update(state, action) {
       const updatedEcv = action.payload;
       return state.map(ecv => ecv.id !== updatedEcv.id ? ecv : updatedEcv);
@@ -27,7 +33,7 @@ const ecvsSlice = createSlice({
   }
 });
 
-export const { setEcvs, append, update, remove } = ecvsSlice.actions;
+export const { setEcvs, append, apply, update, remove } = ecvsSlice.actions;
 
 export const initializeEcvs = () => {
   return async (dispatch: Dispatch): Promise <void> => {
@@ -47,6 +53,12 @@ export const updateEcv = (ecv: Ecv) => {
   return async (dispatch: Dispatch): Promise <void> => {
     const updatedEcv = await ecvsService.updateEcv(ecv);
     dispatch(update(updatedEcv));
+  };
+};
+
+export const updateApplied = (id: string, posting: string) => {
+  return async (dispatch: Dispatch): Promise <void> => {
+    dispatch(apply({ id, posting }));
   };
 };
 
