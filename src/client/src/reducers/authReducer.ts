@@ -56,6 +56,7 @@ export const logoutUser = () => {
   return async (dispatch: Dispatch) => {
     window.localStorage.removeItem("loggedUser");
     dispatch(logout(initialState));
+    window.location.reload();
   };
 };
 
