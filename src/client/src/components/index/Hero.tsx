@@ -36,7 +36,7 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-between items-center mb-24 md:mx-24 lg:mx-24 text-center md:text-6xl font-light">
+        <div className="flex justify-between items-center mb-48 md:mx-24 lg:mx-24 text-center md:text-6xl font-light">
           <div className="md:m-24">
             <NumberAnimation n={users.length} />
             <p className="pt-8 font-thin md:text-lg">Users on platform</p>
