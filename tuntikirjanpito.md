@@ -132,4 +132,6 @@
 |       | 1    | - Ecv nimen mukauttamista                      |
 |       | 3    | - Mobiili tyylittelyjä jne. säätämistä         |
 |       |      |                                                |
-| total | 158  |                                                |
+| 10.1  | 2    | - Mobiili tyylittelyjä, bugi fix               |
+|       |      |                                                |
+| total | 160  |                                                |
