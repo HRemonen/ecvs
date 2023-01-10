@@ -21,11 +21,11 @@ const Posting = () => {
 
   const userEcvs = ecvs.filter(e => (e.user) as unknown === user.id || (e.user.id) as unknown === user.id);
 
-  const onSubmit = (event: SyntheticEvent) => {
+  const onSubmit = async (event: SyntheticEvent) => {
     try {
       event.preventDefault();
-      dispatch(applyPosting(id as string, selectedEcv))
-      dispatch(appendApplication(user.id, id as string))
+      await dispatch(applyPosting(id as string, selectedEcv))
+      await dispatch(appendApplication(user.id, id as string))
     } catch (error) {
       console.log(error)
     }
