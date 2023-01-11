@@ -101,4 +101,17 @@ describe('Authenticated user applying process', function () {
     cy.contains('More info').click()
     cy.contains('Application received succesfully')
   })
+
+  it('After applying user can not delete Ecv used to apply', function () {
+    cy.contains('Dashboard').click()
+    cy.contains('Ecvs').click()
+
+    const stub = cy.stub()
+    cy.on('window:alert', stub)
+
+    cy.get('#delete-button').click()
+
+    cy.then(() => expect(stub.getCall(0)).to.be.calledWith(
+      'Cannot delete this Ecv because it has open applications'))
+  })
 })

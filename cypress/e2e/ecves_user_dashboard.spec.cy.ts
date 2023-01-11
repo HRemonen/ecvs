@@ -106,6 +106,12 @@ describe('When user has logged in', function () {
         .should('contain.text', 'Testfactory')
     })
 
+    it('user can rename the ecv', function () {
+      cy.get('#ecv-name').dblclick()
+      cy.get('#ecv-name-input').clear().type('Testing name change{enter}')
+      cy.contains('Testing name change')
+    })
+
     it('user can delete ecv of choise', function () {
       cy.get('#delete-button').click()
 

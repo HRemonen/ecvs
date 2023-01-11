@@ -44,6 +44,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
                   <MdOutlineSyncProblem size={24}/>
                 </span>
                 <input type="text" 
+                  id="ecv-name-input"
                   className="rounded-none rounded-r-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-1" 
                   defaultValue={name} onChange={(e) => setNewName(e.target.value)}
                   onKeyDown={(e) => {
@@ -52,7 +53,7 @@ const EcvCard: React.FC<{ecv: Ecv & {id: string}}> = ({ ecv }) => {
                 />
                 <button className="ml-4" onClick={() => setEditMode(!editMode)}>Cancel</button>
               </div>
-            : <h5 className="font-light text-gray-600" onDoubleClick={() => setEditMode(!editMode)}>
+            : <h5 id="ecv-name" className="font-light text-gray-600" onDoubleClick={() => setEditMode(!editMode)}>
                 { name }
               </h5>
           }
