@@ -8,6 +8,9 @@ import getTestPostings from "./data/postings";
 const api = supertest(app);
 
 const POSTING_API = "/api/postings";
+const USER_API = "/api/users";
+const ECVS_API = "/api/ecvs";
+const LOGIN_API = "/api/login";
 
 describe('Database returns JSON content', () => {
   test('postings are returned as json', async () => {
@@ -134,5 +137,40 @@ describe('posting API', () => {
       .expect('Content-type', /application\/json/);
 
     expect(response.body.error).toContain("malformatted id")
+  });
+
+  test('user can apply to a posting with valid Ecv', async () => {
+    await api
+      .post(USER_API)
+      .send({
+          firstName: "Testi",
+          lastName: "Testi",
+          email: "testi@testi.fi",
+          password: "salainen",
+        });
+
+    const login = await api
+      .post(LOGIN_API)
+      .send({
+        email: "testi@testi.fi",
+        password: "salainen"
+      });
+
+    const token = login.body.token;
+
+    const ecv = await api
+    .post(ECVS_API)
+    .send({
+      profile: "olen hyvä koodaaja"
+    })
+    .set('Authorization', `bearer ${token}`);
+
+    const post = await PostingModel.findOne({});
+
+    await api
+      .post(POSTING_API + `/${post?.id}/apply`)
+      .send({ ecv: ecv.body.id })
+      .set('Authorization', `bearer ${token}`)
+      .expect(204);
   });
 })
