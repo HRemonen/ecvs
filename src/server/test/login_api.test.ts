@@ -1,5 +1,6 @@
 import app from "../app";
 import supertest from "supertest";
+import UserModel from "../models/user";
 
 const api = supertest(app);
 
@@ -8,16 +9,16 @@ const LOGIN_API = "/api/login";
 
 describe('Login API', () => {
   beforeAll(async () => {
-    const newUser = {
-      firstName: "Testi",
-      lastName: "Testi",
-      email: "testi@testi.fi",
-      password: "salainen",
-    };
+    await UserModel.deleteMany({});
 
     await api
       .post(USER_API)
-      .send(newUser)
+      .send({
+        firstName: "Testi",
+        lastName: "Testi",
+        email: "testi@testi.fi",
+        password: "salainen",
+      })
       .expect(201)
       .expect('Content-Type', /application\/json/);
   })
