@@ -10,6 +10,8 @@ module.exports = {
       "utils",
       "data",
       "testing.ts",
-      "middlewares"
+      "middlewares",
+      "app.ts",
+      "types.ts"
   ]
 };

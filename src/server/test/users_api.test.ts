@@ -51,7 +51,20 @@ describe('users in database', () => {
       .expect(200)
       .expect('Content-Type', /application\/json/);
 
-      expect(response.body[0].id).toBeDefined();
+    expect(response.body[0].id).toBeDefined();
+  });
+
+  test('a single user can be queried with id', async () => {
+    const user = await UserModel.findOne({});
+
+    const response = await api
+      .get(USER_API + "/" + user?.id)
+      .expect(200)
+      .expect('Content-Type', /application\/json/);
+    
+    expect(response.body.usertype).toBeDefined();
+    expect(response.body.email).toEqual(user?.email);
+    expect(response.body.id).toEqual(user?.id);
   })
 
   test('a valid user can be created to the database', async () => {

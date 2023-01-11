@@ -56,12 +56,22 @@ describe('ecvs in database', () => {
     expect(response.body[1]).toHaveProperty("id")
   });
 
-  test('single ecv is returned correctly', async () => {
+  test('valid single ecv is returned correctly', async () => {
     const initialEcv = await EcvModel.findOne({});
     await api
       .get(ECVS_API + `/${initialEcv?.id}`)
       .expect(200)
       .expect('Content-Type', /application\/json/);
+  });
+
+  test('invalid ecv results in malformatted id error', async () => {
+    const response = await api
+      .get(ECVS_API + "/123123")
+      .expect(401)
+      .expect('Content-Type', /application\/json/);
+    
+    expect(response.body.error).toBeDefined();
+    expect(response.body.error).toBe("malformatted id");
   });
 });
 
