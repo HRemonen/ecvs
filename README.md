@@ -5,8 +5,9 @@
 [![codecov](https://codecov.io/gh/HRemonen/ecvs/branch/main/graph/badge.svg?token=PxyLJP4niU)](https://codecov.io/gh/HRemonen/ecvs)
 
 
-[Ecves](https://ecves.fly.dev/) is an online CV / job hunting platform.
+## [Ecves](https://ecves.fly.dev/) is an online CV / job hunting platform.
 
+Check out the [project wiki page](https://github.com/HRemonen/ecvs/wiki) for documentation.
 
 ## Overview
 Welcome to our job seeking platform! Our goal is to make the job application process as easy and efficient as possible for both job seekers and employers.
