@@ -1,6 +1,7 @@
 import app from "../app";
 import supertest from "supertest";
 
+import UserModel from "../models/user";
 import PostingModel from "../models/posting";
 
 import getTestPostings from "./data/postings";
@@ -140,6 +141,8 @@ describe('posting API', () => {
   });
 
   test('user can apply to a posting with valid Ecv', async () => {
+    await UserModel.deleteMany({});
+    
     await api
       .post(USER_API)
       .send({
