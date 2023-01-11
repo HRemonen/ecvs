@@ -7,7 +7,6 @@ import { User, UserType } from "../types";
 import UserModel from "../models/user";
 import getTestUsers from "./data/users";
 
-
 const api = supertest(app);
 
 let testUsers: Array<User>;

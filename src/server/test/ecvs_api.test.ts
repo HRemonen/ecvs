@@ -156,6 +156,27 @@ describe('ecv API', () => {
 
   });
 
+  test('changing name succeeds by authorized user', async () => {
+    const initialEcv = await api
+      .post(ECVS_API)
+      .send({
+        profile: "olen hyvä koodaaja"
+      })
+      .set('Authorization', `bearer ${token}`)
+      .expect(201)
+      .expect('Content-Type', /application\/json/)
+
+    const response = await api
+      .put(ECVS_API + `/${initialEcv.body.id}`)
+      .set('Authorization', `bearer ${token}`)
+      .send({
+        name: "First CV"
+      })
+      .expect(201)
+
+    expect(response.body.name).toBe('First CV')
+  });
+
   test('deletion succeeds by authorized user', async () => {
     const initialEcv = await api
       .post(ECVS_API)
